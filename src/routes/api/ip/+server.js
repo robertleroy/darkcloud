@@ -1,8 +1,8 @@
 import { json } from '@sveltejs/kit';
 
 
-
 export async function GET() {
+
   try {
     const getIp = await fetch('http://ip-api.com/json?fields=57855');
     const ipData = await getIp.json();

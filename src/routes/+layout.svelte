@@ -3,7 +3,7 @@
   import './app.css';
 
   export let data;
-  console.log("data",data);
+  // console.log("data",data);
 
   let innerWidth, online, 
       title = 'Dev Open_Weather';
@@ -18,7 +18,7 @@
 <header class=''>
   <div class='flex'>
     <a class="search_bar" href="/search">
-      <div class="location">Oklahoma City</div>
+      <div class="location">{data?.location.city}</div>
       <!-- <div class="location">{location?.city}</div> -->
       <SearchIcon fontsize="0.8em"/>
     </a>

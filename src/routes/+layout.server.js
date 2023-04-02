@@ -4,7 +4,7 @@ export async function load({ fetch, url }) {
   const currentRoute = await url.pathname;
   let location = {}, weather = {};
 
-  const result  = await fetch('/api/ip', {method: 'get'})
+  const result  = await fetch('/api/ipv4', {method: 'get'})
     .then(response  => response .json())
     .then(data => {
       location = data;

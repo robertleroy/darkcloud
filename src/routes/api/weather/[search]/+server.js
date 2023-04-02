@@ -22,7 +22,11 @@ export async function GET({params}) {
   }
 }
 
+/*
+https://api.openweathermap.org/data/3.0/onecall?lat=35.4662&lon=-97.5168&units=imperial&appid=826b835b9408db50ca70aa7158b06f23
+*/
 
+/* 35.564,-97.633 */
 // import weather from '../alerts.json';
 // // import weather from '../dry.json';
 // export async function GET({params}) {
