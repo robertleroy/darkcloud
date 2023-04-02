@@ -3,7 +3,7 @@
   import './app.css';
 
   export let data;
-  // console.log("data",data);
+  console.log("data",data);
 
   let innerWidth, online, 
       title = 'Dev Open_Weather';
