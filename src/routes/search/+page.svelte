@@ -7,6 +7,7 @@
     <div class="title">{title}</div>
     <a href="/">back</a>
   </div>
+  <p center><em>insert search here</em></p>
 </div>
 
 <style lang='postcss'>

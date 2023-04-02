@@ -30,8 +30,8 @@
   <div class="day">
     <WeatherIcon icon={day.weather[0].icon} fontsize="1.75em"/>
     <div class="precip">
-      <div class="pop">{day.pop*100 + '%'}</div>
       <div class="symbol">{precipSymbol(day.weather[0].id)}</div>
+      <div class="pop">{day.pop > 0.15 ? day.pop*100 + '%' : ' '}</div>
     </div>
     <div class="date">{dateObj(day.dt*1000, 'ddd')}</div>
     <div class="temp low">{round(day.temp.min)}</div>
@@ -58,6 +58,7 @@
     gap: 0 1ch;
   }
   .precip {
+    width: 2.5rem;
     /* display: flex; */
     /* justify-content: space-between; */
     /* align-items: baseline; */

@@ -3,8 +3,10 @@
 </script>
 
 <div class='page'>
-  {title}
-</div>
+  <div>{title}</div>
+
+  <p center><em>insert alerts here</em></p>
+</div> <!-- page -->
 
 <style lang='postcss'>
 
