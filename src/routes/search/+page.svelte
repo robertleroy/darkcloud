@@ -1,0 +1,20 @@
+<script>
+  let title = 'Search';
+</script>
+
+<div class='page center'>
+  <div class="row">
+    <div class="title">{title}</div>
+    <a href="/">back</a>
+  </div>
+</div>
+
+<style lang='postcss'>
+  .row {
+    /* max-width: 30em; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+  }
+</style>

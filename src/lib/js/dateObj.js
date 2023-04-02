@@ -1,0 +1,84 @@
+export default function (date, mask, utc) {
+	date = date ? new Date(date) : new Date();
+	mask = mask ? mask : "DDD MMM dd YYYY HH:mm:ss"
+	var MMMM = ["\x00", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	var MMM = ["\x01", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	var dddd = ["\x02", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var ddd = ["\x03", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	var relativeDays = ["", "Yesterday", "Today", "Tomorrow", "cat"]
+	function ii(i, len) {
+		var s = i + "";
+		len = len || 2;
+		while (s.length < len) s = "0" + s;
+		return s;
+	}
+	var y = utc ? date.getUTCFullYear() : date.getFullYear();
+	mask = mask.replace(/(^|[^\\])yyyy+/g, "$1" + y);
+	mask = mask.replace(/(^|[^\\])yy/g, "$1" + y.toString().substr(2, 2));
+	mask = mask.replace(/(^|[^\\])y/g, "$1" + y);
+	var Y = utc ? date.getUTCFullYear() : date.getFullYear();
+	mask = mask.replace(/(^|[^\\])YYYY+/g, "$1" + Y);
+	mask = mask.replace(/(^|[^\\])YY/g, "$1" + Y.toString().substr(2, 2));
+	mask = mask.replace(/(^|[^\\])Y/g, "$1" + Y);
+	var M = (utc ? date.getUTCMonth() : date.getMonth()) + 1;
+	mask = mask.replace(/(^|[^\\])MMMM+/g, "$1" + MMMM[0]);
+	mask = mask.replace(/(^|[^\\])MMM/g, "$1" + MMM[0]);
+	mask = mask.replace(/(^|[^\\])MM/g, "$1" + ii(M));
+	mask = mask.replace(/(^|[^\\])M/g, "$1" + M);
+	var d = utc ? date.getUTCDate() : date.getDate();
+	mask = mask.replace(/(^|[^\\])dddd+/g, "$1" + dddd[0]);
+	mask = mask.replace(/(^|[^\\])ddd/g, "$1" + ddd[0]);
+	mask = mask.replace(/(^|[^\\])dd/g, "$1" + ii(d));
+	mask = mask.replace(/(^|[^\\])d/g, "$1" + d);
+	var D = utc ? date.getUTCDate() : date.getDate();
+	mask = mask.replace(/(^|[^\\])DDDD+/g, "$1" + dddd[0]);
+	mask = mask.replace(/(^|[^\\])DDD/g, "$1" + ddd[0]);
+	mask = mask.replace(/(^|[^\\])DD/g, "$1" + ii(D));
+	mask = mask.replace(/(^|[^\\])D/g, "$1" + D);   
+	var H = utc ? date.getUTCHours() : date.getHours();
+	mask = mask.replace(/(^|[^\\])HH+/g, "$1" + ii(H));
+	mask = mask.replace(/(^|[^\\])H/g, "$1" + H);
+	var h = H > 12 ? H - 12 : H == 0 ? 12 : H;
+	mask = mask.replace(/(^|[^\\])hh+/g, "$1" + ii(h));
+	mask = mask.replace(/(^|[^\\])h/g, "$1" + h);
+	var m = utc ? date.getUTCMinutes() : date.getMinutes();
+	mask = mask.replace(/(^|[^\\])mm+/g, "$1" + ii(m));
+	mask = mask.replace(/(^|[^\\])m/g, "$1" + m);
+	var s = utc ? date.getUTCSeconds() : date.getSeconds();
+	mask = mask.replace(/(^|[^\\])ss+/g, "$1" + ii(s));
+	mask = mask.replace(/(^|[^\\])s/g, "$1" + s);
+	var S = utc ? date.getUTCMilliseconds() : date.getMilliseconds();
+	mask = mask.replace(/(^|[^\\])SSS+/g, "$1" + ii(S, 3));
+	S = Math.round(S / 10);
+	mask = mask.replace(/(^|[^\\])SS/g, "$1" + ii(S));
+	S = Math.round(S / 10);
+	mask = mask.replace(/(^|[^\\])S/g, "$1" + S);  
+	var A = H < 12 ? "AM" : "PM";
+	mask = mask.replace(/(^|[^\\])AA+/g, "$1" + A);
+	mask = mask.replace(/(^|[^\\])A/g, "$1" + A.charAt(0));  
+	var a = A.toLowerCase();
+	mask = mask.replace(/(^|[^\\])aa+/g, "$1" + a);
+	mask = mask.replace(/(^|[^\\])a/g, "$1" + a.charAt(0));     
+	var o = ['th', 'st', 'nd', 'rd'][d % 10 > 3 ? 0 : (d % 100 - d % 10 !== 10) * d % 10];
+	mask = mask.replace(/(^|[^\\])o+/g, "$1" + o);
+	var timezone = /(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]d{4})?)/g;
+	var timezoneClip = /[^-+dA-Z]/g;
+	var Z = (String(date).match(timezone) || ['']).pop().replace(timezoneClip, '');
+	mask = mask.replace(/(^|[^\\])Z+/g, "$1" + Z);
+	var tz = -date.getTimezoneOffset();
+	var z = utc || !tz ? "Z" : tz > 0 ? "+" : "-";
+	if (!utc) {
+		tz = Math.abs(tz);
+		var tzHrs = Math.floor(tz / 60);
+		var tzMin = tz % 60;
+		z += ii(tzHrs) + ":" + ii(tzMin);
+	}
+	// mask = mask.replace(/(^|[^\\])z/g, "$1" + z);
+	var day = (utc ? date.getUTCDay() : date.getDay()) + 1;
+	mask = mask.replace(new RegExp(dddd[0], "g"), dddd[day]);
+	mask = mask.replace(new RegExp(ddd[0], "g"), ddd[day]);
+	mask = mask.replace(new RegExp(MMMM[0], "g"), MMMM[M]);
+	mask = mask.replace(new RegExp(MMM[0], "g"), MMM[M]);
+	mask = mask.replace(/\\(.)/g, "$1");
+	return mask;
+};  

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --font-size: 16px;
+  --line-height: 1.5;
+  --text-color: #2C3E50;
+  --background-color: #fff;
+  --sans-serif: 'Lato', sans-serif;
+  --header-height: 3rem;
+  --max-width: 1200px;
+  --h1: 2rem;
+  --h2: 1.75rem;
+  --h3: 1.5rem;
+  --h4: 1.25rem;
+  --h5: 1.125rem;
+  --h6: 1rem;
+  --h7: 0.875rem;
+  --h8: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  :root { --font-size: 17px; }
+}
+@media (min-width: 768px) {
+  :root { --font-size: 18px; } 
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100vh; }
+html { font-size: var(--font-size); }
+body {
+  margin: 0;
+  font-family: var(--sans-serif);
+  font-size: var(--font-size);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-y: scroll;
+}
+h1, h2 {
+  line-height: 1.2;
+  margin: 0;
+}
+p { margin: 0.5em 0; }
+
+a {  color: inherit;
+  &:not(:hover:not(:active)) {
+   text-decoration: none;
+ }
+}
+
+.center, [center] {
+  text-align: center;
+}
+.italic, [italic] {
+  font-style: italic;
+}
+.bold, [bold] {
+  font-weight: bolder;
+}

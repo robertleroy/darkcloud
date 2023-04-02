@@ -1,0 +1,120 @@
+@import '$lib/styles/reset';
+@import '$lib/styles/forms';
+@import '$lib/styles/vsdark';
+
+:root {
+  --header-height: 3rem;
+  --footer-height: 2.5rem;
+  --max-width: 1200px;
+  --border: 1px solid #ccc;
+  
+  --color-active: #3FB27F;
+  --color-alert: tomato;
+  --rain: hsl(207,89%,68%);
+  --light-rain: hsl(207,89%,86%);
+  --snow: hsl(187,71%,82%);
+  --clear: hsl(204,15%,94%);
+  --partly-cloudy: hsl(198,16%,84%);
+  --mostly-cloudy: hsl(200,15%,73%);
+  --overcast: hsl(200,16%,62%);
+}
+
+/* html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+} */
+
+/* #region layout */
+
+/* #region header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  background-color: var(--background-color);
+  border-bottom: var(--border);
+  z-index: 10;
+
+  .flex {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+    padding: 0.5rem 2rem;
+  }
+} 
+/* #endregion header */
+
+main {
+  .router {  
+    /* position: relative; */
+    /* padding: 0.5rem 2rem;  */
+  }
+  .page {
+    position: relative;
+    top:  var(--header-height);
+    /* margin: var(--header-height) 0; */
+    padding: 0.5rem 2rem calc(var(--header-height) + 1rem); 
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+
+/* #region footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  display: flex;
+  align-items: center;
+  height: var(--footer-height);
+  background-color: var(--background-color);
+  border-top: var(--border);
+  z-index: 10;
+
+  .flex {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 1rem;
+
+    font-size: calc(var(--font-size) - 2px);
+    padding: 0.5rem 2rem;
+  }
+
+  nav {
+    display: flex;
+    align-items: baseline;
+    gap: 0 1rem;
+  }
+}
+/* #region footer */
+
+/* #endregion layout */
+
+.temp::after {
+  content: '°';
+}
+.active {
+  color: var(--color-active);
+}
+
+p.lorem {
+  max-width: 30rem;
+  margin: 1rem auto 0;
+}
+
+/* .current_conditions {
+  margin: 0 0 2rem 0;
+} */

@@ -1,0 +1,33 @@
+{
+  "data": {
+    "time": "2023-03-24T21:11:00Z",
+    "values": {
+      "cloudBase": 0.25,
+      "cloudCeiling": 0.25,
+      "cloudCover": 100,
+      "dewPoint": 44.26,
+      "freezingRainIntensity": 0,
+      "humidity": 80,
+      "precipitationProbability": 0,
+      "pressureSurfaceLevel": 28.42,
+      "rainIntensity": 0,
+      "sleetIntensity": 0,
+      "snowIntensity": 0,
+      "temperature": 50.23,
+      "temperatureApparent": 50.23,
+      "uvHealthConcern": 1,
+      "uvIndex": 3,
+      "visibility": 9.94,
+      "weatherCode": 1001,
+      "windDirection": 315.5,
+      "windGust": 15.66,
+      "windSpeed": 9.37
+    }
+  },
+  "location": {
+    "lat": 35.55061340332031,
+    "lon": -97.6262435913086,
+    "name": "Oklahoma City, Oklahoma County, Oklahoma, 73132, United States",
+    "type": "postcode"
+  }
+}
