@@ -17,6 +17,7 @@ export async function GET() {
       countryName: ipv4Data?.country,
       lat: ipv4Data?.lat,
       lon: ipv4Data?.lon,
+      query: ipv4Data?.query
     }
 
     return json(location);

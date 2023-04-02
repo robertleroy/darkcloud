@@ -1,6 +1,4 @@
 <script>
-  export let data;
-  $: console.log('IPV4', data);
   let title = 'Search';
 </script>
 
@@ -11,9 +9,6 @@
   </div>
   <p center><em>insert search here</em></p>
 
-  <!-- <form method="POST">
-    <input type="text" name='search' >
-  </form> -->
 </div>
 
 <style lang='postcss'>

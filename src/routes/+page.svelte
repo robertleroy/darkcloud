@@ -5,10 +5,10 @@
   import WobbleChart from "$lib/components/WobbleChart.svelte";
 
   import { round, mmToInches } from '$lib/js/filters';
-  import Layout from './+layout.svelte';
-  
-  
+   
   export let data;
+  $: console.log('APP DATA', data);
+
   const { weather } = data;
   
   let days={},hours={},minutes={},current={},alerts=[],precipitating=null;
