@@ -116,12 +116,13 @@
             {metric[i]}
 
             {#if selectedTab === 4 || selectedTab === 5}
-            <div class="wind_dir" style="rotate: {hours[i].wind_deg + 'deg'}">🡑</div>
+            <div class="wind_dir" style="rotate: {hours[i].wind_deg - 90  + 'deg'}; ">&#10140;</div>
             {/if}
 
           </div>
           <!-- </transition> -->
 
+          <!--  ➜ ➜10140 ➔10132 🡑 🡒 → 🡺 🡢 -->
       </div> 
     <!-- </div> flexbox -->
   </div> <!-- hour -->
@@ -219,7 +220,11 @@
   .wind_dir {
     position: absolute;
     top: 0;
+    transform-origin: 50% 50%;
+    /* top: 0.20rem; */
     right: -1rem;
-    /* rotate: 20deg; */
+    /* font-size: 0.75rem; */
+    font-size: 90%;
+          margin-bottom: 0.2rem;
   }
 </style>
