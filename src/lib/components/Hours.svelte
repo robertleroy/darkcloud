@@ -215,7 +215,8 @@
   }
 
   .metricValue {
-      position: relative;
+    flex: 1;
+    position: relative;
   }
   .wind_dir {
     position: absolute;

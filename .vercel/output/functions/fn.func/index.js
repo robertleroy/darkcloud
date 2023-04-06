@@ -779,8 +779,8 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.605ff067.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.605ff067.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.ec22e84f.js"];
+    file2 = "_app/immutable/entry/_error.svelte.c337f382.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.c337f382.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.786d875e.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -5791,7 +5791,7 @@ var init_page_svelte = __esm({
     <div class="sunset">${escape(dateObj(current?.sunset * 1e3, "h:mm aa"))}</div></div></div> `;
     });
     css$3 = {
-      code: "#hours.svelte-tzd512.svelte-tzd512{--h3:1.125em;--backgroundColor:linen;padding-bottom:2rem;width:90%;max-width:640px;margin:1rem auto 2rem}.tabs.svelte-tzd512.svelte-tzd512{display:flex;flex-flow:row wrap;margin:0 auto  1.5rem}.tab.svelte-tzd512.svelte-tzd512{flex:1 0 25%;color:#35495E;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#ECEFF1;border:1px solid #B0BEC5;border-bottom-color:#B0BEC555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}.tab.svelte-tzd512.svelte-tzd512:hover{background:var(--background-color);cursor:pointer}.selectedTab.svelte-tzd512.svelte-tzd512{color:#41B883 !important;border-color:#B0BEC5 !important;background:var(--background-color);border-bottom:none !important}.hour.svelte-tzd512.svelte-tzd512{display:flex;align-items:center;gap:1ch;height:2rem}.stripe.svelte-tzd512.svelte-tzd512{height:100%;width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.hour.svelte-tzd512:first-of-type .stripe.svelte-tzd512{border-radius:0.4em 0.4em 0 0;border-top-style:solid}.hour.svelte-tzd512:last-of-type .stripe.svelte-tzd512{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metricValue.svelte-tzd512.svelte-tzd512{position:relative}.wind_dir.svelte-tzd512.svelte-tzd512{position:absolute;top:0;transform-origin:50% 50%;right:-1rem;font-size:90%;margin-bottom:0.2rem}",
+      code: "#hours.svelte-rr0s81.svelte-rr0s81{--h3:1.125em;--backgroundColor:linen;padding-bottom:2rem;width:90%;max-width:640px;margin:1rem auto 2rem}.tabs.svelte-rr0s81.svelte-rr0s81{display:flex;flex-flow:row wrap;margin:0 auto  1.5rem}.tab.svelte-rr0s81.svelte-rr0s81{flex:1 0 25%;color:#35495E;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#ECEFF1;border:1px solid #B0BEC5;border-bottom-color:#B0BEC555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}.tab.svelte-rr0s81.svelte-rr0s81:hover{background:var(--background-color);cursor:pointer}.selectedTab.svelte-rr0s81.svelte-rr0s81{color:#41B883 !important;border-color:#B0BEC5 !important;background:var(--background-color);border-bottom:none !important}.hour.svelte-rr0s81.svelte-rr0s81{display:flex;align-items:center;gap:1ch;height:2rem}.stripe.svelte-rr0s81.svelte-rr0s81{height:100%;width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.hour.svelte-rr0s81:first-of-type .stripe.svelte-rr0s81{border-radius:0.4em 0.4em 0 0;border-top-style:solid}.hour.svelte-rr0s81:last-of-type .stripe.svelte-rr0s81{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metricValue.svelte-rr0s81.svelte-rr0s81{flex:1;position:relative}.wind_dir.svelte-rr0s81.svelte-rr0s81{position:absolute;top:0;transform-origin:50% 50%;right:-1rem;font-size:90%;margin-bottom:0.2rem}",
       map: null
     };
     Hours = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5824,13 +5824,13 @@ var init_page_svelte = __esm({
         const obj = makeStripe(el.weather[0].id);
         return { color: obj.color, text: obj.text };
       });
-      return `<section id="hours" class="svelte-tzd512"><div class="tabs svelte-tzd512">${each(tabs, (tab, i) => {
-        return `<div class="${["tab svelte-tzd512", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
+      return `<section id="hours" class="svelte-rr0s81"><div class="tabs svelte-rr0s81">${each(tabs, (tab, i) => {
+        return `<div class="${["tab svelte-rr0s81", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
     </div>`;
       })}</div> 
 
   <div class="hours">${each(hours, (hour, i) => {
-        return `${i % 2 ? `<div class="hour svelte-tzd512"><div class="stripe svelte-tzd512"${add_styles({ "background": stripes[i].color })}></div>
+        return `${i % 2 ? `<div class="hour svelte-rr0s81"><div class="stripe svelte-rr0s81"${add_styles({ "background": stripes[i].color })}></div>
   
       <div class="time">${escape(dateObj(hour?.dt * 1e3, "h aa"))}</div>
 
@@ -5839,7 +5839,7 @@ var init_page_svelte = __esm({
         <div class="line"></div>
 
       <div class="metric"${add_styles({ "margin-right": offset(metric[i]) })}>
-          <div class="metricValue svelte-tzd512">${escape(metric[i])}
+          <div class="metricValue svelte-rr0s81">${escape(metric[i])}
 
             ${``}</div>
           
@@ -5971,9 +5971,9 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.2841cb48.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.2841cb48.js", "_app/immutable/chunks/index.cb171ed7.js"];
-    stylesheets3 = ["_app/immutable/assets/_page.68d6aeeb.css"];
+    file3 = "_app/immutable/entry/_page.svelte.aac2ffc4.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.aac2ffc4.js", "_app/immutable/chunks/index.cb171ed7.js"];
+    stylesheets3 = ["_app/immutable/assets/_page.bf362326.css"];
     fonts3 = [];
   }
 });
@@ -6425,7 +6425,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "5d4bh"
+  version_hash: "pwk3li"
 };
 function get_hooks() {
   return {};
@@ -9594,7 +9594,7 @@ var manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png"]),
   mimeTypes: { ".png": "image/png" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.95f4cf24.js", "imports": ["_app/immutable/entry/start.95f4cf24.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.ec22e84f.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.97bd5754.js", "imports": ["_app/immutable/entry/app.97bd5754.js", "_app/immutable/chunks/index.cb171ed7.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.aca630c1.js", "imports": ["_app/immutable/entry/start.aca630c1.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.786d875e.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.b4065220.js", "imports": ["_app/immutable/entry/app.b4065220.js", "_app/immutable/chunks/index.cb171ed7.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),
