@@ -1,5 +1,7 @@
 <script>
   let title = 'Search';
+  export let data;
+  $: console.log('geoData', data);
 </script>
 
 <div class='page center'>

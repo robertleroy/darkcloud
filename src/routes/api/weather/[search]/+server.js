@@ -5,7 +5,7 @@ import { json } from '@sveltejs/kit';
 export async function GET({params}) {
   try {
 
-    console.log(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY} `);
+    // console.log(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY} `);
 
     // const key = WEATHER_KEY;
     // const serachterm = params;

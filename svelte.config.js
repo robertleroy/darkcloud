@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto'; 
+import adapter from '@sveltejs/adapter-vercel'; 
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from "mdsvex";
 
@@ -6,7 +6,9 @@ import { mdsvex } from "mdsvex";
 const config = {
   extensions: ['.svelte', '.svelte.md', '.md', '.svx'],
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+      runtime: 'edge',
+    })
 	},
   preprocess: [
     vitePreprocess(),

@@ -5,15 +5,23 @@
   import WobbleChart from "$lib/components/WobbleChart.svelte";
 
   import { round, mmToInches } from '$lib/js/filters';
+  import dateObj from '$lib/js/dateObj';
    
   export let data;
-  $: console.log('APP DATA', data);
+  // $: {
+  //   console.log('\n@: ', dateObj(data.weather.current.dt*1000,'M/d h:mm:ss aa'));
+  //   console.log('data.location', data.location);
+  //   console.log('data.weather.current', data.weather.current);
+  //   // console.log('data.weather.minutely', data.weather.minutely);
+  //   // console.log('data.weather.hourly', data.weather.hourly);
+  //   // console.log('data.weather.daily', data.weather.daily);
+  // }
 
   const { weather } = data;
   
   let days={},hours={},minutes={},current={},alerts=[],precipitating=null;
 
-
+  $: console.log('weather:', data);
   $: {
     current = weather?.current;
     minutes = weather?.minutely;
@@ -33,6 +41,7 @@
 </script>
 
 <div class='page'>
+
 
   <Current current={{
     high: days[0].temp.max,
