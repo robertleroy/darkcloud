@@ -1,137 +1,236 @@
 <script>
-  import dateObj from '$lib/js/dateObj';
-  import { round } from '$lib/js/filters';
+  import dateObj from "$lib/js/dateObj";
+  import { round } from "$lib/js/filters";
 
   export let hours;
   const tabs = [
-    { name: 'Temp', value: 'temp' },
-    { name: 'Precip %', value: 'pop' },
-    { name: 'Inches / hr', value: 'rain' },
-    { name: 'Humidity', value: 'humidity' },
-    { name: 'Wind', value: 'wind_speed' },
-    { name: 'Gusts', value: 'wind_gust' },
-    { name: 'Clouds', value: 'clouds' },
-    { name: 'Pressure', value: 'pressure' }
+    { name: "Temp", value: "temp" },
+    { name: "Precip %", value: "pop" },
+    { name: "Inches / hr", value: "rain" },
+    { name: "Humidity", value: "humidity" },
+    { name: "Wind", value: "wind_speed" },
+    { name: "Gusts", value: "wind_gust" },
+    { name: "Clouds", value: "clouds" },
+    { name: "Pressure", value: "pressure" },
   ];
-  let selectedTab = 0;
-  let domain = [], metric = [];
-  $: metric = selectedTab === 0 ? hours.map(el => round(el?.temp) + '°') :
-              selectedTab === 1 ? hours.map(el => el?.pop > 0 ? el?.pop * 100 + '%' : '') :
-              selectedTab === 2 ? hours.map(el => el?.rain ? el?.rain['1h'] ?? 0 : '') :
-              selectedTab === 3 ? hours.map(el => el?.humidity > 0 ? el?.humidity + '%' : '') : 
-              selectedTab === 4 ? hours.map(el => round(el?.wind_speed)) :
-              selectedTab === 5 ? hours.map(el => round(el?.wind_gust)) :
-              selectedTab === 6 ? hours.map(el => el?.clouds > 10 ? el?.clouds + '%' : '') :
-              selectedTab === 7 ? hours.map(el => el?.pressure) : '';
 
-  $: domain = [Math.min.apply(null, metric),Math.max.apply(null, metric)];
-  $: stripes = hours.map(el => {
+  let selectedTab = 0;
+  let moreHours = false;
+  let domain = [],
+    metric = [];
+  $: metric =
+    selectedTab === 0
+      ? hours.map((el) => round(el?.temp))
+      : selectedTab === 1
+      ? hours.map((el) => el?.pop * 100 ?? 0)
+      : selectedTab === 2
+      ? hours.map((el) => (el?.rain ? el?.rain["1h"] ?? 0 : 0))
+      : selectedTab === 3
+      ? hours.map((el) => el?.humidity)
+      : selectedTab === 4
+      ? hours.map((el) => round(el?.wind_speed))
+      : selectedTab === 5
+      ? hours.map((el) => round(el?.wind_gust))
+      : selectedTab === 6
+      ? hours.map((el) => el?.clouds)
+      : selectedTab === 7
+      ? hours.map((el) => el?.pressure)
+      : "";
+
+  $: domain = [Math.min.apply(null, metric), Math.max.apply(null, metric)];
+  $: stripes = hours.map((el) => {
     const obj = makeStripe(el.weather[0].id);
-    return {color: obj.color, text: obj.text};
+    return { color: obj.color, text: obj.text };
   });
   // $: console.log("stripes",stripes);
 
-  function makeStripe(icon) {
-        
-    let obj = {
-      text: 'clear',
-      color: '#ECEFF1'
-    }
-
-    if (icon == 801) {
-      obj.text = 'clear';
-      obj.color = '#ECEFF1';
-    } else if (icon == 802) {
-      obj.text = 'partly cloudy';
-      obj.color = '#CFD8DC';
-    } else if (icon == 803) {
-      obj.text = 'mostly cloudy';
-      obj.color = '#B0BEC5';
-    } else if (icon == 804) {
-      obj.text = 'overcast';
-      obj.color = '#90A4AE';
-    } else if (icon > 700 && icon < 800) {
-      obj.text = 'overcast';
-      obj.color = '#90A4AE';
-    }
-    else if (icon == 500 || icon == 520) {
-      obj.text = 'light rain';
-      obj.color = '#BBDEFB';
-    } else if (icon == 501 || icon == 521) {
-      obj.text = 'rain';
-      obj.color = '#64B5F6';
-    } else if (icon == 502 || icon == 503 || icon == 504 || icon == 522 || icon == 531) {
-      obj.text = 'heavy rain';
-      obj.color = '#2196F3';
-    }
-    else if (icon == 511) {
-      obj.text = 'sleet';
-      obj.color = '#E0F7FA';
-    } 
-    else if (icon > 600 && icon < 700) {
-      obj.text = 'snow';
-      obj.color = '#B2EBF2';
-    } 
-    return obj;
-  }
-
-  function offset (num) { 
+  function offset(num) {
     const leftPadding = (num - domain[0]) / (domain[1] - domain[0]);
     const rightPadding = 1 - leftPadding;
     const width = 100;
-    
-    return  width * rightPadding + 'px';        
-  };
+
+    return width * rightPadding + "px";
+  }
+
+  function makeStripe(icon) {
+    let obj = {
+      text: "clear",
+      color: "#ECEFF1",
+    };
+
+    if (icon == 801) {
+      obj.text = "clear";
+      obj.color = "#ECEFF1";
+    } else if (icon == 802) {
+      obj.text = "partly cloudy";
+      obj.color = "#CFD8DC";
+    } else if (icon == 803) {
+      obj.text = "mostly cloudy";
+      obj.color = "#B0BEC5";
+    } else if (icon == 804) {
+      obj.text = "overcast";
+      obj.color = "#90A4AE";
+    } else if (icon > 700 && icon < 800) {
+      obj.text = "overcast";
+      obj.color = "#90A4AE";
+    } else if (icon == 500 || icon == 520) {
+      obj.text = "light rain";
+      obj.color = "#BBDEFB";
+    } else if (icon == 501 || icon == 521) {
+      obj.text = "rain";
+      obj.color = "#64B5F6";
+    } else if (
+      icon == 502 ||
+      icon == 503 ||
+      icon == 504 ||
+      icon == 522 ||
+      icon == 531
+    ) {
+      obj.text = "heavy rain";
+      obj.color = "#2196F3";
+    } else if (icon == 511) {
+      obj.text = "sleet";
+      obj.color = "#E0F7FA";
+    } else if (icon > 600 && icon < 700) {
+      obj.text = "snow";
+      obj.color = "#B2EBF2";
+    }
+    return obj;
+  }
 </script>
 
-<section id='hours'>
+<section id="hours">
   <div class="tabs">
-    {#each tabs as tab,i}
-    <div class="tab" on:keydown on:click={() => selectedTab = i} class:selectedTab={selectedTab === i}>
-      <div class="text" >{tab.name}</div>
-    </div>
+    {#each tabs as tab, i}
+      <div
+        class="tab"
+        on:keydown
+        on:click={() => (selectedTab = i)}
+        class:selectedTab={selectedTab === i}
+      >
+        <div class="text">{tab.name}</div>
+      </div>
     {/each}
-  </div> <!-- tabs -->
+  </div>
+  <!-- tabs -->
 
   <div class="hours">
-  {#each hours as hour,i}  
-  {#if i%2}
-  <div class="hour">      
-      <div class="stripe" style:background="{stripes[i].color}"></div>
-  
-      <div class="time">
-        {dateObj(hour?.dt*1000, 'h aa')}
-      </div>
+    {#each hours as hour, i}
+      {#if i % 2 && i <= 24}
+        <div class="hour">
+          <div class="stripe" style:background={stripes[i].color} />
 
-      <div class="summary">{i === 1 ? stripes[i].text :
-        stripes[i-2].text === stripes[i].text ? '' : stripes[i].text}</div>
-        
-        <div class="line"></div>
-
-      <div class="metric"  style:margin-right="{offset(metric[i])}">
-
-        <!-- <transition name="fade" mode="out-in"> -->
-          <div class='metricValue'> 
-
-            {metric[i]}
-
-            {#if selectedTab === 4 || selectedTab === 5}
-            <div class="wind_dir" style="rotate: {hours[i].wind_deg - 90  + 'deg'}; ">&#10140;</div>
-            {/if}
-
+          <div class="time">
+            {dateObj(hour?.dt * 1000, "h aa")}
           </div>
-          <!-- </transition> -->
 
-          <!--  ➜ ➜10140 ➔10132 🡑 🡒 → 🡺 🡢 -->
-      </div> 
-    <!-- </div> flexbox -->
-  </div> <!-- hour -->
-  {/if}
-  {/each}
-</div>
-</section> <!-- #hours -->
+          <div class="summary">
+            {i === 1
+              ? stripes[i].text
+              : stripes[i - 2].text === stripes[i].text
+              ? ""
+              : stripes[i].text}
 
-<style lang='postcss'>
+            <div class="line" />
+          </div>
+
+          <div class="metric" style="margin-right: {offset(metric[i])}">
+            <!-- <transition name="fade" mode="out-in"> -->
+            <div
+              class="metricValue"
+              class:temp={selectedTab === 0}
+              class:percent={selectedTab === 1 ||
+                selectedTab === 3 ||
+                selectedTab === 6}
+              class:wind={selectedTab === 4 || selectedTab === 5}
+            >
+              {metric[i]}
+
+              {#if selectedTab === 4 || selectedTab === 5}
+                <div
+                  class="wind_dir"
+                  style="rotate: {hours[i].wind_deg - 90 + 'deg'} "
+                >
+                  &#10140;
+                </div>
+              {/if}
+            </div>
+            <!-- </transition> -->
+
+            <!--  ➜ ➜10140 ➔10132 🡑 🡒 → 🡺 🡢 -->
+          </div>
+          <!-- </div> flexbox -->
+        </div>
+        <!-- hour -->
+      {/if}
+    {/each}
+
+    {#if moreHours}
+      {#each hours as hour, i}
+        {#if i % 2 && i > 24}
+        <div class="hour">
+          <div class="stripe" style:background={stripes[i].color} />
+
+          <div class="time">
+            {dateObj(hour?.dt * 1000, "h aa")}
+          </div>
+
+          <div class="summary">
+            {i === 1
+              ? stripes[i].text
+              : stripes[i - 2].text === stripes[i].text
+              ? ""
+              : stripes[i].text}
+
+            <div class="line" />
+          </div>
+
+          <div class="metric" style="margin-right: {offset(metric[i])}">
+            <!-- <transition name="fade" mode="out-in"> -->
+            <div
+              class="metricValue"
+              class:temp={selectedTab === 0}
+              class:percent={selectedTab === 1 ||
+                selectedTab === 3 ||
+                selectedTab === 6}
+              class:wind={selectedTab === 4 || selectedTab === 5}
+            >
+              {metric[i]}
+
+              {#if selectedTab === 4 || selectedTab === 5}
+                <div
+                  class="wind_dir"
+                  style="rotate: {hours[i].wind_deg - 90 + 'deg'} "
+                >
+                  &#10140;
+                </div>
+              {/if}
+            </div>
+            <!-- </transition> -->
+
+            <!--  ➜ ➜10140 ➔10132 🡑 🡒 → 🡺 🡢 -->
+          </div>
+          <!-- </div> flexbox -->
+        </div>
+        <!-- hour -->
+        {/if}
+      {/each}
+    {/if}
+
+    <div class="moreHours">
+      <span
+        class="moreHoursBtn btn"
+        on:keypress
+        on:click={() => (moreHours = !moreHours)}
+        >{moreHours ? "...show less" : "...show more"}</span
+      >
+    </div>
+  </div>
+</section>
+
+<!-- #hours -->
+
+<style lang="postcss">
   /* .daySummary {
     padding: 1rem 0;
     font-size: var(--h3);
@@ -139,6 +238,12 @@
     font-weight: 200;
   } */
 
+  .temp::after {
+    content: "\00b0";
+  }
+  .percent::after {
+    content: "%";
+  }
 
   /*##############
 .todayHours[data-v-3ce649c2] {
@@ -156,26 +261,25 @@
     width: 90%;
     max-width: 640px;
     margin: 1rem auto 2rem;
-    
   }
   .tabs {
     display: flex;
     flex-flow: row wrap;
-    margin: 0 auto  1.5rem; 
-  }  
-    
+    margin: 0 auto 1.5rem;
+  }
+
   .tab {
-    flex: 1 0 25%;      
-    color: #35495E;
+    flex: 1 0 25%;
+    color: #35495e;
     font-size: 0.75em;
     font-weight: bold;
     text-align: center;
     padding: 0 0.3rem;
-    background: #ECEFF1;
-    border: 1px solid #B0BEC5;
-    border-bottom-color: #B0BEC555;
+    background: #eceff1;
+    border: 1px solid #b0bec5;
+    border-bottom-color: #b0bec555;
     border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem; 
+    border-top-right-radius: 0.3rem;
   }
 
   .tab:hover {
@@ -185,8 +289,8 @@
   }
 
   .selectedTab {
-    color: #41B883 !important; 
-    border-color: #B0BEC5 !important; 
+    color: #41b883 !important;
+    border-color: #b0bec5 !important;
     background: var(--background-color);
     border-bottom: none !important;
   }
@@ -210,22 +314,74 @@
     border-top-style: solid;
   }
   .hour:last-of-type .stripe {
-    border-radius: 0 0 0.4em 0.4em;    
+    border-radius: 0 0 0.4em 0.4em;
     border-bottom-style: solid;
   }
 
-  .metricValue {
+  .metric {
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    padding: 0.3rem 0.4rem;
+    background: #eceff1;
+
+    display: grid;
+    place-items: center center;
+
+    div {
+      line-height: 1;
+    }
+  }
+
+  /* .metricValue {
     flex: 1;
     position: relative;
+  } */
+
+  .wind {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 0 0.1rem;
   }
   .wind_dir {
-    position: absolute;
-    top: 0;
-    transform-origin: 50% 50%;
-    /* top: 0.20rem; */
-    right: -1rem;
-    /* font-size: 0.75rem; */
-    font-size: 90%;
-          margin-bottom: 0.2rem;
+    /* position: relative; */
+    /* width: 2rem; */
+    /* top: 0; */
+    /* transform-origin: 50% 50%; */
+    /* right: 0rem; */
+    font-size: 0.7rem;
+    /* margin-bottom: 0.1rem; */
+  }
+
+  .summary {
+    --muted-7: #999;
+    --muted-4: #999;
+    flex: 1;
+    font-style: italic;
+    color: var(--muted-7);
+    font-size: 0.75rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: stretch;
+    align-items: center;
+
+    /* @include media (400px) {
+        font-size: 1.13em;
+      } */
+
+    .line {
+      flex: 1;
+      background-image: linear-gradient(var(--muted-4), transparent);
+      height: 1px;
+      margin-right: 1rem;
+    }
+  }
+
+  .moreHours {
+    font-style: italic;
+    color: var(--muted-7);
+    font-size: 0.75rem;
+    text-align: right;
+    padding: 0.5rem 0;
   }
 </style>

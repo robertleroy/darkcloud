@@ -670,7 +670,7 @@ var init_layout_svelte = __esm({
       return `${$$result.head += `<!-- HEAD_svelte-1258swp_START -->${$$result.title = `<title>${escape(title4)}</title>`, ""}<!-- HEAD_svelte-1258swp_END -->`, ""}
 
 
-<header class=""><div class="flex"><a class="search_bar svelte-7wagep" href="/search"><div class="location">${escape(data?.location.city)}</div>
+<header class=""><div class="flex"><a class="search_bar svelte-7wagep" href="/search"><div class="location">${escape(data?.location.city)}, ${escape(data?.location.region)}</div>
       
       ${validate_component(SearchIcon, "SearchIcon").$$render($$result, { fontsize: "0.8em" }, {}, {})}</a></div></header>
 
@@ -715,9 +715,9 @@ var init__ = __esm({
     init_layout_server();
     index = 0;
     component = async () => (await Promise.resolve().then(() => (init_layout_svelte(), layout_svelte_exports))).default;
-    file = "_app/immutable/entry/_layout.svelte.04267a5c.js";
+    file = "_app/immutable/entry/_layout.svelte.053b42fe.js";
     server_id = "src/routes/+layout.server.js";
-    imports = ["_app/immutable/entry/_layout.svelte.04267a5c.js", "_app/immutable/chunks/index.cb171ed7.js"];
+    imports = ["_app/immutable/entry/_layout.svelte.053b42fe.js", "_app/immutable/chunks/index.cb171ed7.js"];
     stylesheets = ["_app/immutable/assets/_layout.ae116a13.css"];
     fonts = [];
   }
@@ -779,8 +779,8 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.c337f382.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.c337f382.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.786d875e.js"];
+    file2 = "_app/immutable/entry/_error.svelte.7bbd3ea1.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.7bbd3ea1.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.a0af02a8.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -5791,7 +5791,7 @@ var init_page_svelte = __esm({
     <div class="sunset">${escape(dateObj(current?.sunset * 1e3, "h:mm aa"))}</div></div></div> `;
     });
     css$3 = {
-      code: "#hours.svelte-rr0s81.svelte-rr0s81{--h3:1.125em;--backgroundColor:linen;padding-bottom:2rem;width:90%;max-width:640px;margin:1rem auto 2rem}.tabs.svelte-rr0s81.svelte-rr0s81{display:flex;flex-flow:row wrap;margin:0 auto  1.5rem}.tab.svelte-rr0s81.svelte-rr0s81{flex:1 0 25%;color:#35495E;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#ECEFF1;border:1px solid #B0BEC5;border-bottom-color:#B0BEC555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}.tab.svelte-rr0s81.svelte-rr0s81:hover{background:var(--background-color);cursor:pointer}.selectedTab.svelte-rr0s81.svelte-rr0s81{color:#41B883 !important;border-color:#B0BEC5 !important;background:var(--background-color);border-bottom:none !important}.hour.svelte-rr0s81.svelte-rr0s81{display:flex;align-items:center;gap:1ch;height:2rem}.stripe.svelte-rr0s81.svelte-rr0s81{height:100%;width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.hour.svelte-rr0s81:first-of-type .stripe.svelte-rr0s81{border-radius:0.4em 0.4em 0 0;border-top-style:solid}.hour.svelte-rr0s81:last-of-type .stripe.svelte-rr0s81{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metricValue.svelte-rr0s81.svelte-rr0s81{flex:1;position:relative}.wind_dir.svelte-rr0s81.svelte-rr0s81{position:absolute;top:0;transform-origin:50% 50%;right:-1rem;font-size:90%;margin-bottom:0.2rem}",
+      code: '.temp.svelte-ujtdmr.svelte-ujtdmr::after{content:"\\00b0"}.percent.svelte-ujtdmr.svelte-ujtdmr::after{content:"%"}#hours.svelte-ujtdmr.svelte-ujtdmr{--h3:1.125em;--backgroundColor:linen;padding-bottom:2rem;width:90%;max-width:640px;margin:1rem auto 2rem}.tabs.svelte-ujtdmr.svelte-ujtdmr{display:flex;flex-flow:row wrap;margin:0 auto 1.5rem}.tab.svelte-ujtdmr.svelte-ujtdmr{flex:1 0 25%;color:#35495e;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#eceff1;border:1px solid #b0bec5;border-bottom-color:#b0bec555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}.tab.svelte-ujtdmr.svelte-ujtdmr:hover{background:var(--background-color);cursor:pointer}.selectedTab.svelte-ujtdmr.svelte-ujtdmr{color:#41b883 !important;border-color:#b0bec5 !important;background:var(--background-color);border-bottom:none !important}.hour.svelte-ujtdmr.svelte-ujtdmr{display:flex;align-items:center;gap:1ch;height:2rem}.stripe.svelte-ujtdmr.svelte-ujtdmr{height:100%;width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.hour.svelte-ujtdmr:first-of-type .stripe.svelte-ujtdmr{border-radius:0.4em 0.4em 0 0;border-top-style:solid}.hour.svelte-ujtdmr:last-of-type .stripe.svelte-ujtdmr{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metric.svelte-ujtdmr.svelte-ujtdmr{border:1px solid #ccc;border-radius:1rem;padding:0.3rem 0.4rem;background:#eceff1;display:grid;place-items:center center}.metric.svelte-ujtdmr div.svelte-ujtdmr{line-height:1}.wind.svelte-ujtdmr.svelte-ujtdmr{display:grid;grid-auto-flow:column;align-items:center;gap:0 0.1rem}.wind_dir.svelte-ujtdmr.svelte-ujtdmr{font-size:0.7rem}.summary.svelte-ujtdmr.svelte-ujtdmr{--muted-7:#999;--muted-4:#999;flex:1;font-style:italic;color:var(--muted-7);font-size:0.75rem;display:flex;gap:1.5rem;justify-content:stretch;align-items:center}.summary.svelte-ujtdmr .line.svelte-ujtdmr{flex:1;background-image:linear-gradient(var(--muted-4), transparent);height:1px;margin-right:1rem}.moreHours.svelte-ujtdmr.svelte-ujtdmr{font-style:italic;color:var(--muted-7);font-size:0.75rem;text-align:right;padding:0.5rem 0}',
       map: null
     };
     Hours = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5818,35 +5818,46 @@ var init_page_svelte = __esm({
       if ($$props.hours === void 0 && $$bindings.hours && hours !== void 0)
         $$bindings.hours(hours);
       $$result.css.add(css$3);
-      metric = hours.map((el) => round(el?.temp) + "\xB0");
+      metric = hours.map((el) => round(el?.temp));
       domain = [Math.min.apply(null, metric), Math.max.apply(null, metric)];
       stripes = hours.map((el) => {
         const obj = makeStripe(el.weather[0].id);
         return { color: obj.color, text: obj.text };
       });
-      return `<section id="hours" class="svelte-rr0s81"><div class="tabs svelte-rr0s81">${each(tabs, (tab, i) => {
-        return `<div class="${["tab svelte-rr0s81", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
-    </div>`;
-      })}</div> 
+      return `<section id="hours" class="svelte-ujtdmr"><div class="tabs svelte-ujtdmr">${each(tabs, (tab, i) => {
+        return `<div class="${["tab svelte-ujtdmr", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
+      </div>`;
+      })}</div>
+  
 
   <div class="hours">${each(hours, (hour, i) => {
-        return `${i % 2 ? `<div class="hour svelte-rr0s81"><div class="stripe svelte-rr0s81"${add_styles({ "background": stripes[i].color })}></div>
-  
-      <div class="time">${escape(dateObj(hour?.dt * 1e3, "h aa"))}</div>
+        return `${i % 2 && i <= 24 ? `<div class="hour svelte-ujtdmr"><div class="stripe svelte-ujtdmr"${add_styles({ "background": stripes[i].color })}></div>
 
-      <div class="summary">${escape(i === 1 ? stripes[i].text : stripes[i - 2].text === stripes[i].text ? "" : stripes[i].text)}</div>
-        
-        <div class="line"></div>
+          <div class="time">${escape(dateObj(hour?.dt * 1e3, "h aa"))}</div>
 
-      <div class="metric"${add_styles({ "margin-right": offset(metric[i]) })}>
-          <div class="metricValue svelte-rr0s81">${escape(metric[i])}
+          <div class="summary svelte-ujtdmr">${escape(i === 1 ? stripes[i].text : stripes[i - 2].text === stripes[i].text ? "" : stripes[i].text)}
 
-            ${``}</div>
-          
+            <div class="line svelte-ujtdmr"></div></div>
 
-          </div> 
-    </div> ` : ``}`;
-      })}</div></section> `;
+          <div class="metric svelte-ujtdmr" style="${"margin-right: " + escape(offset(metric[i]), true)}">
+            <div class="${[
+          "metricValue svelte-ujtdmr",
+          "temp  "
+        ].join(" ").trim()}">${escape(metric[i])}
+
+              ${``}</div>
+            
+
+            </div>
+          </div>
+        ` : ``}`;
+      })}
+
+    ${``}
+
+    <div class="moreHours svelte-ujtdmr"><span class="moreHoursBtn btn">${escape("...show more")}</span></div></div></section>
+
+`;
     });
     css$2 = {
       code: ".day.svelte-h1pj2q.svelte-h1pj2q{display:flex;align-items:center;gap:0 1ch}.precip.svelte-h1pj2q.svelte-h1pj2q{width:2.5rem}.precip.svelte-h1pj2q .pop.svelte-h1pj2q{display:inline-block;font-size:0.75rem}.precip.svelte-h1pj2q .symbol.svelte-h1pj2q{display:inline-block;font-size:0.65rem}",
@@ -5971,9 +5982,9 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.aac2ffc4.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.aac2ffc4.js", "_app/immutable/chunks/index.cb171ed7.js"];
-    stylesheets3 = ["_app/immutable/assets/_page.bf362326.css"];
+    file3 = "_app/immutable/entry/_page.svelte.ee56cd9a.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.ee56cd9a.js", "_app/immutable/chunks/index.cb171ed7.js"];
+    stylesheets3 = ["_app/immutable/assets/_page.da563111.css"];
     fonts3 = [];
   }
 });
@@ -6425,7 +6436,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "pwk3li"
+  version_hash: "1pizym5"
 };
 function get_hooks() {
   return {};
@@ -9594,7 +9605,7 @@ var manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png"]),
   mimeTypes: { ".png": "image/png" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.aca630c1.js", "imports": ["_app/immutable/entry/start.aca630c1.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.786d875e.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.b4065220.js", "imports": ["_app/immutable/entry/app.b4065220.js", "_app/immutable/chunks/index.cb171ed7.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.2acd370d.js", "imports": ["_app/immutable/entry/start.2acd370d.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.a0af02a8.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.99d51764.js", "imports": ["_app/immutable/entry/app.99d51764.js", "_app/immutable/chunks/index.cb171ed7.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),

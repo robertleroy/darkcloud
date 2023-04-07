@@ -18,7 +18,7 @@
 <header class=''>
   <div class='flex'>
     <a class="search_bar" href="/search">
-      <div class="location">{data?.location.city}</div>
+      <div class="location">{data?.location.city}, {data?.location.region}</div>
       <!-- <div class="location">{location?.city}</div> -->
       <SearchIcon fontsize="0.8em"/>
     </a>

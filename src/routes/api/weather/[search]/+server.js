@@ -1,12 +1,10 @@
 import {WEATHER_KEY} from '$env/static/private';
 import { json } from '@sveltejs/kit';
+// import weatherData from '../alerts.json';
 
 
 export async function GET({params}) {
   try {
-
-    // console.log(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY} `);
-
     // const key = WEATHER_KEY;
     // const serachterm = params;
 
@@ -15,6 +13,7 @@ export async function GET({params}) {
     const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
     const weather = await res.json();
 
+    // const weather = weatherData;
     return json(weather) 
 
   } catch (error) {    
