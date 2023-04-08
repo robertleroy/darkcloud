@@ -15,7 +15,6 @@
   ];
 
   let selectedTab = 0;
-  let moreHours = false;
   let domain = [],
     metric = [];
   $: metric =
@@ -42,10 +41,9 @@
     const obj = makeStripe(el.weather[0].id);
     return { color: obj.color, text: obj.text };
   });
-  // $: console.log("stripes",stripes);
 
   function offset(num) {
-    const leftPadding = (num - domain[0]) / (domain[1] - domain[0]);
+    const leftPadding = (num - domain[0]) / (domain[1] - domain[0]) || 0;
     const rightPadding = 1 - leftPadding;
     const width = 100;
 
@@ -99,21 +97,20 @@
   }
 </script>
 
-<section id="hours">
+<section class="hours_component">
+  <!-- #region tabs -->
   <div class="tabs">
     {#each tabs as tab, i}
-      <div
-        class="tab"
-        on:keydown
-        on:click={() => (selectedTab = i)}
-        class:selectedTab={selectedTab === i}
-      >
+      <div class="tab" on:keydown
+        on:click={() => selectedTab = i}
+        class:selectedTab={selectedTab === i}>
         <div class="text">{tab.name}</div>
       </div>
     {/each}
   </div>
-  <!-- tabs -->
+  <!-- #endregion tabs -->
 
+  <!-- #region hours -->
   <div class="hours">
     {#each hours as hour, i}
       {#if i % 2 && i <= 24}
@@ -133,18 +130,29 @@
 
             <div class="line" />
           </div>
-
-          <div class="metric" style="margin-right: {offset(metric[i])}">
-            <!-- <transition name="fade" mode="out-in"> -->
-            <div
-              class="metricValue"
+       
+          {#if 
+            selectedTab != 1 ||
+            selectedTab != 2 &&
+            metric[i] > 0
+          }
+          <div class="metric" 
+              style="margin-right: {offset(metric[i])}"
+              class:pressure={selectedTab === 7}
+          >  
+            <div class="metricValue"
               class:temp={selectedTab === 0}
               class:percent={selectedTab === 1 ||
                 selectedTab === 3 ||
                 selectedTab === 6}
-              class:wind={selectedTab === 4 || selectedTab === 5}
+              class:wind={selectedTab === 4 || 
+                selectedTab === 5}
             >
-              {metric[i]}
+            
+         
+            {metric[i]}
+
+              
 
               {#if selectedTab === 4 || selectedTab === 5}
                 <div
@@ -155,154 +163,79 @@
                 </div>
               {/if}
             </div>
-            <!-- </transition> -->
+          </div> <!-- metric -->  
+            {/if}  
 
-            <!--  ➜ ➜10140 ➔10132 🡑 🡒 → 🡺 🡢 -->
-          </div>
-          <!-- </div> flexbox -->
-        </div>
-        <!-- hour -->
+        </div> <!-- hour -->        
       {/if}
     {/each}
 
-    {#if moreHours}
-      {#each hours as hour, i}
-        {#if i % 2 && i > 24}
-        <div class="hour">
-          <div class="stripe" style:background={stripes[i].color} />
 
-          <div class="time">
-            {dateObj(hour?.dt * 1000, "h aa")}
-          </div>
 
-          <div class="summary">
-            {i === 1
-              ? stripes[i].text
-              : stripes[i - 2].text === stripes[i].text
-              ? ""
-              : stripes[i].text}
-
-            <div class="line" />
-          </div>
-
-          <div class="metric" style="margin-right: {offset(metric[i])}">
-            <!-- <transition name="fade" mode="out-in"> -->
-            <div
-              class="metricValue"
-              class:temp={selectedTab === 0}
-              class:percent={selectedTab === 1 ||
-                selectedTab === 3 ||
-                selectedTab === 6}
-              class:wind={selectedTab === 4 || selectedTab === 5}
-            >
-              {metric[i]}
-
-              {#if selectedTab === 4 || selectedTab === 5}
-                <div
-                  class="wind_dir"
-                  style="rotate: {hours[i].wind_deg - 90 + 'deg'} "
-                >
-                  &#10140;
-                </div>
-              {/if}
-            </div>
-            <!-- </transition> -->
-
-            <!--  ➜ ➜10140 ➔10132 🡑 🡒 → 🡺 🡢 -->
-          </div>
-          <!-- </div> flexbox -->
-        </div>
-        <!-- hour -->
-        {/if}
-      {/each}
-    {/if}
-
-    <div class="moreHours">
+    <!-- <div class="moreHours">
       <span
         class="moreHoursBtn btn"
         on:keypress
         on:click={() => (moreHours = !moreHours)}
         >{moreHours ? "...show less" : "...show more"}</span
       >
-    </div>
+    </div> -->
   </div>
-</section>
-
-<!-- #hours -->
+  <!-- #endregion hours -->
+</section> <!-- #hours_component -->
 
 <style lang="postcss">
-  /* .daySummary {
-    padding: 1rem 0;
-    font-size: var(--h3);
-    text-align: center;
-    font-weight: 200;
-  } */
 
-  .temp::after {
-    content: "\00b0";
-  }
-  .percent::after {
-    content: "%";
-  }
+  .temp::after { content: "\00b0"; }
+  .percent::after { content: "%"; }
+  .metric.pressure { padding: 0.2rem 0.3rem 0.3rem;}
 
-  /*##############
-.todayHours[data-v-3ce649c2] {
-
-    scroll-snap-align: start;
-    width: 90%;
+  .hours_component {
     max-width: 640px;
-    margin: 1rem auto 2rem; */
-
-  #hours {
-    --h3: 1.125em;
-    --backgroundColor: linen;
     padding-bottom: 2rem;
-
-    width: 90%;
-    max-width: 640px;
     margin: 1rem auto 2rem;
   }
   .tabs {
     display: flex;
     flex-flow: row wrap;
     margin: 0 auto 1.5rem;
+  
+    .tab {
+      flex: 1 0 25%;
+      color: #35495e;
+      font-size: 0.75em;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 0.3rem;
+      background: #eceff1;
+      border: 1px solid #b0bec5;
+      border-bottom-color: #b0bec555;
+      border-top-left-radius: 0.3rem;
+      border-top-right-radius: 0.3rem;
+    }
+    .tab:hover {
+      /* color: #41B883; */
+      background: var(--background-color);
+      cursor: pointer;
+    }
   }
 
-  .tab {
-    flex: 1 0 25%;
-    color: #35495e;
-    font-size: 0.75em;
-    font-weight: bold;
-    text-align: center;
-    padding: 0 0.3rem;
-    background: #eceff1;
-    border: 1px solid #b0bec5;
-    border-bottom-color: #b0bec555;
-    border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
-  }
-
-  .tab:hover {
-    /* color: #41B883; */
+  .tab.selectedTab {
+    color: #41b883;
+    /* border-color: #b0bec5 !important; */
     background: var(--background-color);
-    cursor: pointer;
-  }
-
-  .selectedTab {
-    color: #41b883 !important;
-    border-color: #b0bec5 !important;
-    background: var(--background-color);
-    border-bottom: none !important;
+    border-bottom: none;
   }
 
   .hour {
     display: flex;
     align-items: center;
     gap: 1ch;
-    height: 2rem;
+    min-height: 2.25rem;
   }
   .stripe {
-    height: 100%;
+    align-self: stretch;
+    /* height: 100%; */
     width: 1rem;
     border: 1px none #ccc;
     border-right-style: solid;
@@ -320,14 +253,15 @@
 
   .metric {
     border: 1px solid #ccc;
-    border-radius: 1rem;
-    padding: 0.3rem 0.4rem;
+    border-radius: 0.75rem;
+    padding: 0.2rem 0.3rem 0.3rem 0.4rem ;
     background: #eceff1;
 
     display: grid;
     place-items: center center;
+    transition: 0.3s;
 
-    div {
+    .metricValue {
       line-height: 1;
     }
   }
@@ -341,7 +275,7 @@
     display: grid;
     grid-auto-flow: column;
     align-items: center;
-    gap: 0 0.1rem;
+    gap: 0 0.075rem;
   }
   .wind_dir {
     /* position: relative; */
@@ -349,8 +283,8 @@
     /* top: 0; */
     /* transform-origin: 50% 50%; */
     /* right: 0rem; */
-    font-size: 0.7rem;
-    /* margin-bottom: 0.1rem; */
+    font-size: 0.675rem;
+    margin-bottom: 0.075rem;
   }
 
   .summary {
@@ -377,11 +311,12 @@
     }
   }
 
-  .moreHours {
+  /* .moreHours {
     font-style: italic;
     color: var(--muted-7);
     font-size: 0.75rem;
     text-align: right;
     padding: 0.5rem 0;
-  }
+  } */
+
 </style>

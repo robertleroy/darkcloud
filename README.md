@@ -1,38 +1,57 @@
-# create-svelte
+# New Weather App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+[Open Weather](https://openweathermap.org/api)
 
-## Creating a project
+``` js 
+/* One Call 35.564,-97.633
+https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&units=imperial&appid={key}
+*/
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+/* 5 day / 3 hour
+api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&units=imperial&appid={key}
+*/
 ```
 
-## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+other considerations
 
-```bash
-npm run dev
+- [Open Weather](https://openweathermap.org/api)
+  - current
+  - 60 minutes
+  - 48 hours
+  - 8 days 
+  - alerts
+  - seperate 5-day 3-hr api
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- [open-meteo](https://open-meteo.com/en/docs)
+  - 7 day hourly
+  - 170 hours
+  - free open source
+  - **No api key**
 
-## Building
+- [Tomorrow.io](https://docs.tomorrow.io/reference/weather-forecast)
+  - 60-minute
+  - 120-hours
+  - 5-Day
+  - **No alerts**
 
-To create a production version of your app:
+- [Visual Crossing](https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/)
+  - current
+  - 14 days 
+    - with hours
+  - alerts
+  - **No minutes**
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
+- []()
+  - 
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- []()
+  - 
+
+- []()
+  - 
+
+- []()
+  - 
+

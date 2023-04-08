@@ -1,6 +1,8 @@
 import {WEATHER_KEY} from '$env/static/private';
 import { json } from '@sveltejs/kit';
-// import weatherData from '../alerts.json';
+
+import weatherData from '../dry2.json';
+const local = true;
 
 
 export async function GET({params}) {
@@ -10,10 +12,15 @@ export async function GET({params}) {
 
     // console.log(params, WEATHER_KEY);
 
-    const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
-    const weather = await res.json();
+    let weather;
 
-    // const weather = weatherData;
+    if (local) {
+      weather = weatherData;
+    } else {
+      const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
+      weather = await res.json();
+    }
+    
     return json(weather) 
 
   } catch (error) {    
@@ -21,8 +28,11 @@ export async function GET({params}) {
   }
 }
 
-/*
+/* One Call
 https://api.openweathermap.org/data/3.0/onecall?lat=35.4662&lon=-97.5168&units=imperial&appid=826b835b9408db50ca70aa7158b06f23
+*/
+/* 5 day / 3 hour
+api.openweathermap.org/data/2.5/forecast?lat=35.4662&lon=-97.5168&units=imperial&appid=826b835b9408db50ca70aa7158b06f23
 */
 
 /* 35.564,-97.633 */

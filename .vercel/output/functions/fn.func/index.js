@@ -612,10 +612,10 @@ async function load({ fetch: fetch2, url, request }) {
     };
     weather = getWeather(location.lat, location.lon);
   }
-  async function getWeather(lat, lon) {
-    const weatherRes = await fetch2(`/api/weather/lat=${lat}&lon=${lon}`);
-    const weatherData = await weatherRes.json();
-    return weatherData;
+  async function getWeather(lat2, lon2) {
+    const weatherRes = await fetch2(`/api/weather/lat=${lat2}&lon=${lon2}`);
+    const weatherData2 = await weatherRes.json();
+    return weatherData2;
   }
   return {
     currentRoute,
@@ -667,6 +667,9 @@ var init_layout_svelte = __esm({
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
       $$result.css.add(css);
+      {
+        console.log("currentRoute", data.currentRoute);
+      }
       return `${$$result.head += `<!-- HEAD_svelte-1258swp_START -->${$$result.title = `<title>${escape(title4)}</title>`, ""}<!-- HEAD_svelte-1258swp_END -->`, ""}
 
 
@@ -715,10 +718,10 @@ var init__ = __esm({
     init_layout_server();
     index = 0;
     component = async () => (await Promise.resolve().then(() => (init_layout_svelte(), layout_svelte_exports))).default;
-    file = "_app/immutable/entry/_layout.svelte.053b42fe.js";
+    file = "_app/immutable/entry/_layout.svelte.6efa47c0.js";
     server_id = "src/routes/+layout.server.js";
-    imports = ["_app/immutable/entry/_layout.svelte.053b42fe.js", "_app/immutable/chunks/index.cb171ed7.js"];
-    stylesheets = ["_app/immutable/assets/_layout.ae116a13.css"];
+    imports = ["_app/immutable/entry/_layout.svelte.6efa47c0.js", "_app/immutable/chunks/index.9f31e1a2.js"];
+    stylesheets = ["_app/immutable/assets/_layout.31a8634b.css"];
     fonts = [];
   }
 });
@@ -779,8 +782,8 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.7bbd3ea1.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.7bbd3ea1.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.a0af02a8.js"];
+    file2 = "_app/immutable/entry/_error.svelte.c19ed9c0.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.c19ed9c0.js", "_app/immutable/chunks/index.9f31e1a2.js", "_app/immutable/chunks/singletons.7d00ff30.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -5273,9 +5276,9 @@ function dateObj(date, mask, utc) {
   mask = mask.replace(/(^|[^\\])a/g, "$1" + a.charAt(0));
   var o = ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 !== 10) * d % 10];
   mask = mask.replace(/(^|[^\\])o+/g, "$1" + o);
-  var timezone = /(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]d{4})?)/g;
+  var timezone2 = /(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]d{4})?)/g;
   var timezoneClip = /[^-+dA-Z]/g;
-  var Z = (String(date).match(timezone) || [""]).pop().replace(timezoneClip, "");
+  var Z = (String(date).match(timezone2) || [""]).pop().replace(timezoneClip, "");
   mask = mask.replace(/(^|[^\\])Z+/g, "$1" + Z);
   var tz = -date.getTimezoneOffset();
   var z = utc || !tz ? "Z" : tz > 0 ? "+" : "-";
@@ -5339,7 +5342,7 @@ function precipSymbol(code) {
   }
   return symbol;
 }
-var icons, css$5, WeatherIcon, css$4, Current, css$3, Hours, css$2, Days, css$12, WobbleChart, css2, Page;
+var icons, css$7, WeatherIcon, css$6, Current, css$5, Hours, css$4, Accordion, css$3, RangeBar, css$2, Days, css$12, WobbleChart, css2, Page;
 var init_page_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/_page.svelte.js"() {
     init_index2();
@@ -5735,7 +5738,7 @@ var init_page_svelte = __esm({
   <path fill="url(#j-fog)" d="M0 10h24v9H0z" class="fog" />`
       }
     ];
-    css$5 = {
+    css$7 = {
       code: "svg.svelte-1lmd4z1{display:inline-grid;place-items:center center;height:2em;width:2em;font-size:1rem;-webkit-user-select:none;-moz-user-select:none;user-select:none;vertical-align:top}",
       map: null
     };
@@ -5747,7 +5750,7 @@ var init_page_svelte = __esm({
         $$bindings.icon(icon);
       if ($$props.fontsize === void 0 && $$bindings.fontsize && fontsize !== void 0)
         $$bindings.fontsize(fontsize);
-      $$result.css.add(css$5);
+      $$result.css.add(css$7);
       svg = icons.find((el) => el.tag.includes(icon)) ?? icons[0].tag;
       return `
 
@@ -5755,43 +5758,43 @@ var init_page_svelte = __esm({
 
 <svg class="weatherIcon svelte-1lmd4z1" style="${"font-size: " + escape(fontsize, true)}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><!-- HTML_TAG_START -->${svg.defs}<!-- HTML_TAG_END --></defs><g><!-- HTML_TAG_START -->${svg.path}<!-- HTML_TAG_END --></g>${slots.default ? slots.default({}) : ``}</svg>`;
     });
-    css$4 = {
-      code: ".current_time.svelte-2az993.svelte-2az993{display:flex;justify-content:center;gap:0 1rem;font-size:0.85rem}.current_conditions.svelte-2az993.svelte-2az993{margin:2rem 0 3rem}.snapshot.svelte-2az993.svelte-2az993{display:flex;justify-content:center;align-items:center;gap:0}.snapshot.svelte-2az993 .temp.svelte-2az993{font-size:2.5rem}.conditions.svelte-2az993.svelte-2az993{text-align:center;margin-top:-1rem;font-size:1.25rem;;}.day_stats.svelte-2az993.svelte-2az993{display:flex;justify-content:space-between;align-items:center;gap:0 2rem;max-width:320px;margin:0 auto 3rem}.hilo.svelte-2az993.svelte-2az993,.sun_times.svelte-2az993.svelte-2az993{display:grid;grid-template-columns:max-content max-content;align-items:center;gap:0 1rem}",
+    css$6 = {
+      code: ".current_time.svelte-60nbqf.svelte-60nbqf{display:flex;justify-content:center;gap:0 1rem;font-size:0.875rem}.current_conditions.svelte-60nbqf.svelte-60nbqf{margin:2rem 0 3rem}.current_conditions.svelte-60nbqf .snapshot.svelte-60nbqf{display:flex;justify-content:center;align-items:center;gap:0}.current_conditions.svelte-60nbqf .snapshot .temp.svelte-60nbqf{font-size:2.5rem}.current_conditions.svelte-60nbqf .conditions.svelte-60nbqf{text-align:center;margin-top:-1rem;font-size:1.375rem}.day_stats.svelte-60nbqf.svelte-60nbqf{display:flex;justify-content:space-between;align-items:center;gap:0 2rem;max-width:320px;margin:0 auto 3rem}.hilo.svelte-60nbqf.svelte-60nbqf,.sun_times.svelte-60nbqf.svelte-60nbqf{display:grid;grid-template-columns:max-content max-content;align-items:center;gap:0 1rem}",
       map: null
     };
     Current = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { current } = $$props;
-      if ($$props.current === void 0 && $$bindings.current && current !== void 0)
-        $$bindings.current(current);
-      $$result.css.add(css$4);
-      return `<div class="current"><div class="current_time svelte-2az993"><span>${escape(dateObj(current?.dt * 1e3, "dddd"))}</span>
-    <span>${escape(dateObj(current?.dt * 1e3, "MMMM do"))}</span>
-    <span>${escape(dateObj(current?.dt * 1e3, "h:mm aa"))}</span></div> 
+      let { current: current2 } = $$props;
+      if ($$props.current === void 0 && $$bindings.current && current2 !== void 0)
+        $$bindings.current(current2);
+      $$result.css.add(css$6);
+      return `<div class="current"><div class="current_time svelte-60nbqf"><span>${escape(dateObj(current2?.dt * 1e3, "dddd"))}</span>
+    <span>${escape(dateObj(current2?.dt * 1e3, "MMMM do"))}</span>
+    <span>${escape(dateObj(current2?.dt * 1e3, "h:mm aa"))}</span></div> 
 
-  <div class="current_conditions svelte-2az993"><div class="snapshot svelte-2az993">${validate_component(WeatherIcon, "WeatherIcon").$$render(
+  <div class="current_conditions svelte-60nbqf"><div class="snapshot svelte-60nbqf">${validate_component(WeatherIcon, "WeatherIcon").$$render(
         $$result,
         {
-          icon: current?.weather[0].icon,
+          icon: current2?.weather[0].icon,
           fontsize: "3.5rem"
         },
         {},
         {}
       )}
-      <div class="temp svelte-2az993">${escape(round(current?.temp))}</div></div>
-    <div class="conditions svelte-2az993"><div class="icon">${escape(titlecase(current?.weather[0].description))}</div></div></div> </div> 
+      <div class="temp svelte-60nbqf">${escape(round(current2?.temp))}</div></div>
+    <div class="conditions svelte-60nbqf"><div class="icon">${escape(titlecase(current2?.weather[0].description))}</div></div></div> </div> 
 
 
-<div class="day_stats svelte-2az993"><div class="hilo svelte-2az993"><div class="label">High:</div>
-    <div class="high temp">${escape(round(current?.high))}</div>
+<div class="day_stats svelte-60nbqf"><div class="hilo svelte-60nbqf"><div class="label">High:</div>
+    <div class="high temp">${escape(round(current2?.high))}</div>
     <div class="label">Low:</div>
-    <div class="low temp">${escape(round(current?.low))}</div></div>
-  <div class="sun_times svelte-2az993"><div class="label">Sunrise:</div>
-    <div class="sunrise">${escape(dateObj(current?.sunrise * 1e3, "h:mm aa"))}</div>
+    <div class="low temp">${escape(round(current2?.low))}</div></div>
+  <div class="sun_times svelte-60nbqf"><div class="label">Sunrise:</div>
+    <div class="sunrise">${escape(dateObj(current2?.sunrise * 1e3, "h:mm aa"))}</div>
     <div class="label">Sunset:</div>
-    <div class="sunset">${escape(dateObj(current?.sunset * 1e3, "h:mm aa"))}</div></div></div> `;
+    <div class="sunset">${escape(dateObj(current2?.sunset * 1e3, "h:mm aa"))}</div></div></div> `;
     });
-    css$3 = {
-      code: '.temp.svelte-ujtdmr.svelte-ujtdmr::after{content:"\\00b0"}.percent.svelte-ujtdmr.svelte-ujtdmr::after{content:"%"}#hours.svelte-ujtdmr.svelte-ujtdmr{--h3:1.125em;--backgroundColor:linen;padding-bottom:2rem;width:90%;max-width:640px;margin:1rem auto 2rem}.tabs.svelte-ujtdmr.svelte-ujtdmr{display:flex;flex-flow:row wrap;margin:0 auto 1.5rem}.tab.svelte-ujtdmr.svelte-ujtdmr{flex:1 0 25%;color:#35495e;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#eceff1;border:1px solid #b0bec5;border-bottom-color:#b0bec555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}.tab.svelte-ujtdmr.svelte-ujtdmr:hover{background:var(--background-color);cursor:pointer}.selectedTab.svelte-ujtdmr.svelte-ujtdmr{color:#41b883 !important;border-color:#b0bec5 !important;background:var(--background-color);border-bottom:none !important}.hour.svelte-ujtdmr.svelte-ujtdmr{display:flex;align-items:center;gap:1ch;height:2rem}.stripe.svelte-ujtdmr.svelte-ujtdmr{height:100%;width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.hour.svelte-ujtdmr:first-of-type .stripe.svelte-ujtdmr{border-radius:0.4em 0.4em 0 0;border-top-style:solid}.hour.svelte-ujtdmr:last-of-type .stripe.svelte-ujtdmr{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metric.svelte-ujtdmr.svelte-ujtdmr{border:1px solid #ccc;border-radius:1rem;padding:0.3rem 0.4rem;background:#eceff1;display:grid;place-items:center center}.metric.svelte-ujtdmr div.svelte-ujtdmr{line-height:1}.wind.svelte-ujtdmr.svelte-ujtdmr{display:grid;grid-auto-flow:column;align-items:center;gap:0 0.1rem}.wind_dir.svelte-ujtdmr.svelte-ujtdmr{font-size:0.7rem}.summary.svelte-ujtdmr.svelte-ujtdmr{--muted-7:#999;--muted-4:#999;flex:1;font-style:italic;color:var(--muted-7);font-size:0.75rem;display:flex;gap:1.5rem;justify-content:stretch;align-items:center}.summary.svelte-ujtdmr .line.svelte-ujtdmr{flex:1;background-image:linear-gradient(var(--muted-4), transparent);height:1px;margin-right:1rem}.moreHours.svelte-ujtdmr.svelte-ujtdmr{font-style:italic;color:var(--muted-7);font-size:0.75rem;text-align:right;padding:0.5rem 0}',
+    css$5 = {
+      code: '.temp.svelte-yb86si.svelte-yb86si::after{content:"\\00b0"}.percent.svelte-yb86si.svelte-yb86si::after{content:"%"}.metric.pressure.svelte-yb86si.svelte-yb86si{padding:0.2rem 0.3rem 0.3rem}.hours_component.svelte-yb86si.svelte-yb86si{max-width:640px;padding-bottom:2rem;margin:1rem auto 2rem}.tabs.svelte-yb86si.svelte-yb86si{display:flex;flex-flow:row wrap;margin:0 auto 1.5rem}.tabs.svelte-yb86si .tab.svelte-yb86si{flex:1 0 25%;color:#35495e;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#eceff1;border:1px solid #b0bec5;border-bottom-color:#b0bec555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}.tabs.svelte-yb86si .tab.svelte-yb86si:hover{background:var(--background-color);cursor:pointer}.tab.selectedTab.svelte-yb86si.svelte-yb86si{color:#41b883;background:var(--background-color);border-bottom:none}.hour.svelte-yb86si.svelte-yb86si{display:flex;align-items:center;gap:1ch;min-height:2.25rem}.stripe.svelte-yb86si.svelte-yb86si{align-self:stretch;width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.hour.svelte-yb86si:first-of-type .stripe.svelte-yb86si{border-radius:0.4em 0.4em 0 0;border-top-style:solid}.hour.svelte-yb86si:last-of-type .stripe.svelte-yb86si{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metric.svelte-yb86si.svelte-yb86si{border:1px solid #ccc;border-radius:0.75rem;padding:0.2rem 0.3rem 0.3rem 0.4rem ;background:#eceff1;display:grid;place-items:center center;transition:0.3s}.metric.svelte-yb86si .metricValue.svelte-yb86si{line-height:1}.wind.svelte-yb86si.svelte-yb86si{display:grid;grid-auto-flow:column;align-items:center;gap:0 0.075rem}.wind_dir.svelte-yb86si.svelte-yb86si{font-size:0.675rem;margin-bottom:0.075rem}.summary.svelte-yb86si.svelte-yb86si{--muted-7:#999;--muted-4:#999;flex:1;font-style:italic;color:var(--muted-7);font-size:0.75rem;display:flex;gap:1.5rem;justify-content:stretch;align-items:center}.summary.svelte-yb86si .line.svelte-yb86si{flex:1;background-image:linear-gradient(var(--muted-4), transparent);height:1px;margin-right:1rem}',
       map: null
     };
     Hours = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5810,84 +5813,152 @@ var init_page_svelte = __esm({
       let selectedTab = 0;
       let domain = [], metric = [];
       function offset(num) {
-        const leftPadding = (num - domain[0]) / (domain[1] - domain[0]);
+        const leftPadding = (num - domain[0]) / (domain[1] - domain[0]) || 0;
         const rightPadding = 1 - leftPadding;
         const width = 100;
         return width * rightPadding + "px";
       }
       if ($$props.hours === void 0 && $$bindings.hours && hours !== void 0)
         $$bindings.hours(hours);
-      $$result.css.add(css$3);
+      $$result.css.add(css$5);
       metric = hours.map((el) => round(el?.temp));
       domain = [Math.min.apply(null, metric), Math.max.apply(null, metric)];
       stripes = hours.map((el) => {
         const obj = makeStripe(el.weather[0].id);
         return { color: obj.color, text: obj.text };
       });
-      return `<section id="hours" class="svelte-ujtdmr"><div class="tabs svelte-ujtdmr">${each(tabs, (tab, i) => {
-        return `<div class="${["tab svelte-ujtdmr", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
+      return `<section class="hours_component svelte-yb86si">
+  <div class="tabs svelte-yb86si">${each(tabs, (tab, i) => {
+        return `<div class="${["tab svelte-yb86si", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
       </div>`;
       })}</div>
   
 
+  
   <div class="hours">${each(hours, (hour, i) => {
-        return `${i % 2 && i <= 24 ? `<div class="hour svelte-ujtdmr"><div class="stripe svelte-ujtdmr"${add_styles({ "background": stripes[i].color })}></div>
+        return `${i % 2 && i <= 24 ? `<div class="hour svelte-yb86si"><div class="stripe svelte-yb86si"${add_styles({ "background": stripes[i].color })}></div>
 
           <div class="time">${escape(dateObj(hour?.dt * 1e3, "h aa"))}</div>
 
-          <div class="summary svelte-ujtdmr">${escape(i === 1 ? stripes[i].text : stripes[i - 2].text === stripes[i].text ? "" : stripes[i].text)}
+          <div class="summary svelte-yb86si">${escape(i === 1 ? stripes[i].text : stripes[i - 2].text === stripes[i].text ? "" : stripes[i].text)}
 
-            <div class="line svelte-ujtdmr"></div></div>
-
-          <div class="metric svelte-ujtdmr" style="${"margin-right: " + escape(offset(metric[i]), true)}">
-            <div class="${[
-          "metricValue svelte-ujtdmr",
+            <div class="line svelte-yb86si"></div></div>
+       
+          ${`<div class="${["metric svelte-yb86si", ""].join(" ").trim()}" style="${"margin-right: " + escape(offset(metric[i]), true)}"><div class="${[
+          "metricValue svelte-yb86si",
           "temp  "
         ].join(" ").trim()}">${escape(metric[i])}
 
-              ${``}</div>
-            
+              
 
-            </div>
-          </div>
-        ` : ``}`;
+              ${``}
+            </div></div> `}</div> ` : ``}`;
       })}
 
-    ${``}
 
-    <div class="moreHours svelte-ujtdmr"><span class="moreHoursBtn btn">${escape("...show more")}</span></div></div></section>
 
-`;
+    </div>
+  </section> `;
+    });
+    css$4 = {
+      code: ".accordion.svelte-ym4n9f{--radius:0;--header-font-size:inherit;--body-font-size:inherit;--seperator:none}.accordion.svelte-ym4n9f:not(:last-of-type){border-bottom:1px solid #cccccc55}.header.svelte-ym4n9f{padding:0.5rem 0;cursor:pointer}.body.svelte-ym4n9f{padding:0.5rem 2rem 1rem}",
+      map: null
+    };
+    Accordion = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css$4);
+      return `<div class="accordion svelte-ym4n9f"><div class="header svelte-ym4n9f">${slots.header ? slots.header({}) : ``}</div>
+	
+	${``}
+</div>`;
+    });
+    css$3 = {
+      code: '.range.svelte-iu9joe{height:100%;position:relative;padding:0 1.5rem 0 1rem;display:grid;justify-content:stretch}.shell.svelte-iu9joe{display:grid;align-items:center;position:relative}.bar.svelte-iu9joe{position:relative;background:gainsboro;border:1px solid #808080;height:0.75rem;border-radius:0.375rem;box-shadow:0 -2px 4px inset rgba(0,0,0,0.1)}.low.svelte-iu9joe,.high.svelte-iu9joe{position:absolute;top:-0.5rem}.low.svelte-iu9joe:after,.high.svelte-iu9joe:after{content:"\xB0"}.low.svelte-iu9joe{left:-2rem}.high.svelte-iu9joe{right:-2.2rem}',
+      map: null
+    };
+    RangeBar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { high, low, domain } = $$props;
+      let hi, lo;
+      function scale(n) {
+        return (n - domain[0]) / (domain[1] - domain[0]) * 100;
+      }
+      if ($$props.high === void 0 && $$bindings.high && high !== void 0)
+        $$bindings.high(high);
+      if ($$props.low === void 0 && $$bindings.low && low !== void 0)
+        $$bindings.low(low);
+      if ($$props.domain === void 0 && $$bindings.domain && domain !== void 0)
+        $$bindings.domain(domain);
+      $$result.css.add(css$3);
+      {
+        {
+          hi = scale(high);
+          lo = scale(low);
+        }
+      }
+      return `<section class="RangeBar"><div class="range svelte-iu9joe"><div class="shell svelte-iu9joe"${add_styles({ "left": `${lo}%`, "width": `${hi - lo}%` })}>
+         
+      <div class="bar svelte-iu9joe"><div class="low svelte-iu9joe">${escape(low)}</div>
+        <div class="high svelte-iu9joe">${escape(high)}</div></div></div></div>    
+</section>`;
     });
     css$2 = {
-      code: ".day.svelte-h1pj2q.svelte-h1pj2q{display:flex;align-items:center;gap:0 1ch}.precip.svelte-h1pj2q.svelte-h1pj2q{width:2.5rem}.precip.svelte-h1pj2q .pop.svelte-h1pj2q{display:inline-block;font-size:0.75rem}.precip.svelte-h1pj2q .symbol.svelte-h1pj2q{display:inline-block;font-size:0.65rem}",
+      code: ".day.svelte-408y0p.svelte-408y0p{display:grid;grid-template-columns:5rem 5rem 1fr;align-items:center;padding-right:1.1rem}.weekday.svelte-408y0p .precip.svelte-408y0p{color:rgba( 51, 51, 51, 0.7);font-size:0.75rem;line-height:1.3}.weekday.svelte-408y0p .precip div.svelte-408y0p{padding-right:0.5rem}.weekday.svelte-408y0p .precip span.svelte-408y0p:first-child{font-size:0.55rem;margin-right:0.2rem;vertical-align:2px;filter:grayscale(60%)}",
       map: null
     };
     Days = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { days = [] } = $$props;
+      let weekrange = getRange(days);
+      function getRange(days2) {
+        let highs = days2.map((el) => round(el.temp.max));
+        let lows = days2.map((el) => round(el.temp.min));
+        return [Math.min.apply(null, lows), Math.max.apply(null, highs)];
+      }
       if ($$props.days === void 0 && $$bindings.days && days !== void 0)
         $$bindings.days(days);
       $$result.css.add(css$2);
-      return `<div class="days">${each(days, (day) => {
-        return `<div class="day svelte-h1pj2q">${validate_component(WeatherIcon, "WeatherIcon").$$render(
-          $$result,
-          {
-            icon: day.weather[0].icon,
-            fontsize: "1.75em"
+      return `<div class="days">${each(days, (day, i) => {
+        return `${validate_component(Accordion, "Accordion").$$render($$result, {}, {}, {
+          default: () => {
+            return `${escape(i)}
+`;
           },
-          {},
-          {}
-        )}
-    <div class="precip svelte-h1pj2q"><div class="symbol svelte-h1pj2q">${escape(precipSymbol(day.weather[0].id))}</div>
-      <div class="pop svelte-h1pj2q">${escape(day.pop > 0.15 ? day.pop * 100 + "%" : " ")}</div></div>
-    <div class="date">${escape(dateObj(day.dt * 1e3, "ddd"))}</div>
-    <div class="temp low">${escape(round(day.temp.min))}</div>
-    <div class="temp high">${escape(round(day.temp.max))}</div>
+          header: () => {
+            return `<div class="day svelte-408y0p">${validate_component(WeatherIcon, "WeatherIcon").$$render(
+              $$result,
+              {
+                icon: day.weather[0].icon,
+                fontsize: "1.75em"
+              },
+              {},
+              {}
+            )}
+
+    <div class="weekday svelte-408y0p"><div class="date svelte-408y0p">${escape(i === 0 ? "Today" : dateObj(day.dt * 1e3, "ddd"))}</div>
+      <div class="precip svelte-408y0p"><div class="svelte-408y0p"><span class="svelte-408y0p">${escape(precipSymbol(day.weather[0].id))}</span>
+          <span class="svelte-408y0p">${escape(day.pop > 0.01 ? day.pop * 100 + "%" : "0%")}</span></div>
+      </div></div>
+
+    
+    
+    
+
+    <div>${validate_component(RangeBar, "RangeBar").$$render(
+              $$result,
+              {
+                domain: weekrange,
+                high: round(day.temp.max),
+                low: round(day.temp.min)
+              },
+              {},
+              {}
+            )}</div>
 
   
 
-    
-  </div>`;
+    </div>
+  
+`;
+          }
+        })}`;
       })}
 </div>`;
     });
@@ -5917,7 +5988,7 @@ var init_page_svelte = __esm({
     Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { data } = $$props;
       const { weather } = data;
-      let days = {}, hours = {}, minutes = {}, current = {}, alerts = [], precipitating = null;
+      let days = {}, hours = {}, minutes = {}, current2 = {}, alerts = [], precipitating = null;
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
       $$result.css.add(css2);
@@ -5926,7 +5997,7 @@ var init_page_svelte = __esm({
       }
       {
         {
-          current = weather?.current;
+          current2 = weather?.current;
           minutes = weather?.minutely;
           hours = weather?.hourly;
           days = weather?.daily;
@@ -5935,7 +6006,7 @@ var init_page_svelte = __esm({
       }
       {
         {
-          precipitating = current?.rain || current?.snow;
+          precipitating = current2?.rain || current2?.snow;
         }
       }
       return `<div class="page">${validate_component(Current, "Current").$$render(
@@ -5946,7 +6017,7 @@ var init_page_svelte = __esm({
             low: days[0].temp.min,
             sunrise: days[0].sunrise,
             sunset: days[0].sunset,
-            ...current
+            ...current2
           }
         },
         {},
@@ -5955,12 +6026,18 @@ var init_page_svelte = __esm({
 
 
     
-    ${precipitating ? `<div class="precipChart"><div class="desc svelte-qqo0iq">${current?.snow ? `Snow this hour: <var class="svelte-qqo0iq">${escape(round(mmToInches(current?.snow["1h"]), 2) + '"')}</var>` : `${current?.rain ? `Rain this hour <var class="svelte-qqo0iq">${escape(round(mmToInches(current?.rain["1h"]), 2) + '"')}</var>` : `precip this hour`}`}</div>
+    ${precipitating ? `<div class="precipChart"><div class="desc svelte-qqo0iq">${current2?.snow ? `Snow this hour: <var class="svelte-qqo0iq">${escape(round(mmToInches(current2?.snow["1h"]), 2) + '"')}</var>` : `${current2?.rain ? `Rain this hour <var class="svelte-qqo0iq">${escape(round(mmToInches(current2?.rain["1h"]), 2) + '"')}</var>` : `precip this hour`}`}</div>
 
       ${validate_component(WobbleChart, "WobbleChart").$$render($$result, { minutes }, {}, {})}</div>` : ``}
+    
    
-
+  <div class="day_summary">day_summary</div>
+    
   ${validate_component(Hours, "Hours").$$render($$result, { hours }, {}, {})}
+
+  
+   
+  <div class="week_summary">week_summary</div>
 
   ${validate_component(Days, "Days").$$render($$result, { days }, {}, {})}</div> `;
     });
@@ -5982,9 +6059,9 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.ee56cd9a.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.ee56cd9a.js", "_app/immutable/chunks/index.cb171ed7.js"];
-    stylesheets3 = ["_app/immutable/assets/_page.da563111.css"];
+    file3 = "_app/immutable/entry/_page.svelte.1a0ec83e.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.1a0ec83e.js", "_app/immutable/chunks/index.9f31e1a2.js"];
+    stylesheets3 = ["_app/immutable/assets/_page.c37f12d1.css"];
     fonts3 = [];
   }
 });
@@ -6022,8 +6099,8 @@ var init__4 = __esm({
   ".svelte-kit/output/server/nodes/3.js"() {
     index4 = 3;
     component4 = async () => (await Promise.resolve().then(() => (init_page_svelte2(), page_svelte_exports2))).default;
-    file4 = "_app/immutable/entry/alerts-page.svelte.de410b60.js";
-    imports4 = ["_app/immutable/entry/alerts-page.svelte.de410b60.js", "_app/immutable/chunks/index.cb171ed7.js"];
+    file4 = "_app/immutable/entry/alerts-page.svelte.d0b577b0.js";
+    imports4 = ["_app/immutable/entry/alerts-page.svelte.d0b577b0.js", "_app/immutable/chunks/index.9f31e1a2.js"];
     stylesheets4 = [];
     fonts4 = [];
   }
@@ -6066,8 +6143,8 @@ var init__5 = __esm({
   ".svelte-kit/output/server/nodes/4.js"() {
     index5 = 4;
     component5 = async () => (await Promise.resolve().then(() => (init_page_md(), page_md_exports))).default;
-    file5 = "_app/immutable/entry/docs-page.md.34d7fe89.js";
-    imports5 = ["_app/immutable/entry/docs-page.md.34d7fe89.js", "_app/immutable/chunks/index.cb171ed7.js"];
+    file5 = "_app/immutable/entry/docs-page.md.c5b58b9d.js";
+    imports5 = ["_app/immutable/entry/docs-page.md.c5b58b9d.js", "_app/immutable/chunks/index.9f31e1a2.js"];
     stylesheets5 = [];
     fonts5 = [];
   }
@@ -6106,8 +6183,8 @@ var init__6 = __esm({
   ".svelte-kit/output/server/nodes/5.js"() {
     index6 = 5;
     component6 = async () => (await Promise.resolve().then(() => (init_page_svelte3(), page_svelte_exports3))).default;
-    file6 = "_app/immutable/entry/map-page.svelte.586a427f.js";
-    imports6 = ["_app/immutable/entry/map-page.svelte.586a427f.js", "_app/immutable/chunks/index.cb171ed7.js"];
+    file6 = "_app/immutable/entry/map-page.svelte.2cdf8952.js";
+    imports6 = ["_app/immutable/entry/map-page.svelte.2cdf8952.js", "_app/immutable/chunks/index.9f31e1a2.js"];
     stylesheets6 = [];
     fonts6 = [];
   }
@@ -6115,14 +6192,6 @@ var init__6 = __esm({
 
 // .svelte-kit/output/server/entries/pages/search/_page.server.js
 var page_server_exports = {};
-__export(page_server_exports, {
-  load: () => load2
-});
-async function load2({ fetch: fetch2 }) {
-  const res = await fetch2("api/geolocate");
-  const geoData = await res.json();
-  return { geoData };
-}
 var init_page_server = __esm({
   ".svelte-kit/output/server/entries/pages/search/_page.server.js"() {
   }
@@ -6177,9 +6246,9 @@ var init__7 = __esm({
     init_page_server();
     index7 = 6;
     component7 = async () => (await Promise.resolve().then(() => (init_page_svelte4(), page_svelte_exports4))).default;
-    file7 = "_app/immutable/entry/search-page.svelte.1013e60d.js";
+    file7 = "_app/immutable/entry/search-page.svelte.249950b2.js";
     server_id2 = "src/routes/search/+page.server.js";
-    imports7 = ["_app/immutable/entry/search-page.svelte.1013e60d.js", "_app/immutable/chunks/index.cb171ed7.js"];
+    imports7 = ["_app/immutable/entry/search-page.svelte.249950b2.js", "_app/immutable/chunks/index.9f31e1a2.js"];
     stylesheets7 = ["_app/immutable/assets/_page.48d07f72.css"];
     fonts7 = [];
   }
@@ -6257,18 +6326,1726 @@ __export(server_exports4, {
 });
 async function GET3({ params }) {
   try {
-    const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
-    const weather = await res.json();
+    let weather;
+    if (local) {
+      weather = weatherData;
+    }
     return json(weather);
   } catch (error2) {
     console.log("load error:", error2);
   }
 }
-var WEATHER_KEY;
+var lat, lon, timezone, timezone_offset, current, minutely, hourly, daily, weatherData, local;
 var init_server4 = __esm({
   ".svelte-kit/output/server/entries/endpoints/api/weather/_search_/_server.js"() {
     init_chunks();
-    WEATHER_KEY = "826b835b9408db50ca70aa7158b06f23";
+    lat = 35.4662;
+    lon = -97.5168;
+    timezone = "America/Chicago";
+    timezone_offset = -18e3;
+    current = {
+      dt: 1680866772,
+      sunrise: 1680869302,
+      sunset: 1680915341,
+      temp: 39.51,
+      feels_like: 33.39,
+      pressure: 1037,
+      humidity: 67,
+      dew_point: 29.77,
+      uvi: 0,
+      clouds: 20,
+      visibility: 1e4,
+      wind_speed: 9.22,
+      wind_deg: 50,
+      weather: [
+        {
+          id: 801,
+          main: "Clouds",
+          description: "few clouds",
+          icon: "02n"
+        }
+      ]
+    };
+    minutely = [
+      {
+        dt: 1680866820,
+        precipitation: 0
+      },
+      {
+        dt: 1680866880,
+        precipitation: 0
+      },
+      {
+        dt: 1680866940,
+        precipitation: 0
+      },
+      {
+        dt: 1680867e3,
+        precipitation: 0
+      },
+      {
+        dt: 1680867060,
+        precipitation: 0
+      },
+      {
+        dt: 1680867120,
+        precipitation: 0
+      },
+      {
+        dt: 1680867180,
+        precipitation: 0
+      },
+      {
+        dt: 1680867240,
+        precipitation: 0
+      },
+      {
+        dt: 1680867300,
+        precipitation: 0
+      },
+      {
+        dt: 1680867360,
+        precipitation: 0
+      },
+      {
+        dt: 1680867420,
+        precipitation: 0
+      },
+      {
+        dt: 1680867480,
+        precipitation: 0
+      },
+      {
+        dt: 1680867540,
+        precipitation: 0
+      },
+      {
+        dt: 1680867600,
+        precipitation: 0
+      },
+      {
+        dt: 1680867660,
+        precipitation: 0
+      },
+      {
+        dt: 1680867720,
+        precipitation: 0
+      },
+      {
+        dt: 1680867780,
+        precipitation: 0
+      },
+      {
+        dt: 1680867840,
+        precipitation: 0
+      },
+      {
+        dt: 1680867900,
+        precipitation: 0
+      },
+      {
+        dt: 1680867960,
+        precipitation: 0
+      },
+      {
+        dt: 1680868020,
+        precipitation: 0
+      },
+      {
+        dt: 1680868080,
+        precipitation: 0
+      },
+      {
+        dt: 1680868140,
+        precipitation: 0
+      },
+      {
+        dt: 1680868200,
+        precipitation: 0
+      },
+      {
+        dt: 1680868260,
+        precipitation: 0
+      },
+      {
+        dt: 1680868320,
+        precipitation: 0
+      },
+      {
+        dt: 1680868380,
+        precipitation: 0
+      },
+      {
+        dt: 1680868440,
+        precipitation: 0
+      },
+      {
+        dt: 1680868500,
+        precipitation: 0
+      },
+      {
+        dt: 1680868560,
+        precipitation: 0
+      },
+      {
+        dt: 1680868620,
+        precipitation: 0
+      },
+      {
+        dt: 1680868680,
+        precipitation: 0
+      },
+      {
+        dt: 1680868740,
+        precipitation: 0
+      },
+      {
+        dt: 1680868800,
+        precipitation: 0
+      },
+      {
+        dt: 1680868860,
+        precipitation: 0
+      },
+      {
+        dt: 1680868920,
+        precipitation: 0
+      },
+      {
+        dt: 1680868980,
+        precipitation: 0
+      },
+      {
+        dt: 1680869040,
+        precipitation: 0
+      },
+      {
+        dt: 1680869100,
+        precipitation: 0
+      },
+      {
+        dt: 1680869160,
+        precipitation: 0
+      },
+      {
+        dt: 1680869220,
+        precipitation: 0
+      },
+      {
+        dt: 1680869280,
+        precipitation: 0
+      },
+      {
+        dt: 1680869340,
+        precipitation: 0
+      },
+      {
+        dt: 1680869400,
+        precipitation: 0
+      },
+      {
+        dt: 1680869460,
+        precipitation: 0
+      },
+      {
+        dt: 1680869520,
+        precipitation: 0
+      },
+      {
+        dt: 1680869580,
+        precipitation: 0
+      },
+      {
+        dt: 1680869640,
+        precipitation: 0
+      },
+      {
+        dt: 1680869700,
+        precipitation: 0
+      },
+      {
+        dt: 1680869760,
+        precipitation: 0
+      },
+      {
+        dt: 1680869820,
+        precipitation: 0
+      },
+      {
+        dt: 1680869880,
+        precipitation: 0
+      },
+      {
+        dt: 1680869940,
+        precipitation: 0
+      },
+      {
+        dt: 168087e4,
+        precipitation: 0
+      },
+      {
+        dt: 1680870060,
+        precipitation: 0
+      },
+      {
+        dt: 1680870120,
+        precipitation: 0
+      },
+      {
+        dt: 1680870180,
+        precipitation: 0
+      },
+      {
+        dt: 1680870240,
+        precipitation: 0
+      },
+      {
+        dt: 1680870300,
+        precipitation: 0
+      },
+      {
+        dt: 1680870360,
+        precipitation: 0
+      },
+      {
+        dt: 1680870420,
+        precipitation: 0
+      }
+    ];
+    hourly = [
+      {
+        dt: 1680865200,
+        temp: 39.51,
+        feels_like: 34.14,
+        pressure: 1037,
+        humidity: 67,
+        dew_point: 29.77,
+        uvi: 0,
+        clouds: 20,
+        visibility: 1e4,
+        wind_speed: 7.7,
+        wind_deg: 58,
+        wind_gust: 17.05,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680868800,
+        temp: 39.56,
+        feels_like: 34.27,
+        pressure: 1035,
+        humidity: 69,
+        dew_point: 30.45,
+        uvi: 0,
+        clouds: 34,
+        visibility: 1e4,
+        wind_speed: 7.58,
+        wind_deg: 69,
+        wind_gust: 16.96,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680872400,
+        temp: 40.26,
+        feels_like: 35.28,
+        pressure: 1034,
+        humidity: 70,
+        dew_point: 31.37,
+        uvi: 0.24,
+        clouds: 52,
+        visibility: 1e4,
+        wind_speed: 7.31,
+        wind_deg: 60,
+        wind_gust: 18.5,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680876e3,
+        temp: 43.74,
+        feels_like: 38.26,
+        pressure: 1032,
+        humidity: 64,
+        dew_point: 32.38,
+        uvi: 1.09,
+        clouds: 51,
+        visibility: 1e4,
+        wind_speed: 10.02,
+        wind_deg: 68,
+        wind_gust: 17.58,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680879600,
+        temp: 49.23,
+        feels_like: 44.73,
+        pressure: 1031,
+        humidity: 54,
+        dew_point: 33.31,
+        uvi: 2.72,
+        clouds: 66,
+        visibility: 1e4,
+        wind_speed: 11.1,
+        wind_deg: 78,
+        wind_gust: 17.27,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680883200,
+        temp: 55.2,
+        feels_like: 52.45,
+        pressure: 1028,
+        humidity: 43,
+        dew_point: 33.03,
+        uvi: 4.89,
+        clouds: 83,
+        visibility: 1e4,
+        wind_speed: 12.5,
+        wind_deg: 77,
+        wind_gust: 17.02,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680886800,
+        temp: 58.39,
+        feels_like: 55.62,
+        pressure: 1027,
+        humidity: 36,
+        dew_point: 31.68,
+        uvi: 6.99,
+        clouds: 85,
+        visibility: 1e4,
+        wind_speed: 12.44,
+        wind_deg: 75,
+        wind_gust: 15.68,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680890400,
+        temp: 60.8,
+        feels_like: 58.08,
+        pressure: 1026,
+        humidity: 32,
+        dew_point: 30.52,
+        uvi: 8.29,
+        clouds: 87,
+        visibility: 1e4,
+        wind_speed: 12.33,
+        wind_deg: 81,
+        wind_gust: 14.67,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680894e3,
+        temp: 62.69,
+        feels_like: 60.03,
+        pressure: 1025,
+        humidity: 29,
+        dew_point: 30.16,
+        uvi: 8.31,
+        clouds: 87,
+        visibility: 1e4,
+        wind_speed: 12.5,
+        wind_deg: 87,
+        wind_gust: 14.41,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680897600,
+        temp: 63.93,
+        feels_like: 61.34,
+        pressure: 1024,
+        humidity: 28,
+        dew_point: 30.22,
+        uvi: 7.08,
+        clouds: 43,
+        visibility: 1e4,
+        wind_speed: 11.68,
+        wind_deg: 92,
+        wind_gust: 13.11,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680901200,
+        temp: 64.33,
+        feels_like: 61.77,
+        pressure: 1022,
+        humidity: 28,
+        dew_point: 30.49,
+        uvi: 5.03,
+        clouds: 32,
+        visibility: 1e4,
+        wind_speed: 11.01,
+        wind_deg: 88,
+        wind_gust: 11.79,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680904800,
+        temp: 63.84,
+        feels_like: 61.34,
+        pressure: 1022,
+        humidity: 30,
+        dew_point: 31.71,
+        uvi: 2.8,
+        clouds: 24,
+        visibility: 1e4,
+        wind_speed: 11.81,
+        wind_deg: 98,
+        wind_gust: 12.39,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680908400,
+        temp: 62.47,
+        feels_like: 59.97,
+        pressure: 1021,
+        humidity: 33,
+        dew_point: 32.88,
+        uvi: 1.15,
+        clouds: 19,
+        visibility: 1e4,
+        wind_speed: 11.03,
+        wind_deg: 96,
+        wind_gust: 11.95,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680912e3,
+        temp: 59.4,
+        feels_like: 57,
+        pressure: 1022,
+        humidity: 42,
+        dew_point: 36.23,
+        uvi: 0.28,
+        clouds: 16,
+        visibility: 1e4,
+        wind_speed: 9.89,
+        wind_deg: 100,
+        wind_gust: 15.14,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680915600,
+        temp: 52.92,
+        feels_like: 50.31,
+        pressure: 1022,
+        humidity: 51,
+        dew_point: 35.13,
+        uvi: 0,
+        clouds: 0,
+        visibility: 1e4,
+        wind_speed: 9.26,
+        wind_deg: 110,
+        wind_gust: 17.07,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680919200,
+        temp: 50.16,
+        feels_like: 47.41,
+        pressure: 1023,
+        humidity: 54,
+        dew_point: 34.29,
+        uvi: 0,
+        clouds: 0,
+        visibility: 1e4,
+        wind_speed: 8.63,
+        wind_deg: 115,
+        wind_gust: 16.75,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680922800,
+        temp: 48.67,
+        feels_like: 44.85,
+        pressure: 1023,
+        humidity: 55,
+        dew_point: 33.39,
+        uvi: 0,
+        clouds: 0,
+        visibility: 1e4,
+        wind_speed: 8.75,
+        wind_deg: 114,
+        wind_gust: 17.02,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680926400,
+        temp: 47.25,
+        feels_like: 43.74,
+        pressure: 1023,
+        humidity: 57,
+        dew_point: 32.83,
+        uvi: 0,
+        clouds: 4,
+        visibility: 1e4,
+        wind_speed: 7.29,
+        wind_deg: 115,
+        wind_gust: 11.52,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 168093e4,
+        temp: 46.71,
+        feels_like: 43.11,
+        pressure: 1023,
+        humidity: 59,
+        dew_point: 33.28,
+        uvi: 0,
+        clouds: 23,
+        visibility: 1e4,
+        wind_speed: 7.23,
+        wind_deg: 117,
+        wind_gust: 9.89,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680933600,
+        temp: 46.56,
+        feels_like: 43.05,
+        pressure: 1023,
+        humidity: 62,
+        dew_point: 34.45,
+        uvi: 0,
+        clouds: 36,
+        visibility: 1e4,
+        wind_speed: 6.98,
+        wind_deg: 128,
+        wind_gust: 9.24,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680937200,
+        temp: 46.47,
+        feels_like: 43.05,
+        pressure: 1023,
+        humidity: 65,
+        dew_point: 35.17,
+        uvi: 0,
+        clouds: 100,
+        visibility: 1e4,
+        wind_speed: 6.78,
+        wind_deg: 138,
+        wind_gust: 9.8,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680940800,
+        temp: 46.4,
+        feels_like: 43.38,
+        pressure: 1023,
+        humidity: 66,
+        dew_point: 35.47,
+        uvi: 0,
+        clouds: 100,
+        visibility: 1e4,
+        wind_speed: 6.02,
+        wind_deg: 148,
+        wind_gust: 7.23,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680944400,
+        temp: 45.37,
+        feels_like: 43.02,
+        pressure: 1023,
+        humidity: 68,
+        dew_point: 35.49,
+        uvi: 0,
+        clouds: 100,
+        visibility: 1e4,
+        wind_speed: 4.68,
+        wind_deg: 137,
+        wind_gust: 4.76,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680948e3,
+        temp: 44.85,
+        feels_like: 43.23,
+        pressure: 1023,
+        humidity: 69,
+        dew_point: 35.42,
+        uvi: 0,
+        clouds: 91,
+        visibility: 1e4,
+        wind_speed: 3.65,
+        wind_deg: 114,
+        wind_gust: 3.67,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680951600,
+        temp: 44.35,
+        feels_like: 42.55,
+        pressure: 1023,
+        humidity: 70,
+        dew_point: 35.31,
+        uvi: 0,
+        clouds: 84,
+        visibility: 1e4,
+        wind_speed: 3.76,
+        wind_deg: 96,
+        wind_gust: 3.83,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680955200,
+        temp: 44.02,
+        feels_like: 42.28,
+        pressure: 1023,
+        humidity: 71,
+        dew_point: 35.29,
+        uvi: 0,
+        clouds: 74,
+        visibility: 1e4,
+        wind_speed: 3.65,
+        wind_deg: 103,
+        wind_gust: 3.65,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680958800,
+        temp: 46.24,
+        feels_like: 44.1,
+        pressure: 1023,
+        humidity: 69,
+        dew_point: 36.79,
+        uvi: 0.13,
+        clouds: 22,
+        visibility: 1e4,
+        wind_speed: 4.56,
+        wind_deg: 111,
+        wind_gust: 5.66,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680962400,
+        temp: 50.94,
+        feels_like: 48.65,
+        pressure: 1023,
+        humidity: 62,
+        dew_point: 38.3,
+        uvi: 0.58,
+        clouds: 16,
+        visibility: 1e4,
+        wind_speed: 4.99,
+        wind_deg: 123,
+        wind_gust: 5.95,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680966e3,
+        temp: 55.17,
+        feels_like: 53.06,
+        pressure: 1023,
+        humidity: 57,
+        dew_point: 40.33,
+        uvi: 1.43,
+        clouds: 13,
+        visibility: 1e4,
+        wind_speed: 5.1,
+        wind_deg: 144,
+        wind_gust: 5.17,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680969600,
+        temp: 58.93,
+        feels_like: 57.06,
+        pressure: 1022,
+        humidity: 54,
+        dew_point: 42.28,
+        uvi: 3.58,
+        clouds: 12,
+        visibility: 1e4,
+        wind_speed: 5.99,
+        wind_deg: 142,
+        wind_gust: 5.66,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680973200,
+        temp: 62.22,
+        feels_like: 60.55,
+        pressure: 1022,
+        humidity: 51,
+        dew_point: 44.02,
+        uvi: 5.09,
+        clouds: 10,
+        visibility: 1e4,
+        wind_speed: 6.93,
+        wind_deg: 151,
+        wind_gust: 6.73,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680976800,
+        temp: 64.8,
+        feels_like: 63.32,
+        pressure: 1021,
+        humidity: 50,
+        dew_point: 45.55,
+        uvi: 6.03,
+        clouds: 10,
+        visibility: 1e4,
+        wind_speed: 7.92,
+        wind_deg: 154,
+        wind_gust: 7.65,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680980400,
+        temp: 66.72,
+        feels_like: 65.39,
+        pressure: 1020,
+        humidity: 49,
+        dew_point: 46.85,
+        uvi: 7.5,
+        clouds: 55,
+        visibility: 1e4,
+        wind_speed: 8.86,
+        wind_deg: 163,
+        wind_gust: 8.41,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680984e3,
+        temp: 67.73,
+        feels_like: 66.51,
+        pressure: 1019,
+        humidity: 49,
+        dew_point: 47.79,
+        uvi: 6.4,
+        clouds: 51,
+        visibility: 1e4,
+        wind_speed: 9.82,
+        wind_deg: 168,
+        wind_gust: 8.88,
+        weather: [
+          {
+            id: 803,
+            main: "Clouds",
+            description: "broken clouds",
+            icon: "04d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680987600,
+        temp: 67.46,
+        feels_like: 66.25,
+        pressure: 1019,
+        humidity: 50,
+        dew_point: 48.09,
+        uvi: 4.56,
+        clouds: 43,
+        visibility: 1e4,
+        wind_speed: 10.78,
+        wind_deg: 171,
+        wind_gust: 9.28,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680991200,
+        temp: 66.27,
+        feels_like: 65.05,
+        pressure: 1018,
+        humidity: 52,
+        dew_point: 48.24,
+        uvi: 2.61,
+        clouds: 40,
+        visibility: 1e4,
+        wind_speed: 11.01,
+        wind_deg: 168,
+        wind_gust: 9.44,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680994800,
+        temp: 64.33,
+        feels_like: 63.05,
+        pressure: 1018,
+        humidity: 55,
+        dew_point: 47.98,
+        uvi: 1.09,
+        clouds: 32,
+        visibility: 1e4,
+        wind_speed: 10.51,
+        wind_deg: 164,
+        wind_gust: 9.84,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1680998400,
+        temp: 61.95,
+        feels_like: 60.76,
+        pressure: 1019,
+        humidity: 62,
+        dew_point: 48.65,
+        uvi: 0.27,
+        clouds: 27,
+        visibility: 1e4,
+        wind_speed: 8.57,
+        wind_deg: 161,
+        wind_gust: 11.18,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03d"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681002e3,
+        temp: 57.24,
+        feels_like: 56.08,
+        pressure: 1019,
+        humidity: 73,
+        dew_point: 48.47,
+        uvi: 0,
+        clouds: 0,
+        visibility: 1e4,
+        wind_speed: 7.02,
+        wind_deg: 166,
+        wind_gust: 9.17,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681005600,
+        temp: 55.71,
+        feels_like: 54.79,
+        pressure: 1019,
+        humidity: 81,
+        dew_point: 49.82,
+        uvi: 0,
+        clouds: 1,
+        visibility: 1e4,
+        wind_speed: 7.11,
+        wind_deg: 179,
+        wind_gust: 9.93,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681009200,
+        temp: 54.64,
+        feels_like: 53.91,
+        pressure: 1020,
+        humidity: 87,
+        dew_point: 50.81,
+        uvi: 0,
+        clouds: 3,
+        visibility: 1e4,
+        wind_speed: 8.01,
+        wind_deg: 186,
+        wind_gust: 12.95,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681012800,
+        temp: 53.46,
+        feels_like: 52.74,
+        pressure: 1021,
+        humidity: 90,
+        dew_point: 50.45,
+        uvi: 0,
+        clouds: 14,
+        visibility: 1e4,
+        wind_speed: 8.12,
+        wind_deg: 181,
+        wind_gust: 15.26,
+        weather: [
+          {
+            id: 801,
+            main: "Clouds",
+            description: "few clouds",
+            icon: "02n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681016400,
+        temp: 53.01,
+        feels_like: 52.23,
+        pressure: 1021,
+        humidity: 90,
+        dew_point: 50.2,
+        uvi: 0,
+        clouds: 32,
+        visibility: 1e4,
+        wind_speed: 7.65,
+        wind_deg: 179,
+        wind_gust: 14.92,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 168102e4,
+        temp: 52.12,
+        feels_like: 51.37,
+        pressure: 1021,
+        humidity: 92,
+        dew_point: 49.86,
+        uvi: 0,
+        clouds: 39,
+        visibility: 1e4,
+        wind_speed: 7.92,
+        wind_deg: 181,
+        wind_gust: 14.65,
+        weather: [
+          {
+            id: 802,
+            main: "Clouds",
+            description: "scattered clouds",
+            icon: "03n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681023600,
+        temp: 51.26,
+        feels_like: 50.41,
+        pressure: 1021,
+        humidity: 92,
+        dew_point: 49.12,
+        uvi: 0,
+        clouds: 99,
+        visibility: 1e4,
+        wind_speed: 7.92,
+        wind_deg: 170,
+        wind_gust: 15.88,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681027200,
+        temp: 51.06,
+        feels_like: 50.2,
+        pressure: 1020,
+        humidity: 92,
+        dew_point: 48.65,
+        uvi: 0,
+        clouds: 99,
+        visibility: 1e4,
+        wind_speed: 8.14,
+        wind_deg: 163,
+        wind_gust: 17.34,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681030800,
+        temp: 50.4,
+        feels_like: 49.55,
+        pressure: 1020,
+        humidity: 94,
+        dew_point: 48.61,
+        uvi: 0,
+        clouds: 100,
+        visibility: 1e4,
+        wind_speed: 8.37,
+        wind_deg: 163,
+        wind_gust: 19.28,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      },
+      {
+        dt: 1681034400,
+        temp: 50.27,
+        feels_like: 49.42,
+        pressure: 1021,
+        humidity: 94,
+        dew_point: 48.4,
+        uvi: 0,
+        clouds: 100,
+        visibility: 1e4,
+        wind_speed: 7.76,
+        wind_deg: 170,
+        wind_gust: 19.66,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04n"
+          }
+        ],
+        pop: 0
+      }
+    ];
+    daily = [
+      {
+        dt: 1680890400,
+        sunrise: 1680869302,
+        sunset: 1680915341,
+        moonrise: 1680921960,
+        moonset: 1680872160,
+        moon_phase: 0.55,
+        temp: {
+          day: 60.8,
+          min: 39.51,
+          max: 64.33,
+          night: 47.25,
+          eve: 59.4,
+          morn: 39.56
+        },
+        feels_like: {
+          day: 58.08,
+          night: 43.74,
+          eve: 57,
+          morn: 34.27
+        },
+        pressure: 1026,
+        humidity: 32,
+        dew_point: 30.52,
+        wind_speed: 12.5,
+        wind_deg: 77,
+        wind_gust: 21.83,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d"
+          }
+        ],
+        clouds: 87,
+        pop: 0,
+        uvi: 8.31
+      },
+      {
+        dt: 1680976800,
+        sunrise: 1680955619,
+        sunset: 1681001790,
+        moonrise: 1681012380,
+        moonset: 1680960360,
+        moon_phase: 0.58,
+        temp: {
+          day: 64.8,
+          min: 44.02,
+          max: 67.73,
+          night: 53.46,
+          eve: 61.95,
+          morn: 44.02
+        },
+        feels_like: {
+          day: 63.32,
+          night: 52.74,
+          eve: 60.76,
+          morn: 42.28
+        },
+        pressure: 1021,
+        humidity: 50,
+        dew_point: 45.55,
+        wind_speed: 11.01,
+        wind_deg: 168,
+        wind_gust: 15.26,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01d"
+          }
+        ],
+        clouds: 10,
+        pop: 0,
+        uvi: 7.5
+      },
+      {
+        dt: 1681063200,
+        sunrise: 1681041937,
+        sunset: 1681088239,
+        moonrise: 0,
+        moonset: 1681048920,
+        moon_phase: 0.62,
+        temp: {
+          day: 60.46,
+          min: 49.5,
+          max: 65.89,
+          night: 55.83,
+          eve: 60.03,
+          morn: 49.5
+        },
+        feels_like: {
+          day: 59.83,
+          night: 55.49,
+          eve: 59.58,
+          morn: 46.35
+        },
+        pressure: 1022,
+        humidity: 77,
+        dew_point: 52.97,
+        wind_speed: 11.81,
+        wind_deg: 183,
+        wind_gust: 19.8,
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d"
+          }
+        ],
+        clouds: 100,
+        pop: 0.01,
+        uvi: 5.08
+      },
+      {
+        dt: 1681149600,
+        sunrise: 1681128255,
+        sunset: 1681174687,
+        moonrise: 1681102980,
+        moonset: 1681137900,
+        moon_phase: 0.65,
+        temp: {
+          day: 67.37,
+          min: 53.26,
+          max: 70.12,
+          night: 57.76,
+          eve: 65.8,
+          morn: 53.26
+        },
+        feels_like: {
+          day: 66.67,
+          night: 57.36,
+          eve: 65.08,
+          morn: 52.84
+        },
+        pressure: 1023,
+        humidity: 61,
+        dew_point: 53.4,
+        wind_speed: 8.57,
+        wind_deg: 152,
+        wind_gust: 17.49,
+        weather: [
+          {
+            id: 500,
+            main: "Rain",
+            description: "light rain",
+            icon: "10d"
+          }
+        ],
+        clouds: 100,
+        pop: 0.99,
+        rain: 5.91,
+        uvi: 4.51
+      },
+      {
+        dt: 1681236e3,
+        sunrise: 1681214574,
+        sunset: 1681261136,
+        moonrise: 1681193460,
+        moonset: 1681227480,
+        moon_phase: 0.69,
+        temp: {
+          day: 67.53,
+          min: 50.94,
+          max: 69.46,
+          night: 57.34,
+          eve: 67.39,
+          morn: 50.94
+        },
+        feels_like: {
+          day: 66.67,
+          night: 56.21,
+          eve: 66.33,
+          morn: 50.29
+        },
+        pressure: 1023,
+        humidity: 57,
+        dew_point: 51.58,
+        wind_speed: 10.25,
+        wind_deg: 142,
+        wind_gust: 15.95,
+        weather: [
+          {
+            id: 500,
+            main: "Rain",
+            description: "light rain",
+            icon: "10d"
+          }
+        ],
+        clouds: 12,
+        pop: 0.99,
+        rain: 0.11,
+        uvi: 5
+      },
+      {
+        dt: 1681322400,
+        sunrise: 1681300894,
+        sunset: 1681347585,
+        moonrise: 1681283640,
+        moonset: 1681317600,
+        moon_phase: 0.73,
+        temp: {
+          day: 68.68,
+          min: 48.56,
+          max: 72.39,
+          night: 59.47,
+          eve: 68.76,
+          morn: 48.56
+        },
+        feels_like: {
+          day: 67.6,
+          night: 58.59,
+          eve: 67.91,
+          morn: 45.54
+        },
+        pressure: 1017,
+        humidity: 50,
+        dew_point: 49.19,
+        wind_speed: 12.08,
+        wind_deg: 176,
+        wind_gust: 22.84,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01d"
+          }
+        ],
+        clouds: 0,
+        pop: 0,
+        uvi: 5
+      },
+      {
+        dt: 1681408800,
+        sunrise: 1681387214,
+        sunset: 1681434035,
+        moonrise: 1681373460,
+        moonset: 1681408140,
+        moon_phase: 0.75,
+        temp: {
+          day: 71.8,
+          min: 52.05,
+          max: 74.44,
+          night: 61.75,
+          eve: 70.27,
+          morn: 52.05
+        },
+        feels_like: {
+          day: 71.08,
+          night: 61.11,
+          eve: 69.67,
+          morn: 51.28
+        },
+        pressure: 1010,
+        humidity: 51,
+        dew_point: 52.5,
+        wind_speed: 15.12,
+        wind_deg: 178,
+        wind_gust: 30.29,
+        weather: [
+          {
+            id: 800,
+            main: "Clear",
+            description: "clear sky",
+            icon: "01d"
+          }
+        ],
+        clouds: 0,
+        pop: 0,
+        uvi: 5
+      },
+      {
+        dt: 1681495200,
+        sunrise: 1681473535,
+        sunset: 1681520484,
+        moonrise: 1681462680,
+        moonset: 1681498860,
+        moon_phase: 0.8,
+        temp: {
+          day: 75.81,
+          min: 58.89,
+          max: 80.47,
+          night: 66.65,
+          eve: 74.26,
+          morn: 58.89
+        },
+        feels_like: {
+          day: 75.96,
+          night: 67.19,
+          eve: 74.68,
+          morn: 58.48
+        },
+        pressure: 1003,
+        humidity: 61,
+        dew_point: 61.54,
+        wind_speed: 23.44,
+        wind_deg: 187,
+        wind_gust: 41.96,
+        weather: [
+          {
+            id: 500,
+            main: "Rain",
+            description: "light rain",
+            icon: "10d"
+          }
+        ],
+        clouds: 100,
+        pop: 0.24,
+        rain: 0.1,
+        uvi: 5
+      }
+    ];
+    weatherData = {
+      lat,
+      lon,
+      timezone,
+      timezone_offset,
+      current,
+      minutely,
+      hourly,
+      daily
+    };
+    local = true;
   }
 });
 
@@ -6436,7 +8213,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1pizym5"
+  version_hash: "1jweq9c"
 };
 function get_hooks() {
   return {};
@@ -9605,7 +11382,7 @@ var manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png"]),
   mimeTypes: { ".png": "image/png" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.2acd370d.js", "imports": ["_app/immutable/entry/start.2acd370d.js", "_app/immutable/chunks/index.cb171ed7.js", "_app/immutable/chunks/singletons.a0af02a8.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.99d51764.js", "imports": ["_app/immutable/entry/app.99d51764.js", "_app/immutable/chunks/index.cb171ed7.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.e8e02de8.js", "imports": ["_app/immutable/entry/start.e8e02de8.js", "_app/immutable/chunks/index.9f31e1a2.js", "_app/immutable/chunks/singletons.7d00ff30.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.18e0f479.js", "imports": ["_app/immutable/entry/app.18e0f479.js", "_app/immutable/chunks/index.9f31e1a2.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),

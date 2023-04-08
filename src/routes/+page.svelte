@@ -31,12 +31,14 @@
     // console.log('minutes:', minutes.length);
     // console.log('hours:', hours.length);
     // console.log('days:', days.length);
+    
   }
 
   $: {
     precipitating = current?.rain || current?.snow;
     // snowing = current?.snow;
   }
+
 
 </script>
 
@@ -51,7 +53,7 @@
     ...current}} />
 
 
-    
+    <!-- #region WobbleChart -->
     {#if precipitating}
     <div class="precipChart">
       <div class="desc">
@@ -67,9 +69,15 @@
       <WobbleChart {minutes} />
     </div>
     {/if}
+    <!-- #endregion WobbleChart -->
    
-
+  <div class="day_summary">day_summary</div>
+    
   <Hours {hours}/>
+
+  
+   
+  <div class="week_summary">week_summary</div>
 
   <Days {days}/>
 

@@ -43,25 +43,27 @@
     display: flex;
     justify-content: center;
     gap: 0 1rem;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
-  .current_conditions {
-    margin: 2rem 0 3rem;
-  }
-  .snapshot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
+    .current_conditions {
+      margin: 2rem 0 3rem;
+    
+    .snapshot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
 
-    .temp {
-      font-size: 2.5rem;
+      .temp {
+        font-size: 2.5rem;
+      }
     }
-  }
-  .conditions {
-    text-align: center;
-    margin-top: -1rem;
-    font-size: 1.25rem;;
+    .conditions {
+      text-align: center;
+      margin-top: -1rem;
+      /* font-size: 1.25rem; */
+      font-size: 1.375rem;
+    }
   }
   .day_stats {
     display: flex;
