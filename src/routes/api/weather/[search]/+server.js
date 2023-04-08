@@ -1,8 +1,11 @@
+import { dev } from "$app/environment";
 import {WEATHER_KEY} from '$env/static/private';
 import { json } from '@sveltejs/kit';
 
 import weatherData from '../dry2.json';
-const local = true;
+
+
+// const local = dev;
 
 
 export async function GET({params}) {
@@ -14,7 +17,7 @@ export async function GET({params}) {
 
     let weather;
 
-    if (local) {
+    if (dev) {
       weather = weatherData;
     } else {
       const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
