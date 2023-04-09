@@ -23,7 +23,7 @@
     selectedTab === 0
       ? hours.map((el) => round(el?.temp))
       : selectedTab === 1
-      ? hours.map((el) => el?.pop * 100 ?? 0)
+      ? hours.map((el) => round(el?.pop * 100) ?? 0)
       : selectedTab === 2
       ? hours.map((el) => (el?.rain ? round(mmToInches(el?.rain["1h"]),2) ?? 0 : 0))
       : selectedTab === 3

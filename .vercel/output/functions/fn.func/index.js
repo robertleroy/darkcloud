@@ -1270,8 +1270,8 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.df285f1f.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.df285f1f.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.381a6a06.js", "_app/immutable/chunks/navigation.4c330692.js"];
+    file2 = "_app/immutable/entry/_error.svelte.24f68b33.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.24f68b33.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.ce7acda3.js", "_app/immutable/chunks/navigation.d68eff00.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -6374,7 +6374,7 @@ var init_page_svelte = __esm({
   </section> `;
     });
     css$3 = {
-      code: '.range.svelte-iu9joe{height:100%;position:relative;padding:0 1.5rem 0 1rem;display:grid;justify-content:stretch}.shell.svelte-iu9joe{display:grid;align-items:center;position:relative}.bar.svelte-iu9joe{position:relative;background:gainsboro;border:1px solid #808080;height:0.75rem;border-radius:0.375rem;box-shadow:0 -2px 4px inset rgba(0,0,0,0.1)}.low.svelte-iu9joe,.high.svelte-iu9joe{position:absolute;top:-0.5rem}.low.svelte-iu9joe:after,.high.svelte-iu9joe:after{content:"\xB0"}.low.svelte-iu9joe{left:-2rem}.high.svelte-iu9joe{right:-2.2rem}',
+      code: '.range.svelte-uxf9oq{height:100%;position:relative;padding:0 1.5rem 0 1rem;display:grid;justify-content:stretch}@media(min-width: 500px){.range.svelte-uxf9oq{padding:0 1.5rem 0 2rem\r\n  }}.shell.svelte-uxf9oq{display:grid;align-items:center;position:relative}.bar.svelte-uxf9oq{position:relative;background:gainsboro;border:1px solid #808080;height:0.75rem;border-radius:0.375rem;box-shadow:0 -2px 4px inset rgba(0,0,0,0.1)}@media(min-width: 500px){.bar.svelte-uxf9oq{height:1rem;border-radius:0.5rem\r\n  }}.low.svelte-uxf9oq,.high.svelte-uxf9oq{position:absolute;top:-0.5rem}.low.svelte-uxf9oq:after,.high.svelte-uxf9oq:after{content:"\xB0"}@media(min-width: 500px){.low.svelte-uxf9oq,.high.svelte-uxf9oq{font-size:inherit;top:-0.3rem\r\n  }}.low.svelte-uxf9oq{left:-2rem}.high.svelte-uxf9oq{right:-2.2rem}',
       map: null
     };
     RangeBar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -6396,10 +6396,10 @@ var init_page_svelte = __esm({
           lo = scale(low);
         }
       }
-      return `<section class="RangeBar"><div class="range svelte-iu9joe"><div class="shell svelte-iu9joe"${add_styles({ "left": `${lo}%`, "width": `${hi - lo}%` })}>
+      return `<section class="RangeBar"><div class="range svelte-uxf9oq"><div class="shell svelte-uxf9oq"${add_styles({ "left": `${lo}%`, "width": `${hi - lo}%` })}>
          
-      <div class="bar svelte-iu9joe"><div class="low svelte-iu9joe">${escape(low)}</div>
-        <div class="high svelte-iu9joe">${escape(high)}</div></div></div></div>    
+      <div class="bar svelte-uxf9oq"><div class="low svelte-uxf9oq">${escape(low)}</div>
+        <div class="high svelte-uxf9oq">${escape(high)}</div></div></div></div>    
 </section>`;
     });
     css$2 = {
@@ -6554,9 +6554,9 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.4d29a894.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.4d29a894.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/Accordion.eb4e1ee0.js"];
-    stylesheets3 = ["_app/immutable/assets/_page.27f2b9a7.css", "_app/immutable/assets/Accordion.559a29cc.css"];
+    file3 = "_app/immutable/entry/_page.svelte.6f605fd1.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.6f605fd1.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/Accordion.eb4e1ee0.js"];
+    stylesheets3 = ["_app/immutable/assets/_page.8a146fb2.css", "_app/immutable/assets/Accordion.559a29cc.css"];
     fonts3 = [];
   }
 });
@@ -6865,9 +6865,9 @@ var init__7 = __esm({
     init_page_server();
     index7 = 6;
     component7 = async () => (await Promise.resolve().then(() => (init_page_svelte4(), page_svelte_exports4))).default;
-    file7 = "_app/immutable/entry/search-page.svelte.859d8500.js";
+    file7 = "_app/immutable/entry/search-page.svelte.2fe9b49c.js";
     server_id2 = "src/routes/search/+page.server.js";
-    imports7 = ["_app/immutable/entry/search-page.svelte.859d8500.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.381a6a06.js", "_app/immutable/chunks/navigation.4c330692.js"];
+    imports7 = ["_app/immutable/entry/search-page.svelte.2fe9b49c.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.ce7acda3.js", "_app/immutable/chunks/navigation.d68eff00.js"];
     stylesheets7 = ["_app/immutable/assets/_page.63f62a6f.css"];
     fonts7 = [];
   }
@@ -7134,7 +7134,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1v0qw41"
+  version_hash: "10tugae"
 };
 function get_hooks() {
   return {};
@@ -9860,7 +9860,7 @@ var manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png"]),
   mimeTypes: { ".png": "image/png" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.98c2679d.js", "imports": ["_app/immutable/entry/start.98c2679d.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.381a6a06.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.1c2838bc.js", "imports": ["_app/immutable/entry/app.1c2838bc.js", "_app/immutable/chunks/index.5089646f.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.12ae91b8.js", "imports": ["_app/immutable/entry/start.12ae91b8.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.ce7acda3.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.48630a89.js", "imports": ["_app/immutable/entry/app.48630a89.js", "_app/immutable/chunks/index.5089646f.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),

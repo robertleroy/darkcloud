@@ -37,8 +37,11 @@
     display: grid;
     justify-content: stretch;
     /* align-items: center; */
-    /* @include media(500px) {
-      padding: 0 3rem;
+    @media (min-width: 500px) { 
+      padding: 0 1.5rem 0 2rem;
+    }
+    /* @media (min-width: 700px) { 
+      padding: 0 1.5rem 0 3rem;
     } */
   }
   .shell {
@@ -56,22 +59,23 @@
     border-radius: 0.375rem;
     box-shadow: 0 -2px 4px inset rgba(0,0,0,0.1);
     
-    /* @include media (500px) {
-      border-radius: 1rem;      
-      height: 1.5rem;
-    } */
+    @media (min-width: 500px) {  
+      height: 1rem;
+      border-radius: 0.5rem;    
+    }
   }
   .low, .high {
     position: absolute;
     /* font-size: 16px; */
     top: -0.5rem;
+
     &:after {
       content: "°";
     }
-    /* @include media (500px) {
+    @media (min-width: 500px) { 
       font-size: inherit;
       top: -0.3rem;
-    } */
+    }
   }
   .low { left: -2rem; }
   .high { right: -2.2rem; }
