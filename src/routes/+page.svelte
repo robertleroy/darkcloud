@@ -8,18 +8,9 @@
   import dateObj from '$lib/js/dateObj';
    
   export let data;
-  // $: {
-  //   console.log('\n@: ', dateObj(data.weather.current.dt*1000,'M/d h:mm:ss aa'));
-  //   console.log('data.location', data.location);
-  //   console.log('data.weather.current', data.weather.current);
-  //   // console.log('data.weather.minutely', data.weather.minutely);
-  //   // console.log('data.weather.hourly', data.weather.hourly);
-  //   // console.log('data.weather.daily', data.weather.daily);
-  // }
-
-  const { weather } = data;
-  
+  const { weather } = data;  
   let days={},hours={},minutes={},current={},alerts=[],precipitating=null;
+
 
   $: console.log('weather:', data);
   $: {
@@ -29,34 +20,35 @@
     days = weather?.daily;
     // days = weather?.daily.slice(0,5);
     alerts.length ? alerts = weather?.alerts : [];
-    // console.log('minutes:', minutes.length);
-    // console.log('hours:', hours.length);
-    // console.log('days:', days.length);
-    
   }
+  
+  $: minutes_of_precip = minutes.map(el => {if (el?.precipitation > 0) return el?.precipitation});
 
   $: {
     precipitating = current?.rain || current?.snow;
-    // snowing = current?.snow;
   }
 
-
+  // function getHrPrecip(arr) {
+  //   let highs = arr.map(el => round(el.precipitation));
+  //   let lows = arr.map(el => round(el.temp.min));
+  //   return [Math.min.apply(null, lows), Math.max.apply(null, highs)];
+  // }
 </script>
 
 <div class='page'>
-
-
   <Current current={{
     high: days[0].temp.max,
     low: days[0].temp.min,
     sunrise: days[0].sunrise,
     sunset: days[0].sunset, 
     ...current}} />
-
     
+    <!-- <div class="test">{minutes_of_precip}</div>
+    <div class="test">{Math.max.apply(null, minutes_of_precip)}</div>
+    <div class="test">{minutes_of_precip.length}</div> -->
     
   <!-- #region WobbleChart -->
-  {#if precipitating}
+  {#if minutes_of_precip.length > 5}
   <div class="precipChart">
     <div class="desc">
       {#if current?.snow}
@@ -73,20 +65,16 @@
   {/if}
   <!-- #endregion WobbleChart -->
 
+
   <div class="wrapper" style:max-width="640px">
 
     <div class="day_summary">day_summary</div>
-    
-    <Hours {hours}/>
-   
+    <Hours {hours}/>   
 
     <div class="week_summary">week_summary</div>
-
     <Days {days}/>
 
-  </div>
-
-
+  </div> <!-- wrapper -->
 
 </div> <!-- page -->
 
@@ -98,13 +86,10 @@
   }
   var {
     font-style: unset;
-    /* font-family:serif; */
     margin: 0 1ch;
   }
   .desc {
-    /* font-size: 0.9em; */
     text-align: center;
-    /* padding-top: 1rem; */
     margin-bottom: -1rem;
   }
 </style>
