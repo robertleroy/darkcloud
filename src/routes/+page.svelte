@@ -26,7 +26,8 @@
     current = weather?.current;
     minutes = weather?.minutely;
     hours = weather?.hourly;
-    days = weather?.daily.slice(0,5);
+    days = weather?.daily;
+    // days = weather?.daily.slice(0,5);
     alerts.length ? alerts = weather?.alerts : [];
     // console.log('minutes:', minutes.length);
     // console.log('hours:', hours.length);
