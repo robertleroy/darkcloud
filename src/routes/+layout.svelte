@@ -15,6 +15,7 @@
 </svelte:head>
 <svelte:window bind:innerWidth={innerWidth} bind:online={online}/>
 
+<div class="innerWidth">{innerWidth}</div>
 <header class=''>
   <div class='flex'>
     <a class="search_bar" href="/search">
@@ -72,5 +73,13 @@
   }
   .alerts:not(.active) {
     color: tomato;
+  }
+
+  .innerWidth {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+
   }
 </style>

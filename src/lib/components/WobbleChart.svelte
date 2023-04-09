@@ -4,27 +4,22 @@
   import {onMount} from 'svelte';
 
   export let minutes;
+  let clientWidth;
 
-  
-  
-  // export let values;
-  // $: console.log(values);
   let var_values = minutes.map(el => {
     return { time: el.dt * 1000, value: el.precipitation }
   }).filter((el, i) => {
     return i % 3 === 0;
   });
 
-  // $: console.log('max',getMax(var_values.map(el => el.value)));
-  
   let var_height = 150;
   let var_width = 350;
-  let var_margin = {top: 12, right: 12, bottom: 24, left: 12};
+  let var_margin = {top: 12, right: 3, bottom: 24, left: 3};
 
 
-  function getMax(arr) {
-    return arr.reduce((a, b) => Math.max(a, b), -Infinity);
-  }
+  // function getMax(arr) {
+  //   return arr.reduce((a, b) => Math.max(a, b), -Infinity);
+  // }
   function drawChart() {     
     // let self = this;
     const height = var_height, width = var_width,
@@ -133,14 +128,17 @@
     drawChart();
   });
 </script>
-  
 
-<div id="chart" ></div>
+
+<!-- <div>{clientWidth}</div> -->
+
+<div id="chart" bind:clientWidth></div>
 
 <style>
   #chart {
-    max-width: 800px;
-    margin-bottom: 3rem;
+    max-width: 640px;
+    min-width: 300px;
+    margin: 0 auto 3rem;
   }
 </style>
 

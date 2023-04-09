@@ -1,24 +1,19 @@
 <script>
+  import WeatherIcon from '$lib/components/WeatherIcon.svelte';
   import Accordion from '$lib/components/Accordion.svelte';
   import RangeBar from '$lib/components/RangeBar.svelte';
-  import WeatherIcon from '$lib/components/WeatherIcon.svelte';
   import { titlecase, round, mmToInches } from '$lib/js/filters.js';
   import dateObj from '$lib/js/dateObj.js';
   export let days = [];
-  // console.log("Days",days);
+  
   let weekrange = getRange(days);
 
   function precipSymbol(code) {
-    /*
-    rain: 200 300 500
-    snow: 600
-    sleet: 611 - 616, 511
-    */
       let symbol = '';
       if(code === 781) {
         symbol = `🌪️`;
-      // } else if(code === 511 || code > 610 && code < 617) {
-      //   symbol = `🧊`;
+      } else if(code === 511 || code > 610 && code < 617) {
+        symbol = `🧊`;
       } else if (code >= 600 && code < 700) {
         symbol = `❄️`;
       } else if (code >= 200 && code < 600) {
@@ -26,8 +21,6 @@
       }
       return symbol;
     }
-    
-  
 
   function getRange(days) {
     let highs = days.map(el => round(el.temp.max));
@@ -38,6 +31,7 @@
 
 <div class='days'>
   {#each days as day, i}
+
   <Accordion >
     <svelte:fragment slot="header">
 
@@ -54,31 +48,11 @@
       </div>
     </div>
 
-    <!-- <div class="precip">
-      <div class="symbol">{precipSymbol(day.weather[0].id)}</div>
-      <div class="pop">{day.pop > 0.15 ? day.pop*100 + '%' : ' '}</div>
-    </div> -->
-    <!-- <div class="date">{dateObj(day.dt*1000, 'ddd')}</div> -->
-    <!-- <div class="temp low">{round(day.temp.min)}</div>
-    <div class="temp high">{round(day.temp.max)}</div> -->
-
-    <div><RangeBar
+    <RangeBar
       domain={weekrange}
       high="{round(day.temp.max)}"
-      low="{round(day.temp.min)}"
-    /></div>
-
-  
-
-    <!-- <div class="inch">{
-      day.weather[0].main === 'Rain' ?
-        'Rain: ' + round(mmToInches(day.rain),2) ?
-      day.weather[0].main === 'Snow' ?
-        'Snow: ' + round(mmToInches(day.snow),2) : ''
-    }
-    </div> -->
+      low="{round(day.temp.min)}" />
   </div>
-  
 </svelte:fragment> 
     
 <svelte:fragment>

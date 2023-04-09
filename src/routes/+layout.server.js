@@ -4,6 +4,7 @@ export async function load({ fetch, url, request }) {
   const currentRoute = await url.pathname;
   let location = {};
   let weather = {};
+  let five_three = {};
   if (dev) {
     const locationRes = await fetch("/api/ip");
     location = await locationRes.json();
@@ -29,6 +30,6 @@ export async function load({ fetch, url, request }) {
   return {
     currentRoute,
     location,
-    weather,
+    weather
   };
 }

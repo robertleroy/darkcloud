@@ -57,11 +57,11 @@ main {
     position: relative;
     top:  var(--header-height);
     width: 90%; 
-    max-width: 768px;
-    padding: 0.3rem 0 calc(var(--header-height));
+    /* max-width: 768px; */
+    padding: 0 0 var(--footer-height);
     margin: 0 auto;
 
-    background: hsla(206, 20%, 50%, 0.05);
+    /* background: hsla(206, 20%, 50%, 0.05); */
   }
 }
 
@@ -78,7 +78,7 @@ footer {
   height: var(--footer-height);
   background-color: var(--background-color);
   border-top: var(--border);
-  z-index: 10;
+  z-index: 20;
 
   .flex {
     flex: 1;

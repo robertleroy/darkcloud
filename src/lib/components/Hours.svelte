@@ -1,8 +1,10 @@
 <script>
   import dateObj from "$lib/js/dateObj";
-  import { round } from "$lib/js/filters";
+  import { round, mmToInches } from "$lib/js/filters";
 
   export let hours;
+  const max_hours = 24;
+  hours = hours.slice(0,max_hours);
   const tabs = [
     { name: "Temp", value: "temp" },
     { name: "Precip %", value: "pop" },
@@ -23,7 +25,7 @@
       : selectedTab === 1
       ? hours.map((el) => el?.pop * 100 ?? 0)
       : selectedTab === 2
-      ? hours.map((el) => (el?.rain ? el?.rain["1h"] ?? 0 : 0))
+      ? hours.map((el) => (el?.rain ? round(mmToInches(el?.rain["1h"]),2) ?? 0 : 0))
       : selectedTab === 3
       ? hours.map((el) => el?.humidity)
       : selectedTab === 4
@@ -97,9 +99,10 @@
   }
 </script>
 
-<section class="hours_component">
+
+<section class="hours">
   <!-- #region tabs -->
-  <div class="tabs">
+  <div class="tabs"> 
     {#each tabs as tab, i}
       <div class="tab" on:keydown
         on:click={() => selectedTab = i}
@@ -109,89 +112,66 @@
     {/each}
   </div>
   <!-- #endregion tabs -->
-
+  
   <!-- #region hours -->
-  <div class="hours">
-    {#each hours as hour, i}
-      {#if i % 2 && i <= 24}
-        <div class="hour">
-          <div class="stripe" style:background={stripes[i].color} />
+  {#each hours as hour, i}
+    {#if i % 2}
+      <div class="hour">
+        <div class="stripe" 
+        style:background={stripes[i].color} 
+        class:topcap={ i === 1 } 
+        class:bottomcap={ i === 23 } />
 
-          <div class="time">
-            {dateObj(hour?.dt * 1000, "h aa")}
-          </div>
+        <div class="time">
+          {dateObj(hour?.dt * 1000, "h aa")}
+        </div> <!-- time -->
+        
+        <div class="summary">
+          {i === 1 ? stripes[i].text : 
+            stripes[i - 2].text === stripes[i].text ? "" : 
+            stripes[i].text}
 
-          <div class="summary">
-            {i === 1
-              ? stripes[i].text
-              : stripes[i - 2].text === stripes[i].text
-              ? ""
-              : stripes[i].text}
-
-            <div class="line" />
-          </div>
-       
-          {#if 
-            selectedTab != 1 ||
-            selectedTab != 2 &&
-            metric[i] > 0
-          }
-          <div class="metric" 
-              style="margin-right: {offset(metric[i])}"
-              class:pressure={selectedTab === 7}
-          >  
-            <div class="metricValue"
-              class:temp={selectedTab === 0}
-              class:percent={selectedTab === 1 ||
-                selectedTab === 3 ||
-                selectedTab === 6}
-              class:wind={selectedTab === 4 || 
-                selectedTab === 5}
-            >
-            
-         
+          <div class="line" />
+        </div> <!-- summary -->
+      
+        {#if 
+          (selectedTab != 1 ||
+          selectedTab != 2) &&
+          metric[i] > 0
+        }
+        <div class="metric" 
+            style="margin-right: {offset(metric[i])}"
+            class:pressure={selectedTab === 7}
+        > 
+          <div class="metricValue"
+            class:temp={selectedTab === 0}
+            class:percent={selectedTab === 1 ||
+              selectedTab === 3 ||
+              selectedTab === 6}
+            class:wind={selectedTab === 4 || 
+              selectedTab === 5}
+          >
             {metric[i]}
 
-              
-
-              {#if selectedTab === 4 || selectedTab === 5}
-                <div
-                  class="wind_dir"
-                  style="rotate: {hours[i].wind_deg - 90 + 'deg'} "
-                >
-                  &#10140;
-                </div>
-              {/if}
+            {#if selectedTab === 4 || selectedTab === 5}
+            <div
+              class="wind_dir"
+              style="rotate: {hours[i].wind_deg - 90 + 'deg'} "
+            > &#10140; 
             </div>
-          </div> <!-- metric -->  
-            {/if}  
+            {/if}
+          </div> <!-- metricValue -->
+        </div> <!-- metric -->  
+        {/if}  
 
-        </div> <!-- hour -->        
-      {/if}
-    {/each}
-
-
-
-    <!-- <div class="moreHours">
-      <span
-        class="moreHoursBtn btn"
-        on:keypress
-        on:click={() => (moreHours = !moreHours)}
-        >{moreHours ? "...show less" : "...show more"}</span
-      >
-    </div> -->
-  </div>
+      </div> <!-- hour -->        
+    {/if}
+  {/each} <!-- hours as hour -->
   <!-- #endregion hours -->
-</section> <!-- #hours_component -->
+</section> <!-- hours component -->
 
 <style lang="postcss">
-
-  .temp::after { content: "\00b0"; }
-  .percent::after { content: "%"; }
-  .metric.pressure { padding: 0.2rem 0.3rem 0.3rem;}
-
-  .hours_component {
-    max-width: 640px;
+  .hours {
     padding-bottom: 2rem;
     margin: 1rem auto 2rem;
   }
@@ -212,19 +192,20 @@
       border-bottom-color: #b0bec555;
       border-top-left-radius: 0.3rem;
       border-top-right-radius: 0.3rem;
+
+      @media (min-width: 768px) {
+        flex: 1 1 auto;
+      }
     }
     .tab:hover {
-      /* color: #41B883; */
       background: var(--background-color);
       cursor: pointer;
     }
-  }
-
-  .tab.selectedTab {
-    color: #41b883;
-    /* border-color: #b0bec5 !important; */
-    background: var(--background-color);
-    border-bottom: none;
+    .tab.selectedTab {
+      color: #41b883;
+      background: var(--background-color);
+      border-bottom: none;
+    }
   }
 
   .hour {
@@ -232,21 +213,25 @@
     align-items: center;
     gap: 1ch;
     min-height: 2.25rem;
+
+    @media (min-width: 500px) {
+      gap: 2ch;
+    }
   }
   .stripe {
-    align-self: stretch;
     /* height: 100%; */
-    width: 1rem;
+    align-self: stretch;
+    min-width: 1rem;
     border: 1px none #ccc;
     border-right-style: solid;
     border-left-style: solid;
   }
 
-  .hour:first-of-type .stripe {
-    border-radius: 0.4em 0.4em 0 0;
+  .topcap {
+    border-radius: 0.4em 0.4em 0 0 ;
     border-top-style: solid;
   }
-  .hour:last-of-type .stripe {
+  .bottomcap {
     border-radius: 0 0 0.4em 0.4em;
     border-bottom-style: solid;
   }
@@ -254,7 +239,7 @@
   .metric {
     border: 1px solid #ccc;
     border-radius: 0.75rem;
-    padding: 0.2rem 0.3rem 0.3rem 0.4rem ;
+    padding: 0.275rem 0.3rem 0.25rem 0.4rem ;
     background: #eceff1;
 
     display: grid;
@@ -275,7 +260,7 @@
     display: grid;
     grid-auto-flow: column;
     align-items: center;
-    gap: 0 0.075rem;
+    /* gap: 0 0.075rem; */
   }
   .wind_dir {
     /* position: relative; */
@@ -284,7 +269,8 @@
     /* transform-origin: 50% 50%; */
     /* right: 0rem; */
     font-size: 0.675rem;
-    margin-bottom: 0.075rem;
+    /* margin-bottom: 0.075rem; */
+    margin: 0 0 0.075rem 0.075rem;
   }
 
   .summary {
@@ -295,7 +281,7 @@
     color: var(--muted-7);
     font-size: 0.75rem;
     display: flex;
-    gap: 1.5rem;
+    gap: 0.5rem;
     justify-content: stretch;
     align-items: center;
 
@@ -307,16 +293,18 @@
       flex: 1;
       background-image: linear-gradient(var(--muted-4), transparent);
       height: 1px;
-      margin-right: 1rem;
+    }
+      
+    @media (min-width: 400px) {
+      gap: 1.5rem;
+      .line {
+        margin-right: 1rem;
+      }
     }
   }
 
-  /* .moreHours {
-    font-style: italic;
-    color: var(--muted-7);
-    font-size: 0.75rem;
-    text-align: right;
-    padding: 0.5rem 0;
-  } */
+  .temp::after { content: "\00b0"; }
+  .percent::after { content: "%"; }
+  .metric.pressure { padding: 0.2rem 0.3rem 0.3rem;}
 
 </style>

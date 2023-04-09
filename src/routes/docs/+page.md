@@ -3,8 +3,28 @@
 </script>
 
 <div class='page'>  
-  Open Weather <a href="https://home.openweathermap.org/"> &nbsp; &nbsp; <small>link</small></a>
+  Open Weather &nbsp; &nbsp; <a href="https://home.openweathermap.org/"> <small>link</small></a>
     
+  <br><br>
+  
+
+#### Todo  
+
+- Page  
+  - remove background color  
+  - day_summary  
+  - week_summary  
+- Hours
+  - fix inch / hr
+- Days
+  - fix media queries / bar width
+  - add hours to accordion - 5-day / 3-hour call
+- Search
+  - tomtom
+- Map
+  - map - windy
+
+
   <br><br>
 
   Api Call
