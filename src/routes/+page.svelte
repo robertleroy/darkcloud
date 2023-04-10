@@ -9,7 +9,7 @@
    
   export let data;
   const { weather } = data;  
-  let days={},hours={},minutes={},current={},alerts=[],precipitating=null;
+  let days={},hours={},minutes={},current={},alerts=[],minutes_of_precip_this_hour;
 
 
   $: console.log('weather:', data);
@@ -22,17 +22,11 @@
     alerts.length ? alerts = weather?.alerts : [];
   }
   
-  $: minutes_of_precip = minutes.map(el => el?.precipitation).filter(el => el > 0);
+  $: minutes_of_precip_this_hour = minutes.map(el => el?.precipitation).filter(el => el > 0);
 
   $: {
     precipitating = current?.rain || current?.snow;
   }
-
-  // function getHrPrecip(arr) {
-  //   let highs = arr.map(el => round(el.precipitation));
-  //   let lows = arr.map(el => round(el.temp.min));
-  //   return [Math.min.apply(null, lows), Math.max.apply(null, highs)];
-  // }
 </script>
 
 <div class='page'>
@@ -43,12 +37,8 @@
     sunset: days[0].sunset, 
     ...current}} />
     
-    <div class="test">{minutes_of_precip}</div>
-    <div class="test">{Math.max.apply(null, minutes_of_precip)}</div>
-    <div class="test">{minutes_of_precip.length}</div>
-    
   <!-- #region WobbleChart -->
-  {#if minutes_of_precip.length > 5}
+  {#if minutes_of_precip_this_hour.length > 5}
   <div class="precipChart">
     <div class="desc">
       {#if current?.snow}
