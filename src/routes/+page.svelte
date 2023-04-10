@@ -23,10 +23,7 @@
   }
   
   $: minutes_of_precip_this_hour = minutes.map(el => el?.precipitation).filter(el => el > 0);
-
-  $: {
-    precipitating = current?.rain || current?.snow;
-  }
+  
 </script>
 
 <div class='page'>
