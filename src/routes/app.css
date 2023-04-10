@@ -1,29 +1,23 @@
-@import '$lib/styles/reset';
-@import '$lib/styles/forms';
-@import '$lib/styles/vsdark';
+@import "$lib/styles/reset";
+@import "$lib/styles/forms";
+@import "$lib/styles/vsdark";
 
 :root {
   --header-height: 3rem;
   --footer-height: 2.5rem;
   --max-width: 1200px;
   --border: 1px solid #ccc;
-  
-  --color-active: #3FB27F;
+
+  --color-active: #3fb27f;
   --color-alert: tomato;
-  --rain: hsl(207,89%,68%);
-  --light-rain: hsl(207,89%,86%);
-  --snow: hsl(187,71%,82%);
-  --clear: hsl(204,15%,94%);
-  --partly-cloudy: hsl(198,16%,84%);
-  --mostly-cloudy: hsl(200,15%,73%);
-  --overcast: hsl(200,16%,62%);
+  --rain: hsl(207, 89%, 68%);
+  --light-rain: hsl(207, 89%, 86%);
+  --snow: hsl(187, 71%, 82%);
+  --clear: hsl(204, 15%, 94%);
+  --partly-cloudy: hsl(198, 16%, 84%);
+  --mostly-cloudy: hsl(200, 15%, 73%);
+  --overcast: hsl(200, 16%, 62%);
 }
-
-/* html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
-} */
-
 /* #region layout */
 
 /* #region header */
@@ -32,7 +26,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  
+
   display: flex;
   align-items: center;
   height: var(--header-height);
@@ -48,23 +42,25 @@ header {
     gap: 0 1rem;
     padding: 0.5rem 1rem;
   }
-} 
+}
 /* #endregion header */
 
 main {
-  .router {}
+  .router {
+  }
   .page {
     position: relative;
-    top:  var(--header-height);
-    width: 90%; 
-    /* max-width: 768px; */
+    top: var(--header-height);
+    width: 90%;
     padding: 0 0 var(--footer-height);
     margin: 0 auto;
 
-    /* background: hsla(206, 20%, 50%, 0.05); */
+    @media (min-width: 640px) {
+      width: 100%;
+      padding: 0 2rem calc(var(--footer-height) + 0.5rem);
+    }
   }
 }
-
 
 /* #region footer */
 footer {
@@ -72,7 +68,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  
+
   display: flex;
   align-items: center;
   height: var(--footer-height);
@@ -103,17 +99,8 @@ footer {
 /* #endregion layout */
 
 .temp::after {
-  content: '°';
+  content: "°";
 }
 .active {
   color: var(--color-active);
 }
-
-p.lorem {
-  max-width: 30rem;
-  margin: 1rem auto 0;
-}
-
-/* .current_conditions {
-  margin: 0 0 2rem 0;
-} */

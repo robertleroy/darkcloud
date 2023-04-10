@@ -10,19 +10,22 @@
 
 #### Todo  
 
+- Search
+  - form actions
+  - tomtom
+  - database
+- Days
+  - add hours to accordion - 5-day / 3-hour call
+  - ~~fix media queries / bar width~~
 - Page  
-  - remove background color  
   - day_summary  
   - week_summary  
+  - ~~remove background color~~  
 - Hours
-  - fix inch / hr
-- Days
-  - fix media queries / bar width
-  - add hours to accordion - 5-day / 3-hour call
-- Search
-  - tomtom
+  - rain start & stop
+  - ~~fix inch / hr~~
 - Map
-  - map - windy
+  - ~~map - windy~~
 
 
   <br><br>

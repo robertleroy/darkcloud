@@ -11,11 +11,14 @@
   }).filter((el, i) => {
     return i % 3 === 0;
   });
-
   let var_height = 150;
   let var_width = 350;
+  // let var_height = 165;
+  // let var_width = 385;
   let var_margin = {top: 12, right: 3, bottom: 24, left: 3};
 
+  // $: var_height = clientWidth > 610 ? 165 : 150;
+  // $:clientWidth > 610 ? var_width = 176 : '';
 
   // function getMax(arr) {
   //   return arr.reduce((a, b) => Math.max(a, b), -Infinity);
@@ -136,9 +139,10 @@
 
 <style>
   #chart {
-    max-width: 640px;
+    /* max-width: 640px;
+    max-width: 512px; */
     min-width: 300px;
-    margin: 0 auto 3rem;
+    /* margin: 0 auto 3rem; */
   }
 </style>
 

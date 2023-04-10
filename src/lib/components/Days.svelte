@@ -69,9 +69,13 @@
     /* align-items: center; */
     /* gap: 0 1ch; */
     display: grid;
-    grid-template-columns: 5rem 5rem 1fr;
+    grid-template-columns: 4.5rem 5rem 1fr;
     align-items: center;
     padding-right: 1.1rem;
+
+    @media (min-width: 500px) {      
+      grid-template-columns: 5rem 5rem 1fr;
+    }
   }
   /* .precip {
     width: 2.5rem;

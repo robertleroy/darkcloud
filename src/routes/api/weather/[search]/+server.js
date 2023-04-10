@@ -4,17 +4,16 @@ import { json } from '@sveltejs/kit';
 
 // import weatherData from '../dry2.json';
 import weatherData from '../alerts.json';
-// import five_three_Data from '../5_day-3_hr.json';
 
 
-// const local = dev;
+let override_dev = false;
 
 
 export async function GET({params}) {
   try {
     let weather;
 
-    if (dev) {
+    if (dev && !override_dev) {
       weather = weatherData;
     } else {
       const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);

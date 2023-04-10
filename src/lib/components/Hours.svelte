@@ -1,6 +1,7 @@
 <script>
   import dateObj from "$lib/js/dateObj";
   import { round, mmToInches } from "$lib/js/filters";
+  import { fade } from 'svelte/transition';
 
   export let hours;
   const max_hours = 24;
@@ -140,6 +141,7 @@
           metric[i] > 0
         }
         <div class="metric" 
+        transition:fade="{{duration: 200}}"
             style="margin-right: {offset(metric[i])}"
             class:pressure={selectedTab === 7}
         > 
@@ -251,25 +253,13 @@
     }
   }
 
-  /* .metricValue {
-    flex: 1;
-    position: relative;
-  } */
-
   .wind {
     display: grid;
     grid-auto-flow: column;
     align-items: center;
-    /* gap: 0 0.075rem; */
   }
   .wind_dir {
-    /* position: relative; */
-    /* width: 2rem; */
-    /* top: 0; */
-    /* transform-origin: 50% 50%; */
-    /* right: 0rem; */
     font-size: 0.675rem;
-    /* margin-bottom: 0.075rem; */
     margin: 0 0 0.075rem 0.075rem;
   }
 
@@ -284,10 +274,6 @@
     gap: 0.5rem;
     justify-content: stretch;
     align-items: center;
-
-    /* @include media (400px) {
-        font-size: 1.13em;
-      } */
 
     .line {
       flex: 1;

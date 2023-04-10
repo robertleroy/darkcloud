@@ -1,9 +1,14 @@
 <script>
+  import WobbleChart from "$lib/components/WobbleChart.svelte";
   import WeatherIcon from "$lib/components/WeatherIcon.svelte";
-  import { titlecase, round } from "$lib/js/filters.js";
+  import { titlecase, round, mmToInches } from "$lib/js/filters.js";
   import dateObj from "$lib/js/dateObj.js";
+  import { slide } from 'svelte/transition';
 
-  export let current;
+  export let current, minutes;
+  let minutes_of_precip = minutes.map(el => el?.precipitation).filter(el => el > 0);
+  
+  $: console.log('CURRENT', minutes_of_precip.length)
 </script>
 
 <div class="current">
@@ -30,6 +35,25 @@
 <!-- current -->
 
 
+  <!-- #region WobbleChart -->
+  {#if minutes_of_precip.length > 5}
+  <div class="precipChart">
+    <div class="summary">
+      {#if current?.snow}
+      Snow this hour: <var>{round(mmToInches(current?.snow['1h']), 2) + '"'}</var>
+      {:else if current?.rain}
+      Rain this hour: <var>{round(mmToInches(current?.rain['1h']), 2) + '"'}</var>
+      {:else}
+      This hour..  {titlecase(current?.weather[0].description)}
+      {/if}
+    </div>
+
+    <WobbleChart {minutes} />
+  </div>
+  {/if}
+  <!-- #endregion WobbleChart -->
+
+
 <div class="day_stats">
   <div class="hilo">
     <div class="label">High:</div>
@@ -49,6 +73,9 @@
 
 
 <style lang="postcss">
+  .current {    
+    margin-top: 0.3rem;
+  }
   .current_time {
     display: flex;
     justify-content: center;
@@ -79,16 +106,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0 2rem;
-    max-width: 320px;
-    margin: 3rem auto ;
+    gap: 0 1rem;
+    max-width: 20rem;
+    /* max-width: 400px; */
+    margin: 2rem auto ;
 
     .hilo,
     .sun_times {
       display: grid;
       grid-template-columns: max-content max-content;
       align-items: center;
-      gap: 0 1rem;
+      gap: 0 1ch;
+    }
+  }
+  .precipChart {
+      /* max-width: 640px; */
+      max-width: 500px;
+      margin: 0 auto;
+
+    .summary {
+      text-align: center;
+      margin-bottom: -1rem;
+      
+      var {
+        font-style: unset;
+        margin: 0 1ch;
+      }
+
+      @media (min-width: 480px) {
+        margin-bottom: -1.5rem;
+      }
     }
   }
 </style>

@@ -1145,7 +1145,7 @@ var init_layout_svelte = __esm({
       return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-icon="search" class="${["svg_icon svelte-z52vsq", btn ? "pointer" : ""].join(" ").trim()}"${add_styles(merge_ssr_styles(escape(style, true), { color: color2, "font-size": fontsize }))}${add_attribute("btn", btn, 0)}><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>`;
     });
     css = {
-      code: ".search_bar.svelte-s6hxni{flex:1;display:flex;justify-content:center;align-items:center;gap:0 1rem;text-decoration:underline !important;font-size:1.25rem}.alerts.svelte-s6hxni:not(.active){color:tomato}.innerWidth.svelte-s6hxni{position:fixed;top:0.75rem;left:0.75rem;z-index:100}",
+      code: ".search_bar.svelte-113j3yk{flex:1;display:flex;justify-content:center;align-items:center;gap:0 1rem;text-decoration:underline !important;font-size:1.25rem}.alerts.svelte-113j3yk:not(.active){color:tomato}.innerWidth.svelte-113j3yk{position:fixed;top:0.75rem;left:0.75rem;z-index:100}",
       map: null
     };
     Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -1160,27 +1160,27 @@ var init_layout_svelte = __esm({
       return `${$$result.head += `<!-- HEAD_svelte-1258swp_START -->${$$result.title = `<title>${escape(title3)}</title>`, ""}<!-- HEAD_svelte-1258swp_END -->`, ""}
 
 
-<div class="innerWidth svelte-s6hxni">${escape(innerWidth)}</div>
-<header class=""><div class="flex"><a class="search_bar svelte-s6hxni" href="/search"><div class="location">${escape(data?.location.city)}, ${escape(data?.location.region)}</div>
+<div class="innerWidth svelte-113j3yk">${escape(innerWidth)}</div>
+<header class=""><div class="flex"><a class="search_bar svelte-113j3yk" href="/search"><div class="location">${escape(data?.location.city)}, ${escape(data?.location.region)}</div>
       
       ${validate_component(SearchIcon, "SearchIcon").$$render($$result, { fontsize: "0.8em" }, {}, {})}</a></div></header>
 
 <main><div class="router">${slots.default ? slots.default({}) : ``}</div></main>
 
 <footer><div class="flex"><nav><div class="${["route", data.currentRoute === "/" ? "active" : ""].join(" ").trim()}"><a href="/">Home</a></div>
-      
-      <div class="spacer">| </div>
+
+      <div class="spacer">|</div>
 
       <div class="${["route", data.currentRoute === "/map" ? "active" : ""].join(" ").trim()}"><a href="/map">Map</a></div>
 
-      ${data.weather.alerts ? `<div class="spacer">| </div>
+      ${data.weather.alerts ? `<div class="spacer">|</div>
 
-      <div class="${[
-        "route alerts svelte-s6hxni",
+        <div class="${[
+        "route alerts svelte-113j3yk",
         data.currentRoute === "/alerts" ? "active" : ""
       ].join(" ").trim()}"><a href="/alerts">Alerts</a></div>` : ``}
-      
-      <div class="spacer">| </div>
+
+      <div class="spacer">|</div>
 
       <div class="${["route", data.currentRoute.includes("/docs") ? "active" : ""].join(" ").trim()}"><a href="/docs">Docs</a></div></nav></div>
 </footer>`;
@@ -1206,10 +1206,10 @@ var init__ = __esm({
     init_layout_server();
     index = 0;
     component = async () => (await Promise.resolve().then(() => (init_layout_svelte(), layout_svelte_exports))).default;
-    file = "_app/immutable/entry/_layout.svelte.fcb6099e.js";
+    file = "_app/immutable/entry/_layout.svelte.3ff5109b.js";
     server_id = "src/routes/+layout.server.js";
-    imports = ["_app/immutable/entry/_layout.svelte.fcb6099e.js", "_app/immutable/chunks/index.5089646f.js"];
-    stylesheets = ["_app/immutable/assets/_layout.475e16f0.css"];
+    imports = ["_app/immutable/entry/_layout.svelte.3ff5109b.js", "_app/immutable/chunks/index.09f10f2b.js"];
+    stylesheets = ["_app/immutable/assets/_layout.893a9cd2.css"];
     fonts = [];
   }
 });
@@ -1249,7 +1249,6 @@ var init_error_svelte = __esm({
       $$unsubscribe_page();
       return `<div class="page"><div>${escape($page.status)}: ${escape($page.error.message)} <q>${escape($page.url.pathname)}</q>.</div>
   <div>redirecting in ${escape(countdown)}</div>
-
 </div>`;
     });
   }
@@ -1270,112 +1269,10 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.0c4e82f6.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.0c4e82f6.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.f4869782.js", "_app/immutable/chunks/navigation.4b4ae64e.js"];
+    file2 = "_app/immutable/entry/_error.svelte.fd682831.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.fd682831.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.2f9d6e67.js", "_app/immutable/chunks/navigation.59de036f.js"];
     stylesheets2 = [];
     fonts2 = [];
-  }
-});
-
-// .svelte-kit/output/server/chunks/Accordion.js
-function dateObj(date, mask, utc) {
-  date = date ? new Date(date) : /* @__PURE__ */ new Date();
-  mask = mask ? mask : "DDD MMM dd YYYY HH:mm:ss";
-  var MMMM = ["\0", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  var MMM = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var dddd = ["", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  var ddd = ["", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  function ii(i, len) {
-    var s22 = i + "";
-    len = len || 2;
-    while (s22.length < len)
-      s22 = "0" + s22;
-    return s22;
-  }
-  var y = utc ? date.getUTCFullYear() : date.getFullYear();
-  mask = mask.replace(/(^|[^\\])yyyy+/g, "$1" + y);
-  mask = mask.replace(/(^|[^\\])yy/g, "$1" + y.toString().substr(2, 2));
-  mask = mask.replace(/(^|[^\\])y/g, "$1" + y);
-  var Y2 = utc ? date.getUTCFullYear() : date.getFullYear();
-  mask = mask.replace(/(^|[^\\])YYYY+/g, "$1" + Y2);
-  mask = mask.replace(/(^|[^\\])YY/g, "$1" + Y2.toString().substr(2, 2));
-  mask = mask.replace(/(^|[^\\])Y/g, "$1" + Y2);
-  var M = (utc ? date.getUTCMonth() : date.getMonth()) + 1;
-  mask = mask.replace(/(^|[^\\])MMMM+/g, "$1" + MMMM[0]);
-  mask = mask.replace(/(^|[^\\])MMM/g, "$1" + MMM[0]);
-  mask = mask.replace(/(^|[^\\])MM/g, "$1" + ii(M));
-  mask = mask.replace(/(^|[^\\])M/g, "$1" + M);
-  var d = utc ? date.getUTCDate() : date.getDate();
-  mask = mask.replace(/(^|[^\\])dddd+/g, "$1" + dddd[0]);
-  mask = mask.replace(/(^|[^\\])ddd/g, "$1" + ddd[0]);
-  mask = mask.replace(/(^|[^\\])dd/g, "$1" + ii(d));
-  mask = mask.replace(/(^|[^\\])d/g, "$1" + d);
-  var D = utc ? date.getUTCDate() : date.getDate();
-  mask = mask.replace(/(^|[^\\])DDDD+/g, "$1" + dddd[0]);
-  mask = mask.replace(/(^|[^\\])DDD/g, "$1" + ddd[0]);
-  mask = mask.replace(/(^|[^\\])DD/g, "$1" + ii(D));
-  mask = mask.replace(/(^|[^\\])D/g, "$1" + D);
-  var H = utc ? date.getUTCHours() : date.getHours();
-  mask = mask.replace(/(^|[^\\])HH+/g, "$1" + ii(H));
-  mask = mask.replace(/(^|[^\\])H/g, "$1" + H);
-  var h = H > 12 ? H - 12 : H == 0 ? 12 : H;
-  mask = mask.replace(/(^|[^\\])hh+/g, "$1" + ii(h));
-  mask = mask.replace(/(^|[^\\])h/g, "$1" + h);
-  var m = utc ? date.getUTCMinutes() : date.getMinutes();
-  mask = mask.replace(/(^|[^\\])mm+/g, "$1" + ii(m));
-  mask = mask.replace(/(^|[^\\])m/g, "$1" + m);
-  var s2 = utc ? date.getUTCSeconds() : date.getSeconds();
-  mask = mask.replace(/(^|[^\\])ss+/g, "$1" + ii(s2));
-  mask = mask.replace(/(^|[^\\])s/g, "$1" + s2);
-  var S = utc ? date.getUTCMilliseconds() : date.getMilliseconds();
-  mask = mask.replace(/(^|[^\\])SSS+/g, "$1" + ii(S, 3));
-  S = Math.round(S / 10);
-  mask = mask.replace(/(^|[^\\])SS/g, "$1" + ii(S));
-  S = Math.round(S / 10);
-  mask = mask.replace(/(^|[^\\])S/g, "$1" + S);
-  var A = H < 12 ? "AM" : "PM";
-  mask = mask.replace(/(^|[^\\])AA+/g, "$1" + A);
-  mask = mask.replace(/(^|[^\\])A/g, "$1" + A.charAt(0));
-  var a = A.toLowerCase();
-  mask = mask.replace(/(^|[^\\])aa+/g, "$1" + a);
-  mask = mask.replace(/(^|[^\\])a/g, "$1" + a.charAt(0));
-  var o = ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 !== 10) * d % 10];
-  mask = mask.replace(/(^|[^\\])o+/g, "$1" + o);
-  var timezone = /(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]d{4})?)/g;
-  var timezoneClip = /[^-+dA-Z]/g;
-  var Z = (String(date).match(timezone) || [""]).pop().replace(timezoneClip, "");
-  mask = mask.replace(/(^|[^\\])Z+/g, "$1" + Z);
-  var tz = -date.getTimezoneOffset();
-  var z = utc || !tz ? "Z" : tz > 0 ? "+" : "-";
-  if (!utc) {
-    tz = Math.abs(tz);
-    var tzHrs = Math.floor(tz / 60);
-    var tzMin = tz % 60;
-    z += ii(tzHrs) + ":" + ii(tzMin);
-  }
-  var day = (utc ? date.getUTCDay() : date.getDay()) + 1;
-  mask = mask.replace(new RegExp(dddd[0], "g"), dddd[day]);
-  mask = mask.replace(new RegExp(ddd[0], "g"), ddd[day]);
-  mask = mask.replace(new RegExp(MMMM[0], "g"), MMMM[M]);
-  mask = mask.replace(new RegExp(MMM[0], "g"), MMM[M]);
-  mask = mask.replace(/\\(.)/g, "$1");
-  return mask;
-}
-var css2, Accordion;
-var init_Accordion = __esm({
-  ".svelte-kit/output/server/chunks/Accordion.js"() {
-    init_index2();
-    css2 = {
-      code: ".accordion.svelte-ym4n9f{--radius:0;--header-font-size:inherit;--body-font-size:inherit;--seperator:none}.accordion.svelte-ym4n9f:not(:last-of-type){border-bottom:1px solid #cccccc55}.header.svelte-ym4n9f{padding:0.5rem 0;cursor:pointer}.body.svelte-ym4n9f{padding:0.5rem 2rem 1rem}",
-      map: null
-    };
-    Accordion = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css2);
-      return `<div class="accordion svelte-ym4n9f"><div class="header svelte-ym4n9f">${slots.header ? slots.header({}) : ``}</div>
-	
-	${``}
-</div>`;
-    });
   }
 });
 
@@ -5784,6 +5681,111 @@ var init_src31 = __esm({
   }
 });
 
+// .svelte-kit/output/server/chunks/Accordion.js
+function dateObj(date, mask, utc) {
+  date = date ? new Date(date) : /* @__PURE__ */ new Date();
+  mask = mask ? mask : "DDD MMM dd YYYY HH:mm:ss";
+  var MMMM = ["\0", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var MMM = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var dddd = ["", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ddd = ["", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  function ii(i, len) {
+    var s22 = i + "";
+    len = len || 2;
+    while (s22.length < len)
+      s22 = "0" + s22;
+    return s22;
+  }
+  var y = utc ? date.getUTCFullYear() : date.getFullYear();
+  mask = mask.replace(/(^|[^\\])yyyy+/g, "$1" + y);
+  mask = mask.replace(/(^|[^\\])yy/g, "$1" + y.toString().substr(2, 2));
+  mask = mask.replace(/(^|[^\\])y/g, "$1" + y);
+  var Y2 = utc ? date.getUTCFullYear() : date.getFullYear();
+  mask = mask.replace(/(^|[^\\])YYYY+/g, "$1" + Y2);
+  mask = mask.replace(/(^|[^\\])YY/g, "$1" + Y2.toString().substr(2, 2));
+  mask = mask.replace(/(^|[^\\])Y/g, "$1" + Y2);
+  var M = (utc ? date.getUTCMonth() : date.getMonth()) + 1;
+  mask = mask.replace(/(^|[^\\])MMMM+/g, "$1" + MMMM[0]);
+  mask = mask.replace(/(^|[^\\])MMM/g, "$1" + MMM[0]);
+  mask = mask.replace(/(^|[^\\])MM/g, "$1" + ii(M));
+  mask = mask.replace(/(^|[^\\])M/g, "$1" + M);
+  var d = utc ? date.getUTCDate() : date.getDate();
+  mask = mask.replace(/(^|[^\\])dddd+/g, "$1" + dddd[0]);
+  mask = mask.replace(/(^|[^\\])ddd/g, "$1" + ddd[0]);
+  mask = mask.replace(/(^|[^\\])dd/g, "$1" + ii(d));
+  mask = mask.replace(/(^|[^\\])d/g, "$1" + d);
+  var D = utc ? date.getUTCDate() : date.getDate();
+  mask = mask.replace(/(^|[^\\])DDDD+/g, "$1" + dddd[0]);
+  mask = mask.replace(/(^|[^\\])DDD/g, "$1" + ddd[0]);
+  mask = mask.replace(/(^|[^\\])DD/g, "$1" + ii(D));
+  mask = mask.replace(/(^|[^\\])D/g, "$1" + D);
+  var H = utc ? date.getUTCHours() : date.getHours();
+  mask = mask.replace(/(^|[^\\])HH+/g, "$1" + ii(H));
+  mask = mask.replace(/(^|[^\\])H/g, "$1" + H);
+  var h = H > 12 ? H - 12 : H == 0 ? 12 : H;
+  mask = mask.replace(/(^|[^\\])hh+/g, "$1" + ii(h));
+  mask = mask.replace(/(^|[^\\])h/g, "$1" + h);
+  var m = utc ? date.getUTCMinutes() : date.getMinutes();
+  mask = mask.replace(/(^|[^\\])mm+/g, "$1" + ii(m));
+  mask = mask.replace(/(^|[^\\])m/g, "$1" + m);
+  var s2 = utc ? date.getUTCSeconds() : date.getSeconds();
+  mask = mask.replace(/(^|[^\\])ss+/g, "$1" + ii(s2));
+  mask = mask.replace(/(^|[^\\])s/g, "$1" + s2);
+  var S = utc ? date.getUTCMilliseconds() : date.getMilliseconds();
+  mask = mask.replace(/(^|[^\\])SSS+/g, "$1" + ii(S, 3));
+  S = Math.round(S / 10);
+  mask = mask.replace(/(^|[^\\])SS/g, "$1" + ii(S));
+  S = Math.round(S / 10);
+  mask = mask.replace(/(^|[^\\])S/g, "$1" + S);
+  var A = H < 12 ? "AM" : "PM";
+  mask = mask.replace(/(^|[^\\])AA+/g, "$1" + A);
+  mask = mask.replace(/(^|[^\\])A/g, "$1" + A.charAt(0));
+  var a = A.toLowerCase();
+  mask = mask.replace(/(^|[^\\])aa+/g, "$1" + a);
+  mask = mask.replace(/(^|[^\\])a/g, "$1" + a.charAt(0));
+  var o = ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 !== 10) * d % 10];
+  mask = mask.replace(/(^|[^\\])o+/g, "$1" + o);
+  var timezone = /(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]d{4})?)/g;
+  var timezoneClip = /[^-+dA-Z]/g;
+  var Z = (String(date).match(timezone) || [""]).pop().replace(timezoneClip, "");
+  mask = mask.replace(/(^|[^\\])Z+/g, "$1" + Z);
+  var tz = -date.getTimezoneOffset();
+  var z = utc || !tz ? "Z" : tz > 0 ? "+" : "-";
+  if (!utc) {
+    tz = Math.abs(tz);
+    var tzHrs = Math.floor(tz / 60);
+    var tzMin = tz % 60;
+    z += ii(tzHrs) + ":" + ii(tzMin);
+  }
+  var day = (utc ? date.getUTCDay() : date.getDay()) + 1;
+  mask = mask.replace(new RegExp(dddd[0], "g"), dddd[day]);
+  mask = mask.replace(new RegExp(ddd[0], "g"), ddd[day]);
+  mask = mask.replace(new RegExp(MMMM[0], "g"), MMMM[M]);
+  mask = mask.replace(new RegExp(MMM[0], "g"), MMM[M]);
+  mask = mask.replace(/\\(.)/g, "$1");
+  return mask;
+}
+var css2, Accordion;
+var init_Accordion = __esm({
+  ".svelte-kit/output/server/chunks/Accordion.js"() {
+    init_index2();
+    css2 = {
+      code: ".accordion.svelte-i0i27c{--radius:0;--header-font-size:inherit;--body-font-size:inherit;--seperator:none}.accordion.svelte-i0i27c:not(:last-of-type){border-bottom:1px solid #cccccc55}.header.svelte-i0i27c{padding:1rem 0;cursor:pointer}",
+      map: null
+    };
+    Accordion = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { isOpen = false } = $$props;
+      if ($$props.isOpen === void 0 && $$bindings.isOpen && isOpen !== void 0)
+        $$bindings.isOpen(isOpen);
+      $$result.css.add(css2);
+      return `<div class="accordion svelte-i0i27c"><div class="header svelte-i0i27c">${slots.header ? slots.header({}) : ``}</div>
+	
+	${isOpen ? `<div class="body svelte-i0i27c">${slots.default ? slots.default({}) : ``}</div>` : ``}
+</div>`;
+    });
+  }
+});
+
 // .svelte-kit/output/server/entries/pages/_page.svelte.js
 var page_svelte_exports = {};
 __export(page_svelte_exports, {
@@ -5851,12 +5853,33 @@ function precipSymbol(code) {
   }
   return symbol;
 }
-var icons, css$6, WeatherIcon, css$5, Current, css$4, max_hours, Hours, css$3, RangeBar, css$2, Days, css$12, WobbleChart, css3, Page;
+var css$6, WobbleChart, icons, css$5, WeatherIcon, css$4, Current, css$3, max_hours, Hours, css$2, RangeBar, css$12, Days, css3, Page;
 var init_page_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/_page.svelte.js"() {
     init_index2();
-    init_Accordion();
     init_src31();
+    init_Accordion();
+    css$6 = {
+      code: "#chart.svelte-sajw82{min-width:300px}",
+      map: null
+    };
+    WobbleChart = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { minutes } = $$props;
+      minutes.map((el) => {
+        return {
+          time: el.dt * 1e3,
+          value: el.precipitation
+        };
+      }).filter((el, i) => {
+        return i % 3 === 0;
+      });
+      if ($$props.minutes === void 0 && $$bindings.minutes && minutes !== void 0)
+        $$bindings.minutes(minutes);
+      $$result.css.add(css$6);
+      return `
+
+<div id="chart" class="svelte-sajw82"></div>`;
+    });
     icons = [
       {
         name: "clear-day",
@@ -6248,7 +6271,7 @@ var init_page_svelte = __esm({
   <path fill="url(#j-fog)" d="M0 10h24v9H0z" class="fog" />`
       }
     ];
-    css$6 = {
+    css$5 = {
       code: "svg.svelte-1lmd4z1{display:inline-grid;place-items:center center;height:2em;width:2em;font-size:1rem;-webkit-user-select:none;-moz-user-select:none;user-select:none;vertical-align:top}",
       map: null
     };
@@ -6260,7 +6283,7 @@ var init_page_svelte = __esm({
         $$bindings.icon(icon);
       if ($$props.fontsize === void 0 && $$bindings.fontsize && fontsize !== void 0)
         $$bindings.fontsize(fontsize);
-      $$result.css.add(css$6);
+      $$result.css.add(css$5);
       svg = icons.find((el) => el.tag.includes(icon)) ?? icons[0].tag;
       return `
 
@@ -6268,22 +6291,28 @@ var init_page_svelte = __esm({
 
 <svg class="weatherIcon svelte-1lmd4z1" style="${"font-size: " + escape(fontsize, true)}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><!-- HTML_TAG_START -->${svg.defs}<!-- HTML_TAG_END --></defs><g><!-- HTML_TAG_START -->${svg.path}<!-- HTML_TAG_END --></g>${slots.default ? slots.default({}) : ``}</svg>`;
     });
-    css$5 = {
-      code: ".current_time.svelte-v2i42b.svelte-v2i42b{display:flex;justify-content:center;gap:0 1rem;font-size:0.875rem}.current_conditions.svelte-v2i42b.svelte-v2i42b{margin:2rem 0 3rem}.current_conditions.svelte-v2i42b .snapshot.svelte-v2i42b{display:flex;justify-content:center;align-items:center;gap:0}.current_conditions.svelte-v2i42b .snapshot .temp.svelte-v2i42b{font-size:2.5rem}.current_conditions.svelte-v2i42b .conditions.svelte-v2i42b{text-align:center;margin-top:-1rem;font-size:1.375rem}.day_stats.svelte-v2i42b.svelte-v2i42b{display:flex;justify-content:space-between;align-items:center;gap:0 2rem;max-width:320px;margin:3rem auto }.day_stats.svelte-v2i42b .hilo.svelte-v2i42b,.day_stats.svelte-v2i42b .sun_times.svelte-v2i42b{display:grid;grid-template-columns:max-content max-content;align-items:center;gap:0 1rem}",
+    css$4 = {
+      code: ".current.svelte-d0axo5.svelte-d0axo5{margin-top:0.3rem}.current_time.svelte-d0axo5.svelte-d0axo5{display:flex;justify-content:center;gap:0 1rem;font-size:0.875rem}.current_conditions.svelte-d0axo5.svelte-d0axo5{margin:2rem 0 3rem}.current_conditions.svelte-d0axo5 .snapshot.svelte-d0axo5{display:flex;justify-content:center;align-items:center;gap:0}.current_conditions.svelte-d0axo5 .snapshot .temp.svelte-d0axo5{font-size:2.5rem}.current_conditions.svelte-d0axo5 .conditions.svelte-d0axo5{text-align:center;margin-top:-1rem;font-size:1.375rem}.day_stats.svelte-d0axo5.svelte-d0axo5{display:flex;justify-content:space-between;align-items:center;gap:0 1rem;max-width:20rem;margin:2rem auto }.day_stats.svelte-d0axo5 .hilo.svelte-d0axo5,.day_stats.svelte-d0axo5 .sun_times.svelte-d0axo5{display:grid;grid-template-columns:max-content max-content;align-items:center;gap:0 1ch}.precipChart.svelte-d0axo5.svelte-d0axo5{max-width:500px;margin:0 auto}.precipChart.svelte-d0axo5 .summary.svelte-d0axo5{text-align:center;margin-bottom:-1rem}.precipChart.svelte-d0axo5 .summary var.svelte-d0axo5{font-style:unset;margin:0 1ch}@media(min-width: 480px){.precipChart.svelte-d0axo5 .summary.svelte-d0axo5{margin-bottom:-1.5rem\r\n    }}",
       map: null
     };
     Current = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { current } = $$props;
+      let { current, minutes } = $$props;
+      let minutes_of_precip = minutes.map((el) => el?.precipitation).filter((el) => el > 0);
       if ($$props.current === void 0 && $$bindings.current && current !== void 0)
         $$bindings.current(current);
-      $$result.css.add(css$5);
-      return `<div class="current"><div class="current_time svelte-v2i42b"><span>${escape(dateObj(current?.dt * 1e3, "dddd"))}</span>
+      if ($$props.minutes === void 0 && $$bindings.minutes && minutes !== void 0)
+        $$bindings.minutes(minutes);
+      $$result.css.add(css$4);
+      {
+        console.log("CURRENT", minutes_of_precip.length);
+      }
+      return `<div class="current svelte-d0axo5"><div class="current_time svelte-d0axo5"><span>${escape(dateObj(current?.dt * 1e3, "dddd"))}</span>
     <span>${escape(dateObj(current?.dt * 1e3, "MMMM do"))}</span>
     <span>${escape(dateObj(current?.dt * 1e3, "h:mm aa"))}</span></div> 
   
   
 
-  <div class="current_conditions svelte-v2i42b"><div class="snapshot svelte-v2i42b">${validate_component(WeatherIcon, "WeatherIcon").$$render(
+  <div class="current_conditions svelte-d0axo5"><div class="snapshot svelte-d0axo5">${validate_component(WeatherIcon, "WeatherIcon").$$render(
         $$result,
         {
           icon: current?.weather[0].icon,
@@ -6292,24 +6321,31 @@ var init_page_svelte = __esm({
         {},
         {}
       )}
-      <div class="temp svelte-v2i42b">${escape(round(current?.temp))}</div></div>
-    <div class="conditions svelte-v2i42b"><div class="icon">${escape(titlecase(current?.weather[0].description))}</div></div></div> 
+      <div class="temp svelte-d0axo5">${escape(round(current?.temp))}</div></div>
+    <div class="conditions svelte-d0axo5"><div class="icon">${escape(titlecase(current?.weather[0].description))}</div></div></div> 
   </div> 
 
 
 
-<div class="day_stats svelte-v2i42b"><div class="hilo svelte-v2i42b"><div class="label">High:</div>
+  
+  ${minutes_of_precip.length > 5 ? `<div class="precipChart svelte-d0axo5"><div class="summary svelte-d0axo5">${current?.snow ? `Snow this hour: <var class="svelte-d0axo5">${escape(round(mmToInches(current?.snow["1h"]), 2) + '"')}</var>` : `${current?.rain ? `Rain this hour: <var class="svelte-d0axo5">${escape(round(mmToInches(current?.rain["1h"]), 2) + '"')}</var>` : `This hour..  ${escape(titlecase(current?.weather[0].description))}`}`}</div>
+
+    ${validate_component(WobbleChart, "WobbleChart").$$render($$result, { minutes }, {}, {})}</div>` : ``}
+  
+
+
+<div class="day_stats svelte-d0axo5"><div class="hilo svelte-d0axo5"><div class="label">High:</div>
     <div class="high temp">${escape(round(current?.high))}</div>
     <div class="label">Low:</div>
     <div class="low temp">${escape(round(current?.low))}</div></div>
-  <div class="sun_times svelte-v2i42b"><div class="label">Sunrise:</div>
+  <div class="sun_times svelte-d0axo5"><div class="label">Sunrise:</div>
     <div class="sunrise">${escape(dateObj(current?.sunrise * 1e3, "h:mm aa"))}</div>
     <div class="label">Sunset:</div>
     <div class="sunset">${escape(dateObj(current?.sunset * 1e3, "h:mm aa"))}</div></div></div> 
 `;
     });
-    css$4 = {
-      code: '.hours.svelte-1i8molu.svelte-1i8molu{padding-bottom:2rem;margin:1rem auto 2rem}.tabs.svelte-1i8molu.svelte-1i8molu{display:flex;flex-flow:row wrap;margin:0 auto 1.5rem}.tabs.svelte-1i8molu .tab.svelte-1i8molu{flex:1 0 25%;color:#35495e;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#eceff1;border:1px solid #b0bec5;border-bottom-color:#b0bec555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}@media(min-width: 768px){.tabs.svelte-1i8molu .tab.svelte-1i8molu{flex:1 1 auto\r\n    }}.tabs.svelte-1i8molu .tab.svelte-1i8molu:hover{background:var(--background-color);cursor:pointer}.tabs.svelte-1i8molu .tab.selectedTab.svelte-1i8molu{color:#41b883;background:var(--background-color);border-bottom:none}.hour.svelte-1i8molu.svelte-1i8molu{display:flex;align-items:center;gap:1ch;min-height:2.25rem}@media(min-width: 500px){.hour.svelte-1i8molu.svelte-1i8molu{gap:2ch\r\n  }}.stripe.svelte-1i8molu.svelte-1i8molu{align-self:stretch;min-width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.topcap.svelte-1i8molu.svelte-1i8molu{border-radius:0.4em 0.4em 0 0 ;border-top-style:solid}.bottomcap.svelte-1i8molu.svelte-1i8molu{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metric.svelte-1i8molu.svelte-1i8molu{border:1px solid #ccc;border-radius:0.75rem;padding:0.275rem 0.3rem 0.25rem 0.4rem ;background:#eceff1;display:grid;place-items:center center;transition:0.3s}.metric.svelte-1i8molu .metricValue.svelte-1i8molu{line-height:1}.wind.svelte-1i8molu.svelte-1i8molu{display:grid;grid-auto-flow:column;align-items:center}.wind_dir.svelte-1i8molu.svelte-1i8molu{font-size:0.675rem;margin:0 0 0.075rem 0.075rem}.summary.svelte-1i8molu.svelte-1i8molu{--muted-7:#999;--muted-4:#999;flex:1;font-style:italic;color:var(--muted-7);font-size:0.75rem;display:flex;gap:0.5rem;justify-content:stretch;align-items:center}.summary.svelte-1i8molu .line.svelte-1i8molu{flex:1;background-image:linear-gradient(var(--muted-4), transparent);height:1px}@media(min-width: 400px){.summary.svelte-1i8molu.svelte-1i8molu{gap:1.5rem\r\n  }.summary.svelte-1i8molu .line.svelte-1i8molu{margin-right:1rem}}.temp.svelte-1i8molu.svelte-1i8molu::after{content:"\\00b0"}.percent.svelte-1i8molu.svelte-1i8molu::after{content:"%"}.metric.pressure.svelte-1i8molu.svelte-1i8molu{padding:0.2rem 0.3rem 0.3rem}',
+    css$3 = {
+      code: '.hours.svelte-h8mg8a.svelte-h8mg8a{padding-bottom:2rem;margin:1rem auto 2rem}.tabs.svelte-h8mg8a.svelte-h8mg8a{display:flex;flex-flow:row wrap;margin:0 auto 1.5rem}.tabs.svelte-h8mg8a .tab.svelte-h8mg8a{flex:1 0 25%;color:#35495e;font-size:0.75em;font-weight:bold;text-align:center;padding:0 0.3rem;background:#eceff1;border:1px solid #b0bec5;border-bottom-color:#b0bec555;border-top-left-radius:0.3rem;border-top-right-radius:0.3rem}@media(min-width: 768px){.tabs.svelte-h8mg8a .tab.svelte-h8mg8a{flex:1 1 auto\r\n    }}.tabs.svelte-h8mg8a .tab.svelte-h8mg8a:hover{background:var(--background-color);cursor:pointer}.tabs.svelte-h8mg8a .tab.selectedTab.svelte-h8mg8a{color:#41b883;background:var(--background-color);border-bottom:none}.hour.svelte-h8mg8a.svelte-h8mg8a{display:flex;align-items:center;gap:1ch;min-height:2.25rem}@media(min-width: 500px){.hour.svelte-h8mg8a.svelte-h8mg8a{gap:2ch\r\n  }}.stripe.svelte-h8mg8a.svelte-h8mg8a{align-self:stretch;min-width:1rem;border:1px none #ccc;border-right-style:solid;border-left-style:solid}.topcap.svelte-h8mg8a.svelte-h8mg8a{border-radius:0.4em 0.4em 0 0 ;border-top-style:solid}.bottomcap.svelte-h8mg8a.svelte-h8mg8a{border-radius:0 0 0.4em 0.4em;border-bottom-style:solid}.metric.svelte-h8mg8a.svelte-h8mg8a{border:1px solid #ccc;border-radius:0.75rem;padding:0.275rem 0.3rem 0.25rem 0.4rem ;background:#eceff1;display:grid;place-items:center center;transition:0.3s}.metric.svelte-h8mg8a .metricValue.svelte-h8mg8a{line-height:1}.wind.svelte-h8mg8a.svelte-h8mg8a{display:grid;grid-auto-flow:column;align-items:center}.wind_dir.svelte-h8mg8a.svelte-h8mg8a{font-size:0.675rem;margin:0 0 0.075rem 0.075rem}.summary.svelte-h8mg8a.svelte-h8mg8a{--muted-7:#999;--muted-4:#999;flex:1;font-style:italic;color:var(--muted-7);font-size:0.75rem;display:flex;gap:0.5rem;justify-content:stretch;align-items:center}.summary.svelte-h8mg8a .line.svelte-h8mg8a{flex:1;background-image:linear-gradient(var(--muted-4), transparent);height:1px}@media(min-width: 400px){.summary.svelte-h8mg8a.svelte-h8mg8a{gap:1.5rem\r\n  }.summary.svelte-h8mg8a .line.svelte-h8mg8a{margin-right:1rem}}.temp.svelte-h8mg8a.svelte-h8mg8a::after{content:"\\00b0"}.percent.svelte-h8mg8a.svelte-h8mg8a::after{content:"%"}.metric.pressure.svelte-h8mg8a.svelte-h8mg8a{padding:0.2rem 0.3rem 0.3rem}',
       map: null
     };
     max_hours = 24;
@@ -6337,35 +6373,35 @@ var init_page_svelte = __esm({
       }
       if ($$props.hours === void 0 && $$bindings.hours && hours !== void 0)
         $$bindings.hours(hours);
-      $$result.css.add(css$4);
+      $$result.css.add(css$3);
       metric = hours.map((el) => round(el?.temp));
       domain = [Math.min.apply(null, metric), Math.max.apply(null, metric)];
       stripes = hours.map((el) => {
         const obj = makeStripe(el.weather[0].id);
         return { color: obj.color, text: obj.text };
       });
-      return `<section class="hours svelte-1i8molu">
-  <div class="tabs svelte-1i8molu">${each(tabs, (tab, i) => {
-        return `<div class="${["tab svelte-1i8molu", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
+      return `<section class="hours svelte-h8mg8a">
+  <div class="tabs svelte-h8mg8a">${each(tabs, (tab, i) => {
+        return `<div class="${["tab svelte-h8mg8a", selectedTab === i ? "selectedTab" : ""].join(" ").trim()}"><div class="text">${escape(tab.name)}</div>
       </div>`;
       })}</div>
   
   
   
   ${each(hours, (hour, i) => {
-        return `${i % 2 ? `<div class="hour svelte-1i8molu"><div class="${[
-          "stripe svelte-1i8molu",
+        return `${i % 2 ? `<div class="hour svelte-h8mg8a"><div class="${[
+          "stripe svelte-h8mg8a",
           (i === 1 ? "topcap" : "") + " " + (i === 23 ? "bottomcap" : "")
         ].join(" ").trim()}"${add_styles({ "background": stripes[i].color })}></div>
 
         <div class="time">${escape(dateObj(hour?.dt * 1e3, "h aa"))}</div> 
         
-        <div class="summary svelte-1i8molu">${escape(i === 1 ? stripes[i].text : stripes[i - 2].text === stripes[i].text ? "" : stripes[i].text)}
+        <div class="summary svelte-h8mg8a">${escape(i === 1 ? stripes[i].text : stripes[i - 2].text === stripes[i].text ? "" : stripes[i].text)}
 
-          <div class="line svelte-1i8molu"></div></div> 
+          <div class="line svelte-h8mg8a"></div></div> 
       
-        ${metric[i] > 0 ? `<div class="${["metric svelte-1i8molu", ""].join(" ").trim()}" style="${"margin-right: " + escape(offset(metric[i]), true)}"><div class="${[
-          "metricValue svelte-1i8molu",
+        ${metric[i] > 0 ? `<div class="${["metric svelte-h8mg8a", ""].join(" ").trim()}" style="${"margin-right: " + escape(offset(metric[i]), true)}"><div class="${[
+          "metricValue svelte-h8mg8a",
           "temp  "
         ].join(" ").trim()}">${escape(metric[i])}
 
@@ -6373,7 +6409,7 @@ var init_page_svelte = __esm({
       })} 
   </section> `;
     });
-    css$3 = {
+    css$2 = {
       code: '.range.svelte-uxf9oq{height:100%;position:relative;padding:0 1.5rem 0 1rem;display:grid;justify-content:stretch}@media(min-width: 500px){.range.svelte-uxf9oq{padding:0 1.5rem 0 2rem\r\n  }}.shell.svelte-uxf9oq{display:grid;align-items:center;position:relative}.bar.svelte-uxf9oq{position:relative;background:gainsboro;border:1px solid #808080;height:0.75rem;border-radius:0.375rem;box-shadow:0 -2px 4px inset rgba(0,0,0,0.1)}@media(min-width: 500px){.bar.svelte-uxf9oq{height:1rem;border-radius:0.5rem\r\n  }}.low.svelte-uxf9oq,.high.svelte-uxf9oq{position:absolute;top:-0.5rem}.low.svelte-uxf9oq:after,.high.svelte-uxf9oq:after{content:"\xB0"}@media(min-width: 500px){.low.svelte-uxf9oq,.high.svelte-uxf9oq{font-size:inherit;top:-0.3rem\r\n  }}.low.svelte-uxf9oq{left:-2rem}.high.svelte-uxf9oq{right:-2.2rem}',
       map: null
     };
@@ -6389,7 +6425,7 @@ var init_page_svelte = __esm({
         $$bindings.low(low);
       if ($$props.domain === void 0 && $$bindings.domain && domain !== void 0)
         $$bindings.domain(domain);
-      $$result.css.add(css$3);
+      $$result.css.add(css$2);
       {
         {
           hi = scale(high);
@@ -6402,8 +6438,8 @@ var init_page_svelte = __esm({
         <div class="high svelte-uxf9oq">${escape(high)}</div></div></div></div>    
 </section>`;
     });
-    css$2 = {
-      code: ".day.svelte-408y0p.svelte-408y0p{display:grid;grid-template-columns:5rem 5rem 1fr;align-items:center;padding-right:1.1rem}.weekday.svelte-408y0p .precip.svelte-408y0p{color:rgba( 51, 51, 51, 0.7);font-size:0.75rem;line-height:1.3}.weekday.svelte-408y0p .precip div.svelte-408y0p{padding-right:0.5rem}.weekday.svelte-408y0p .precip span.svelte-408y0p:first-child{font-size:0.55rem;margin-right:0.2rem;vertical-align:2px;filter:grayscale(60%)}",
+    css$12 = {
+      code: ".day.svelte-1eipc6i.svelte-1eipc6i{display:grid;grid-template-columns:4.5rem 5rem 1fr;align-items:center;padding-right:1.1rem}@media(min-width: 500px){.day.svelte-1eipc6i.svelte-1eipc6i{grid-template-columns:5rem 5rem 1fr\r\n  }}.weekday.svelte-1eipc6i .precip.svelte-1eipc6i{color:rgba( 51, 51, 51, 0.7);font-size:0.75rem;line-height:1.3}.weekday.svelte-1eipc6i .precip div.svelte-1eipc6i{padding-right:0.5rem}.weekday.svelte-1eipc6i .precip span.svelte-1eipc6i:first-child{font-size:0.55rem;margin-right:0.2rem;vertical-align:2px;filter:grayscale(60%)}",
       map: null
     };
     Days = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -6416,7 +6452,7 @@ var init_page_svelte = __esm({
       }
       if ($$props.days === void 0 && $$bindings.days && days !== void 0)
         $$bindings.days(days);
-      $$result.css.add(css$2);
+      $$result.css.add(css$12);
       return `<div class="days">${each(days, (day, i) => {
         return `${validate_component(Accordion, "Accordion").$$render($$result, {}, {}, {
           default: () => {
@@ -6424,7 +6460,7 @@ var init_page_svelte = __esm({
 `;
           },
           header: () => {
-            return `<div class="day svelte-408y0p">${validate_component(WeatherIcon, "WeatherIcon").$$render(
+            return `<div class="day svelte-1eipc6i">${validate_component(WeatherIcon, "WeatherIcon").$$render(
               $$result,
               {
                 icon: day.weather[0].icon,
@@ -6434,9 +6470,9 @@ var init_page_svelte = __esm({
               {}
             )}
 
-    <div class="weekday svelte-408y0p"><div class="date svelte-408y0p">${escape(i === 0 ? "Today" : dateObj(day.dt * 1e3, "ddd"))}</div>
-      <div class="precip svelte-408y0p"><div class="svelte-408y0p"><span class="svelte-408y0p">${escape(precipSymbol(day.weather[0].id))}</span>
-          <span class="svelte-408y0p">${escape(day.pop > 0.01 ? day.pop * 100 + "%" : "0%")}</span></div>
+    <div class="weekday svelte-1eipc6i"><div class="date svelte-1eipc6i">${escape(i === 0 ? "Today" : dateObj(day.dt * 1e3, "ddd"))}</div>
+      <div class="precip svelte-1eipc6i"><div class="svelte-1eipc6i"><span class="svelte-1eipc6i">${escape(precipSymbol(day.weather[0].id))}</span>
+          <span class="svelte-1eipc6i">${escape(day.pop > 0.01 ? day.pop * 100 + "%" : "0%")}</span></div>
       </div></div>
 
     ${validate_component(RangeBar, "RangeBar").$$render(
@@ -6455,35 +6491,14 @@ var init_page_svelte = __esm({
       })}
 </div>`;
     });
-    css$12 = {
-      code: "#chart.svelte-17f2iu4{max-width:640px;min-width:300px;margin:0 auto 3rem}",
-      map: null
-    };
-    WobbleChart = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { minutes } = $$props;
-      minutes.map((el) => {
-        return {
-          time: el.dt * 1e3,
-          value: el.precipitation
-        };
-      }).filter((el, i) => {
-        return i % 3 === 0;
-      });
-      if ($$props.minutes === void 0 && $$bindings.minutes && minutes !== void 0)
-        $$bindings.minutes(minutes);
-      $$result.css.add(css$12);
-      return `
-
-<div id="chart" class="svelte-17f2iu4"></div>`;
-    });
     css3 = {
-      code: ".wrapper.svelte-vn9nei{max-width:640px;margin:0 auto}var.svelte-vn9nei{font-style:unset;margin:0 1ch}.desc.svelte-vn9nei{text-align:center;margin-bottom:-1rem}",
+      code: ".wrapper.svelte-2yb4f0{max-width:640px;margin:0 auto}",
       map: null
     };
     Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { data } = $$props;
       const { weather } = data;
-      let days = {}, hours = {}, minutes = {}, current = {}, alerts = [], minutes_of_precip_this_hour;
+      let days = {}, hours = {}, minutes = {}, current = {}, alerts = [];
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
       $$result.css.add(css3);
@@ -6499,7 +6514,7 @@ var init_page_svelte = __esm({
           alerts.length ? alerts = weather?.alerts : [];
         }
       }
-      minutes_of_precip_this_hour = minutes.map((el) => el?.precipitation).filter((el) => el > 0);
+      minutes.map((el) => el?.precipitation).filter((el) => el > 0);
       return `<div class="page">${validate_component(Current, "Current").$$render(
         $$result,
         {
@@ -6509,24 +6524,21 @@ var init_page_svelte = __esm({
             sunrise: days[0].sunrise,
             sunset: days[0].sunset,
             ...current
-          }
+          },
+          minutes
         },
         {},
         {}
       )}
-    
-  
-  ${minutes_of_precip_this_hour.length > 5 ? `<div class="precipChart"><div class="desc svelte-vn9nei">${current?.snow ? `Snow this hour: <var class="svelte-vn9nei">${escape(round(mmToInches(current?.snow["1h"]), 2) + '"')}</var>` : `${current?.rain ? `Rain this hour: <var class="svelte-vn9nei">${escape(round(mmToInches(current?.rain["1h"]), 2) + '"')}</var>` : `This hour..  ${escape(titlecase(current?.weather[0].description))}`}`}</div>
 
-    ${validate_component(WobbleChart, "WobbleChart").$$render($$result, { minutes }, {}, {})}</div>` : ``}
-  
-
-
-  <div class="wrapper svelte-vn9nei"${add_styles({ "max-width": `640px` })}><div class="day_summary">day_summary</div>
-    ${validate_component(Hours, "Hours").$$render($$result, { hours }, {}, {})}   
+  <div class="wrapper svelte-2yb4f0"${add_styles({ "max-width": `640px` })}><div class="day_summary">day_summary</div>
+    ${validate_component(Hours, "Hours").$$render($$result, { hours }, {}, {})}
 
     <div class="week_summary">week_summary</div>
-    ${validate_component(Days, "Days").$$render($$result, { days }, {}, {})}</div> </div> `;
+    ${validate_component(Days, "Days").$$render($$result, { days }, {}, {})}</div>
+  </div>
+
+`;
     });
   }
 });
@@ -6546,9 +6558,9 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.c8946884.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.c8946884.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/Accordion.eb4e1ee0.js"];
-    stylesheets3 = ["_app/immutable/assets/_page.f37b6d3e.css", "_app/immutable/assets/Accordion.559a29cc.css"];
+    file3 = "_app/immutable/entry/_page.svelte.e9db95ad.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.e9db95ad.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/Accordion.57f4378a.js"];
+    stylesheets3 = ["_app/immutable/assets/_page.4094a43a.css", "_app/immutable/assets/Accordion.ba66559c.css"];
     fonts3 = [];
   }
 });
@@ -6558,52 +6570,43 @@ var page_svelte_exports2 = {};
 __export(page_svelte_exports2, {
   default: () => Page2
 });
+function humanize(str) {
+  const res = str.replace(/(HAZARD)/, "<br>HAZARD&nbsp;").replace(/(SOURCE)/, "SOURCE&nbsp;").replace(/(IMPACT)/, "IMPACT&nbsp;").replace(/(IMPACTS)/, "IMPACTS&nbsp;").replace(/(HAIL)/, "<br>HAIL&nbsp;").replace(/(WIND)/, "WIND&nbsp;").replace(/(Locations impacted)/, "<br>Locations impacted").replace(/(Forecast)/, "<br>Forecast&nbsp;").replace(/(Flood History)/, "<br>Flood History&nbsp;").replace(/(ADDITIONAL DETAILS)/, "<br>ADDITIONAL DETAILS&nbsp;").replace(/(PRECAUTIONARY)/, "<br>PRECAUTIONARY").replace(/(NEXT UPDATE)/, "<br>NEXT UPDATE").replace(/(SITUATION OVERVIEW)/, "<br>SITUATION OVERVIEW").replace(/(POTENTIAL IMPACTS)/, "<br>POTENTIAL IMPACTS").replace(/(THREAT TO LIFE)/, "<br>THREAT TO LIFE").replace(/(PLAN:)/, "<br>PLAN:").replace(/(PREPARE:)/, "<br>PREPARE:").replace(/\n/g, "<br>").trim();
+  return res;
+}
 var css4, Page2;
 var init_page_svelte2 = __esm({
   ".svelte-kit/output/server/entries/pages/alerts/_page.svelte.js"() {
     init_index2();
     init_Accordion();
     css4 = {
-      code: ".alerts.svelte-z578xj{max-width:640px;margin:0 auto;font-family:var(--serif)}pre.svelte-z578xj{font-family:var(--serif)}.event.svelte-z578xj{font-weight:bold;font-family:var(--serif)}.label.svelte-z578xj{display:inline-block;width:6ch}",
+      code: ".alerts.svelte-1oo9jct.svelte-1oo9jct{max-width:calc(672px + 2rem);margin:0 auto;font-family:var(--serif)}.alerts.svelte-1oo9jct pre.svelte-1oo9jct{font-family:var(--serif);margin:0 0 1rem}.event.svelte-1oo9jct.svelte-1oo9jct{font-size:1.1em;font-weight:bold;margin-bottom:0.3em}.param.svelte-1oo9jct.svelte-1oo9jct{font-size:0.875em}.label.svelte-1oo9jct.svelte-1oo9jct{display:inline-block;width:6ch}",
       map: null
     };
     Page2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { data } = $$props;
+      let { data, isOpen = false } = $$props;
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
+      if ($$props.isOpen === void 0 && $$bindings.isOpen && isOpen !== void 0)
+        $$bindings.isOpen(isOpen);
       $$result.css.add(css4);
-      return `<div class="page"><div class="alerts svelte-z578xj">${each(data?.weather.alerts, (alert, i) => {
-        return `${validate_component(Accordion, "Accordion").$$render($$result, {}, {}, {
+      return `<div class="page"><div class="alerts svelte-1oo9jct">${each(data?.weather.alerts, (alert, i) => {
+        return `${validate_component(Accordion, "Accordion").$$render($$result, { isOpen }, {}, {
           header: () => {
-            return `
-        <div class="event svelte-z578xj">${escape(alert.event)}</div>
-        <div class="start"><div class="label svelte-z578xj">Start:</div> ${escape(dateObj(alert.start * 1e3, "ddd h:mm aa"))}</div>
-        <div class="ende"><div class="label svelte-z578xj">End:</div> ${escape(dateObj(alert.end * 1e3, "ddd h:mm aa"))}</div>
-      `;
+            return `<div class="header" slot="header"><div class="event svelte-1oo9jct">${escape(alert.event)}</div>
+          <div class="start param svelte-1oo9jct"><div class="label svelte-1oo9jct">Start:</div>
+            ${escape(dateObj(alert.start * 1e3, "ddd h:mm aa"))}</div>
+          <div class="end param svelte-1oo9jct"><div class="label svelte-1oo9jct">End:</div>
+            ${escape(dateObj(alert.end * 1e3, "ddd h:mm aa"))}</div>
+        </div>`;
           },
           default: () => {
-            return `
-      
-       
-
-      
-        
-          
-          
-
-        
-          
-          
-          <pre class="desc svelte-z578xj"><!-- HTML_TAG_START -->${alert?.description}<!-- HTML_TAG_END --></pre>
-
-        
-        
-      
-      
-    `;
+            return `<pre class="desc svelte-1oo9jct"><!-- HTML_TAG_START -->${humanize(alert?.description)}<!-- HTML_TAG_END --></pre>
+      `;
           }
         })}`;
-      })}</div></div> `;
+      })}</div></div>
+`;
     });
   }
 });
@@ -6623,9 +6626,9 @@ var init__4 = __esm({
   ".svelte-kit/output/server/nodes/3.js"() {
     index4 = 3;
     component4 = async () => (await Promise.resolve().then(() => (init_page_svelte2(), page_svelte_exports2))).default;
-    file4 = "_app/immutable/entry/alerts-page.svelte.7351bb6e.js";
-    imports4 = ["_app/immutable/entry/alerts-page.svelte.7351bb6e.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/Accordion.eb4e1ee0.js"];
-    stylesheets4 = ["_app/immutable/assets/_page.3c57158e.css", "_app/immutable/assets/Accordion.559a29cc.css"];
+    file4 = "_app/immutable/entry/alerts-page.svelte.684f0438.js";
+    imports4 = ["_app/immutable/entry/alerts-page.svelte.684f0438.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/Accordion.57f4378a.js"];
+    stylesheets4 = ["_app/immutable/assets/_page.abdfaba7.css", "_app/immutable/assets/Accordion.ba66559c.css"];
     fonts4 = [];
   }
 });
@@ -6645,14 +6648,17 @@ var init_page_md = __esm({
   <br><br>
   
 <h4>Todo</h4>
-<ul><li>Page  <ul><li>remove background color  </li>
-<li>day_summary  </li>
-<li>week_summary  </li></ul></li>
-<li>Hours<ul><li>fix inch / hr</li></ul></li>
-<li>Days<ul><li>fix media queries / bar width</li>
-<li>add hours to accordion - 5-day / 3-hour call</li></ul></li>
-<li>Search<ul><li>tomtom</li></ul></li>
-<li>Map<ul><li>map - windy</li></ul></li></ul>
+<ul><li>Search<ul><li>form actions</li>
+<li>tomtom</li>
+<li>database</li></ul></li>
+<li>Days<ul><li>add hours to accordion - 5-day / 3-hour call</li>
+<li><del>fix media queries / bar width</del></li></ul></li>
+<li>Page  <ul><li>day_summary  </li>
+<li>week_summary  </li>
+<li><del>remove background color</del></li></ul></li>
+<li>Hours<ul><li>rain start &amp; stop</li>
+<li><del>fix inch / hr</del></li></ul></li>
+<li>Map<ul><li><del>map - windy</del></li></ul></li></ul>
   <br><br>
 <p>Api Call</p>
 <pre class="language-js"><!-- HTML_TAG_START -->${`<code class="language-js"><span class="token comment">/*
@@ -6678,8 +6684,8 @@ var init__5 = __esm({
   ".svelte-kit/output/server/nodes/4.js"() {
     index5 = 4;
     component5 = async () => (await Promise.resolve().then(() => (init_page_md(), page_md_exports))).default;
-    file5 = "_app/immutable/entry/docs-page.md.afcd9926.js";
-    imports5 = ["_app/immutable/entry/docs-page.md.afcd9926.js", "_app/immutable/chunks/index.5089646f.js"];
+    file5 = "_app/immutable/entry/docs-page.md.3a66a56e.js";
+    imports5 = ["_app/immutable/entry/docs-page.md.3a66a56e.js", "_app/immutable/chunks/index.09f10f2b.js"];
     stylesheets5 = [];
     fonts5 = [];
   }
@@ -6695,22 +6701,21 @@ var init_page_svelte3 = __esm({
   ".svelte-kit/output/server/entries/pages/map/_page.svelte.js"() {
     init_index2();
     css5 = {
-      code: ".map.svelte-i7to4w{top:0;width:100%;height:100vh;z-index:15;background:var(--background-color)}",
+      code: ".map.svelte-1ag9nib{position:relative;top:0;width:100%;height:100vh;padding:0 0 var(--footer-height);z-index:15;background:var(--background-color)}",
       map: null
     };
-    title = "Map";
+    title = "Map by Windy";
     Page4 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let mapUrl2;
+      let mapUrl;
       let { data } = $$props;
       const lat = data?.location.lat;
       const lon = data?.location.lon;
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
       $$result.css.add(css5);
-      mapUrl2 = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1`;
-      return `<div class="map page svelte-i7to4w">
-
-  <iframe width="100%" height="100%"${add_attribute("src", mapUrl2, 0)} frameborder="0"${add_attribute("title", title, 0)}></iframe></div> `;
+      mapUrl = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1`;
+      return `<div class="map svelte-1ag9nib"><iframe width="100%" height="100%"${add_attribute("src", mapUrl, 0)} frameborder="0"${add_attribute("title", title, 0)}></iframe></div>
+`;
     });
   }
 });
@@ -6730,9 +6735,9 @@ var init__6 = __esm({
   ".svelte-kit/output/server/nodes/5.js"() {
     index6 = 5;
     component6 = async () => (await Promise.resolve().then(() => (init_page_svelte3(), page_svelte_exports3))).default;
-    file6 = "_app/immutable/entry/map-page.svelte.34f0afa6.js";
-    imports6 = ["_app/immutable/entry/map-page.svelte.34f0afa6.js", "_app/immutable/chunks/index.5089646f.js"];
-    stylesheets6 = ["_app/immutable/assets/_page.221f6056.css"];
+    file6 = "_app/immutable/entry/map-page.svelte.8b96f069.js";
+    imports6 = ["_app/immutable/entry/map-page.svelte.8b96f069.js", "_app/immutable/chunks/index.09f10f2b.js"];
+    stylesheets6 = ["_app/immutable/assets/_page.b7ee240d.css"];
     fonts6 = [];
   }
 });
@@ -6760,7 +6765,7 @@ var init_page_svelte4 = __esm({
 </div>`;
     });
     css6 = {
-      code: ".search_page.svelte-moi2gh.svelte-moi2gh{top:0;width:100%;height:100vh;z-index:15;background:var(--background-color)}.error.svelte-moi2gh.svelte-moi2gh{text-align:center}.page.svelte-moi2gh.svelte-moi2gh{position:absolute;top:0;width:100%;height:100%;z-index:20}.header.svelte-moi2gh.svelte-moi2gh{padding:0.75rem;box-shadow:0 1px 0 var(--umbra),\r\n    0 1px 5px var(--penumbra);z-index:10}.location_group.svelte-moi2gh.svelte-moi2gh{display:flex;justify-content:space-between;align-items:center;gap:0 0.75em;width:100%;max-width:500px;margin:0 auto}.location_group.svelte-moi2gh form.svelte-moi2gh{flex:1}.location_group.svelte-moi2gh input.svelte-moi2gh{text-align:center;width:100%;background:#fff}.location_group.svelte-moi2gh input.svelte-moi2gh:focus{outline:1px solid var(--active-color)}.location_group.svelte-moi2gh svg.svelte-moi2gh{width:1.25em;height:1.25em;font-size:1em;line-height:1;opacity:0.6}.location_group.svelte-moi2gh .btn.svelte-moi2gh{display:grid;plaace-items:center center}.lists.svelte-moi2gh.svelte-moi2gh{max-width:500px;margin:0 auto;padding:0 2rem}.flex.svelte-moi2gh.svelte-moi2gh{display:flex;align-items:baseline;gap:0 1ch;margin-top:4rem}.comment.svelte-moi2gh.svelte-moi2gh{margin-top:1em;font-size:0.75em;color:#999;padding:0 1em}.center.svelte-moi2gh.svelte-moi2gh{text-align:center;font-style:italic}@media(min-width: 500px){.lists.svelte-moi2gh.svelte-moi2gh{padding:0}}",
+      code: ".search_page.svelte-y616bd.svelte-y616bd{position:absolute;top:0;width:100%;height:100vh;z-index:15;background:var(--background-color)}.header.svelte-y616bd.svelte-y616bd{display:flex;justify-content:center;align-items:center;height:var(--header-height);border-bottom:var(--border)}.location_group.svelte-y616bd.svelte-y616bd{display:flex;justify-content:space-between;align-items:center;gap:0 0.75em;width:100%;padding:0 1rem;max-width:500px}.location_group.svelte-y616bd form.svelte-y616bd{flex:1}.location_group.svelte-y616bd input.svelte-y616bd{text-align:center;width:100%;background:#fff}.location_group.svelte-y616bd input.svelte-y616bd:focus{outline:1px solid var(--active-color)}.location_group.svelte-y616bd svg.svelte-y616bd{width:1.25em;height:1.25em;font-size:1em;line-height:1;opacity:0.6}.location_group.svelte-y616bd .btn.svelte-y616bd{display:grid;plaace-items:center center;font-size:1.25rem}.lists.svelte-y616bd.svelte-y616bd{max-width:500px;margin:0 auto;padding:0 1rem}.lists.svelte-y616bd .flex.svelte-y616bd{display:flex;align-items:baseline;gap:0 1ch;margin-top:4rem}.lists.svelte-y616bd .comment.svelte-y616bd{margin-top:1em;font-size:0.75em;color:#999;padding:0 1em}.lists.svelte-y616bd .center.svelte-y616bd{text-align:center;font-style:italic}.error.svelte-y616bd.svelte-y616bd{text-align:center}",
       map: null
     };
     Page5 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -6776,24 +6781,21 @@ var init_page_svelte4 = __esm({
         {
           console.log("geoData", data);
         }
-        $$rendered = `<div class="page search_page svelte-moi2gh">
+        $$rendered = `<div class="search_page svelte-y616bd"><div class="header svelte-y616bd"><div class="location_group svelte-y616bd"><div class="btn svelte-y616bd"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="svelte-y616bd"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path></svg></div>
 
-  <div class="header svelte-moi2gh"><div class="location_group svelte-moi2gh"><div class="btn svelte-moi2gh"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="svelte-moi2gh"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path></svg>
-
-        </div>
       
-      <form method="POST" action="?/tomtom" class="svelte-moi2gh"><input type="text" placeholder="Search" name="searchTerm" class="svelte-moi2gh">
-               
-        <input type="submit" hidden class="svelte-moi2gh"></form>
-      <div class="btn search svelte-moi2gh"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="svelte-moi2gh"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
-        </div></div> </div> 
-    
-    ${``}
- 
-  
+      <form method="POST" action="?/tomtom" class="svelte-y616bd"><input type="text" placeholder="Search" name="searchTerm" class="svelte-y616bd">
+        
+        <input type="submit" hidden class="svelte-y616bd"></form>
 
-<section class="lists svelte-moi2gh"><div class="comment svelte-moi2gh">Saved Locations:</div>
-  ${validate_component(List, "List").$$render(
+      <div class="btn search svelte-y616bd"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="svelte-y616bd"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div></div> </div> 
+
+
+  ${``}
+
+
+  <section class="lists svelte-y616bd"><div class="comment svelte-y616bd">Saved Locations:</div>
+    ${validate_component(List, "List").$$render(
           $$result,
           {
             id: "list_1",
@@ -6809,10 +6811,10 @@ var init_page_svelte4 = __esm({
           {}
         )}
 
-  <div class="comment center svelte-moi2gh">~ drag recent searches here to save location ~    
-  </div>
-  <div class="comment svelte-moi2gh">Recent Searches:</div>
-  ${validate_component(List, "List").$$render(
+    <div class="comment center svelte-y616bd">~ drag recent searches here to save location ~
+    </div>
+    <div class="comment svelte-y616bd">Recent Searches:</div>
+    ${validate_component(List, "List").$$render(
           $$result,
           {
             id: "list_2",
@@ -6828,10 +6830,10 @@ var init_page_svelte4 = __esm({
           {}
         )}
 
-  ${`<div class="flex svelte-moi2gh"><span${add_styles({ "padding": `0 1rem` })}><div>store.saved_items: \u2003 ${escape(saved_itemsNames)}</div>
-      <br>
-      <div>store.recent_items: \u2003 ${escape(recent_itemsNames)}</div></span></div> `}</section>
-
+    ${`<div class="flex svelte-y616bd"><span${add_styles({ "padding": `0 1rem` })}><div>store.saved_items: \u2003 ${escape(saved_itemsNames)}</div>
+          <br>
+          <div>store.recent_items: \u2003 ${escape(recent_itemsNames)}</div></span></div>
+      `}</section>
 </div>`;
       } while (!$$settled);
       return $$rendered;
@@ -6857,10 +6859,10 @@ var init__7 = __esm({
     init_page_server();
     index7 = 6;
     component7 = async () => (await Promise.resolve().then(() => (init_page_svelte4(), page_svelte_exports4))).default;
-    file7 = "_app/immutable/entry/search-page.svelte.df33b6a1.js";
+    file7 = "_app/immutable/entry/search-page.svelte.a3a389f4.js";
     server_id2 = "src/routes/search/+page.server.js";
-    imports7 = ["_app/immutable/entry/search-page.svelte.df33b6a1.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.f4869782.js", "_app/immutable/chunks/navigation.4b4ae64e.js"];
-    stylesheets7 = ["_app/immutable/assets/_page.63f62a6f.css"];
+    imports7 = ["_app/immutable/entry/search-page.svelte.a3a389f4.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.2f9d6e67.js", "_app/immutable/chunks/navigation.59de036f.js"];
+    stylesheets7 = ["_app/immutable/assets/_page.060bc455.css"];
     fonts7 = [];
   }
 });
@@ -6938,7 +6940,7 @@ __export(server_exports4, {
 async function GET3({ params }) {
   try {
     let weather;
-    if (dev)
+    if (dev && !override_dev)
       ;
     else {
       const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
@@ -6949,13 +6951,14 @@ async function GET3({ params }) {
     console.log("load error:", error2);
   }
 }
-var dev, WEATHER_KEY;
+var dev, WEATHER_KEY, override_dev;
 var init_server4 = __esm({
   ".svelte-kit/output/server/entries/endpoints/api/weather/_search_/_server.js"() {
     init_prod_ssr();
     init_chunks();
     dev = DEV;
     WEATHER_KEY = "826b835b9408db50ca70aa7158b06f23";
+    override_dev = false;
   }
 });
 
@@ -7065,7 +7068,7 @@ var options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<meta name="viewport" content="width=device-width" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<link rel="icon" type="image/svg+xml" href="' + assets2 + '/favicon.svg" />\n		<meta name="viewport" content="width=device-width" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
     error: ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -7126,7 +7129,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1b4nxg3"
+  version_hash: "555gc2"
 };
 function get_hooks() {
   return {};
@@ -9849,10 +9852,10 @@ _manifest = new WeakMap();
 var manifest = {
   appDir: "_app",
   appPath: "_app",
-  assets: /* @__PURE__ */ new Set(["favicon.png"]),
-  mimeTypes: { ".png": "image/png" },
+  assets: /* @__PURE__ */ new Set(["favicon.png", "favicon.svg"]),
+  mimeTypes: { ".png": "image/png", ".svg": "image/svg+xml" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.f991d8c8.js", "imports": ["_app/immutable/entry/start.f991d8c8.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.f4869782.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.39779bb0.js", "imports": ["_app/immutable/entry/app.39779bb0.js", "_app/immutable/chunks/index.5089646f.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.104104f2.js", "imports": ["_app/immutable/entry/start.104104f2.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.2f9d6e67.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.ec75b01c.js", "imports": ["_app/immutable/entry/app.ec75b01c.js", "_app/immutable/chunks/index.09f10f2b.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),
