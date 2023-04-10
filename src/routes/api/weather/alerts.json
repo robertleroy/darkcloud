@@ -31,7 +31,7 @@
     }
   },
   "minutely": [
-    {
+    { 
       "dt": 1680377520,
       "precipitation": 3.646
     },

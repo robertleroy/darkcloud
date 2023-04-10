@@ -1270,8 +1270,8 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.958bb3af.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.958bb3af.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.6f552d4b.js", "_app/immutable/chunks/navigation.e330419f.js"];
+    file2 = "_app/immutable/entry/_error.svelte.17987a5b.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.17987a5b.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.7991beac.js", "_app/immutable/chunks/navigation.0b0a7df2.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -6500,10 +6500,7 @@ var init_page_svelte = __esm({
           alerts.length ? alerts = weather?.alerts : [];
         }
       }
-      minutes_of_precip = minutes.map((el) => {
-        if (el?.precipitation > 0)
-          return el?.precipitation;
-      });
+      minutes_of_precip = minutes.map((el) => el?.precipitation).filter((el) => el > 0);
       {
         {
           current?.rain || current?.snow;
@@ -6524,7 +6521,9 @@ var init_page_svelte = __esm({
         {}
       )}
     
-    
+    <div class="test">${escape(minutes_of_precip)}</div>
+    <div class="test">${escape(Math.max.apply(null, minutes_of_precip))}</div>
+    <div class="test">${escape(minutes_of_precip.length)}</div>
     
   
   ${minutes_of_precip.length > 5 ? `<div class="precipChart"><div class="desc svelte-vn9nei">${current?.snow ? `Snow this hour: <var class="svelte-vn9nei">${escape(round(mmToInches(current?.snow["1h"]), 2) + '"')}</var>` : `${current?.rain ? `Rain this hour: <var class="svelte-vn9nei">${escape(round(mmToInches(current?.rain["1h"]), 2) + '"')}</var>` : `This hour..  ${escape(titlecase(current?.weather[0].description))}`}`}</div>
@@ -6557,8 +6556,8 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.355d7b3d.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.355d7b3d.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/Accordion.eb4e1ee0.js"];
+    file3 = "_app/immutable/entry/_page.svelte.f369b96a.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.f369b96a.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/Accordion.eb4e1ee0.js"];
     stylesheets3 = ["_app/immutable/assets/_page.f37b6d3e.css", "_app/immutable/assets/Accordion.559a29cc.css"];
     fonts3 = [];
   }
@@ -6868,9 +6867,9 @@ var init__7 = __esm({
     init_page_server();
     index7 = 6;
     component7 = async () => (await Promise.resolve().then(() => (init_page_svelte4(), page_svelte_exports4))).default;
-    file7 = "_app/immutable/entry/search-page.svelte.f36c9a83.js";
+    file7 = "_app/immutable/entry/search-page.svelte.5cb7e77b.js";
     server_id2 = "src/routes/search/+page.server.js";
-    imports7 = ["_app/immutable/entry/search-page.svelte.f36c9a83.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.6f552d4b.js", "_app/immutable/chunks/navigation.e330419f.js"];
+    imports7 = ["_app/immutable/entry/search-page.svelte.5cb7e77b.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.7991beac.js", "_app/immutable/chunks/navigation.0b0a7df2.js"];
     stylesheets7 = ["_app/immutable/assets/_page.63f62a6f.css"];
     fonts7 = [];
   }
@@ -7137,7 +7136,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1qj34zd"
+  version_hash: "1dy21ap"
 };
 function get_hooks() {
   return {};
@@ -9863,7 +9862,7 @@ var manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png"]),
   mimeTypes: { ".png": "image/png" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.0a9021b8.js", "imports": ["_app/immutable/entry/start.0a9021b8.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.6f552d4b.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.ac090669.js", "imports": ["_app/immutable/entry/app.ac090669.js", "_app/immutable/chunks/index.5089646f.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.2c9e2f57.js", "imports": ["_app/immutable/entry/start.2c9e2f57.js", "_app/immutable/chunks/index.5089646f.js", "_app/immutable/chunks/singletons.7991beac.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.10bceb9c.js", "imports": ["_app/immutable/entry/app.10bceb9c.js", "_app/immutable/chunks/index.5089646f.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),

@@ -22,7 +22,7 @@
     alerts.length ? alerts = weather?.alerts : [];
   }
   
-  $: minutes_of_precip = minutes.map(el => {if (el?.precipitation > 0) return el?.precipitation});
+  $: minutes_of_precip = minutes.map(el => el?.precipitation).filter(el => el > 0);
 
   $: {
     precipitating = current?.rain || current?.snow;
@@ -43,9 +43,9 @@
     sunset: days[0].sunset, 
     ...current}} />
     
-    <!-- <div class="test">{minutes_of_precip}</div>
+    <div class="test">{minutes_of_precip}</div>
     <div class="test">{Math.max.apply(null, minutes_of_precip)}</div>
-    <div class="test">{minutes_of_precip.length}</div> -->
+    <div class="test">{minutes_of_precip.length}</div>
     
   <!-- #region WobbleChart -->
   {#if minutes_of_precip.length > 5}
