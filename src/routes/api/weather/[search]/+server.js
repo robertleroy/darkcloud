@@ -6,13 +6,14 @@ import { json } from '@sveltejs/kit';
 import weatherData from '../alerts.json';
 
 
-let override_dev = false;
+
 
 
 export async function GET({params}) {
   try {
     let weather;
-
+    let override_dev = false;
+    
     if (dev && !override_dev) {
       weather = weatherData;
     } else {
