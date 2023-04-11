@@ -3,7 +3,7 @@
   import WeatherIcon from "$lib/components/WeatherIcon.svelte";
   import { titlecase, round, mmToInches } from "$lib/js/filters.js";
   import dateObj from "$lib/js/dateObj.js";
-  import { slide } from 'svelte/transition';
+  // import { slide } from 'svelte/transition';
 
   export let current, minutes;
   let minutes_of_precip = minutes.map(el => el?.precipitation).filter(el => el > 0);

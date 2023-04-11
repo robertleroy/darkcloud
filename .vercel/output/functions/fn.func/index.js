@@ -55,6 +55,14 @@ var __privateSet = (obj, member, value, setter) => {
   return value;
 };
 
+// .svelte-kit/output/server/chunks/prod-ssr.js
+var DEV;
+var init_prod_ssr = __esm({
+  ".svelte-kit/output/server/chunks/prod-ssr.js"() {
+    DEV = false;
+  }
+});
+
 // .svelte-kit/output/server/chunks/index2.js
 function noop() {
 }
@@ -1258,8 +1266,8 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.87952eef.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.87952eef.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.912846eb.js", "_app/immutable/chunks/navigation.3555a10b.js"];
+    file2 = "_app/immutable/entry/_error.svelte.551ae4cf.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.551ae4cf.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.fefc7f96.js", "_app/immutable/chunks/navigation.11a58633.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -6505,7 +6513,7 @@ var init_page_svelte = __esm({
           minutes = weather?.minutely;
           hours = weather?.hourly;
           days = weather?.daily;
-          alerts = weather?.alerts.length ? weather?.alerts : [];
+          alerts = weather?.alerts ?? [];
         }
       }
       day_summary = getDaySummary(alerts);
@@ -6556,8 +6564,8 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.c837c69c.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.c837c69c.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/Accordion.57f4378a.js"];
+    file3 = "_app/immutable/entry/_page.svelte.a455f226.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.a455f226.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/Accordion.57f4378a.js"];
     stylesheets3 = ["_app/immutable/assets/_page.38da96fa.css", "_app/immutable/assets/Accordion.ba66559c.css"];
     fonts3 = [];
   }
@@ -6874,9 +6882,9 @@ var init__7 = __esm({
     init_page_server();
     index7 = 6;
     component7 = async () => (await Promise.resolve().then(() => (init_page_svelte4(), page_svelte_exports4))).default;
-    file7 = "_app/immutable/entry/search-page.svelte.638d12cc.js";
+    file7 = "_app/immutable/entry/search-page.svelte.504bad5f.js";
     server_id2 = "src/routes/search/+page.server.js";
-    imports7 = ["_app/immutable/entry/search-page.svelte.638d12cc.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.912846eb.js", "_app/immutable/chunks/navigation.3555a10b.js"];
+    imports7 = ["_app/immutable/entry/search-page.svelte.504bad5f.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.fefc7f96.js", "_app/immutable/chunks/navigation.11a58633.js"];
     stylesheets7 = ["_app/immutable/assets/_page.060bc455.css"];
     fonts7 = [];
   }
@@ -6955,20 +6963,30 @@ __export(server_exports4, {
 async function GET3({ params }) {
   try {
     let weather;
-    const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
-    weather = await res.json();
+    let override_dev = false;
+    if (dev && !override_dev)
+      ;
+    else {
+      const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
+      weather = await res.json();
+    }
     return json(weather);
   } catch (error2) {
     console.log("load error:", error2);
   }
 }
-var WEATHER_KEY;
+var dev, WEATHER_KEY;
 var init_server4 = __esm({
   ".svelte-kit/output/server/entries/endpoints/api/weather/_search_/_server.js"() {
+    init_prod_ssr();
     init_chunks();
+    dev = DEV;
     WEATHER_KEY = "826b835b9408db50ca70aa7158b06f23";
   }
 });
+
+// .svelte-kit/output/server/index.js
+init_prod_ssr();
 
 // .svelte-kit/output/server/chunks/internal.js
 init_index2();
@@ -7134,7 +7152,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "ejgkl3"
+  version_hash: "c563wf"
 };
 function get_hooks() {
   return {};
@@ -7146,7 +7164,6 @@ init_devalue();
 init_index2();
 var import_cookie = __toESM(require_cookie(), 1);
 var set_cookie_parser = __toESM(require_set_cookie(), 1);
-var DEV = false;
 function negotiate(accept, types) {
   const parts = [];
   accept.split(",").forEach((str, i) => {
@@ -9866,7 +9883,7 @@ var manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png", "favicon.svg"]),
   mimeTypes: { ".png": "image/png", ".svg": "image/svg+xml" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.549d652e.js", "imports": ["_app/immutable/entry/start.549d652e.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.912846eb.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.90bc56b8.js", "imports": ["_app/immutable/entry/app.90bc56b8.js", "_app/immutable/chunks/index.09f10f2b.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.e9154b93.js", "imports": ["_app/immutable/entry/start.e9154b93.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.fefc7f96.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.db5e7ff5.js", "imports": ["_app/immutable/entry/app.db5e7ff5.js", "_app/immutable/chunks/index.09f10f2b.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),

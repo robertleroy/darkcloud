@@ -22,7 +22,8 @@
     days = weather?.daily;
     // days = weather?.daily.slice(0,5);
     // alerts.length ? (alerts = weather?.alerts) : [];
-    alerts = weather?.alerts.length ? weather?.alerts : [];
+    // alerts = weather?.alerts.length ? weather?.alerts : [];
+    alerts = weather?.alerts ?? [];
   }
 
   $: minutes_of_precip_this_hour = minutes

@@ -12,14 +12,14 @@ import weatherData from '../alerts.json';
 export async function GET({params}) {
   try {
     let weather;
-    // let override_dev = false;
-
-    // if (dev && !override_dev) {
-    //   weather = weatherData;
-    // } else {
+    let override_dev = false;
+    
+    if (dev && !override_dev) {
+      weather = weatherData;
+    } else {
       const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?${params.search}&units=imperial&appid=${WEATHER_KEY}`);
       weather = await res.json();
-    // }
+    }
     
     return json(weather) 
 
