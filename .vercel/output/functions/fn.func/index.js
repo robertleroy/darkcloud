@@ -179,7 +179,7 @@ function create_ssr_component(fn) {
       return {
         html,
         css: {
-          code: Array.from(result.css).map((css7) => css7.code).join("\n"),
+          code: Array.from(result.css).map((css8) => css8.code).join("\n"),
           map: null
           // TODO
         },
@@ -1154,9 +1154,6 @@ var init_layout_svelte = __esm({
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
       $$result.css.add(css);
-      {
-        console.log("currentRoute", data.currentRoute);
-      }
       return `${$$result.head += `<!-- HEAD_svelte-1258swp_START -->${$$result.title = `<title>${escape(title3)}</title>`, ""}<!-- HEAD_svelte-1258swp_END -->`, ""}
 
 
@@ -1206,11 +1203,11 @@ var init__ = __esm({
     init_layout_server();
     index = 0;
     component = async () => (await Promise.resolve().then(() => (init_layout_svelte(), layout_svelte_exports))).default;
-    file = "_app/immutable/entry/_layout.svelte.3ff5109b.js";
+    file = "_app/immutable/entry/_layout.svelte.06462a13.js";
     server_id = "src/routes/+layout.server.js";
-    imports = ["_app/immutable/entry/_layout.svelte.3ff5109b.js", "_app/immutable/chunks/index.09f10f2b.js"];
-    stylesheets = ["_app/immutable/assets/_layout.893a9cd2.css"];
-    fonts = [];
+    imports = ["_app/immutable/entry/_layout.svelte.06462a13.js", "_app/immutable/chunks/index.09f10f2b.js"];
+    stylesheets = ["_app/immutable/assets/_layout.c3227ac6.css"];
+    fonts = ["_app/immutable/assets/source-serif-4-cyrillic-ext-400-normal.c2b51d19.woff2", "_app/immutable/assets/source-serif-4-all-400-normal.a90ada35.woff", "_app/immutable/assets/source-serif-4-cyrillic-400-normal.cbf6898c.woff2", "_app/immutable/assets/source-serif-4-greek-400-normal.66f00e72.woff2", "_app/immutable/assets/source-serif-4-vietnamese-400-normal.75773e34.woff2", "_app/immutable/assets/source-serif-4-latin-ext-400-normal.eb2ebc02.woff2", "_app/immutable/assets/source-serif-4-latin-400-normal.b63fc127.woff2", "_app/immutable/assets/lato-latin-ext-400-normal.1c2fc265.woff2", "_app/immutable/assets/lato-all-400-normal.8844f83a.woff", "_app/immutable/assets/lato-latin-400-normal.918b7dc3.woff2"];
   }
 });
 
@@ -1269,8 +1266,8 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default;
-    file2 = "_app/immutable/entry/_error.svelte.fd682831.js";
-    imports2 = ["_app/immutable/entry/_error.svelte.fd682831.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.2f9d6e67.js", "_app/immutable/chunks/navigation.59de036f.js"];
+    file2 = "_app/immutable/entry/_error.svelte.2f87a894.js";
+    imports2 = ["_app/immutable/entry/_error.svelte.2f87a894.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.6006e89b.js", "_app/immutable/chunks/navigation.1114288e.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -6292,7 +6289,7 @@ var init_page_svelte = __esm({
 <svg class="weatherIcon svelte-1lmd4z1" style="${"font-size: " + escape(fontsize, true)}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><!-- HTML_TAG_START -->${svg.defs}<!-- HTML_TAG_END --></defs><g><!-- HTML_TAG_START -->${svg.path}<!-- HTML_TAG_END --></g>${slots.default ? slots.default({}) : ``}</svg>`;
     });
     css$4 = {
-      code: ".current.svelte-d0axo5.svelte-d0axo5{margin-top:0.3rem}.current_time.svelte-d0axo5.svelte-d0axo5{display:flex;justify-content:center;gap:0 1rem;font-size:0.875rem}.current_conditions.svelte-d0axo5.svelte-d0axo5{margin:2rem 0 3rem}.current_conditions.svelte-d0axo5 .snapshot.svelte-d0axo5{display:flex;justify-content:center;align-items:center;gap:0}.current_conditions.svelte-d0axo5 .snapshot .temp.svelte-d0axo5{font-size:2.5rem}.current_conditions.svelte-d0axo5 .conditions.svelte-d0axo5{text-align:center;margin-top:-1rem;font-size:1.375rem}.day_stats.svelte-d0axo5.svelte-d0axo5{display:flex;justify-content:space-between;align-items:center;gap:0 1rem;max-width:20rem;margin:2rem auto }.day_stats.svelte-d0axo5 .hilo.svelte-d0axo5,.day_stats.svelte-d0axo5 .sun_times.svelte-d0axo5{display:grid;grid-template-columns:max-content max-content;align-items:center;gap:0 1ch}.precipChart.svelte-d0axo5.svelte-d0axo5{max-width:500px;margin:0 auto}.precipChart.svelte-d0axo5 .summary.svelte-d0axo5{text-align:center;margin-bottom:-1rem}.precipChart.svelte-d0axo5 .summary var.svelte-d0axo5{font-style:unset;margin:0 1ch}@media(min-width: 480px){.precipChart.svelte-d0axo5 .summary.svelte-d0axo5{margin-bottom:-1.5rem\r\n    }}",
+      code: ".current.svelte-52yen0.svelte-52yen0{margin-top:0.3rem}.current_time.svelte-52yen0.svelte-52yen0{display:flex;justify-content:center;gap:0 1rem;font-size:0.875rem}.current_conditions.svelte-52yen0.svelte-52yen0{margin:2rem 0 3rem}.current_conditions.svelte-52yen0 .snapshot.svelte-52yen0{display:flex;justify-content:center;align-items:center;gap:0}.current_conditions.svelte-52yen0 .snapshot .temp.svelte-52yen0{font-size:2.5rem}.current_conditions.svelte-52yen0 .conditions.svelte-52yen0{text-align:center;margin-top:-1rem;font-size:1.375rem}.day_stats.svelte-52yen0.svelte-52yen0{display:flex;justify-content:space-between;align-items:center;gap:0 1rem;max-width:320px;max-width:18em;margin:2rem auto 2.5rem;font-size:0.9375rem}.day_stats.svelte-52yen0 .hilo.svelte-52yen0,.day_stats.svelte-52yen0 .sun_times.svelte-52yen0{display:grid;grid-template-columns:max-content max-content;align-items:center;gap:0 1ch}.precipChart.svelte-52yen0.svelte-52yen0{max-width:500px;margin:0 auto}.precipChart.svelte-52yen0 .summary.svelte-52yen0{text-align:center;margin-bottom:-1rem}.precipChart.svelte-52yen0 .summary var.svelte-52yen0{font-style:unset;margin:0 1ch}@media(min-width: 480px){.precipChart.svelte-52yen0 .summary.svelte-52yen0{margin-bottom:-1.5rem\r\n    }}",
       map: null
     };
     Current = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -6303,16 +6300,13 @@ var init_page_svelte = __esm({
       if ($$props.minutes === void 0 && $$bindings.minutes && minutes !== void 0)
         $$bindings.minutes(minutes);
       $$result.css.add(css$4);
-      {
-        console.log("CURRENT", minutes_of_precip.length);
-      }
-      return `<div class="current svelte-d0axo5"><div class="current_time svelte-d0axo5"><span>${escape(dateObj(current?.dt * 1e3, "dddd"))}</span>
+      return `<div class="current svelte-52yen0"><div class="current_time svelte-52yen0"><span>${escape(dateObj(current?.dt * 1e3, "dddd"))}</span>
     <span>${escape(dateObj(current?.dt * 1e3, "MMMM do"))}</span>
     <span>${escape(dateObj(current?.dt * 1e3, "h:mm aa"))}</span></div> 
   
   
 
-  <div class="current_conditions svelte-d0axo5"><div class="snapshot svelte-d0axo5">${validate_component(WeatherIcon, "WeatherIcon").$$render(
+  <div class="current_conditions svelte-52yen0"><div class="snapshot svelte-52yen0">${validate_component(WeatherIcon, "WeatherIcon").$$render(
         $$result,
         {
           icon: current?.weather[0].icon,
@@ -6321,24 +6315,24 @@ var init_page_svelte = __esm({
         {},
         {}
       )}
-      <div class="temp svelte-d0axo5">${escape(round(current?.temp))}</div></div>
-    <div class="conditions svelte-d0axo5"><div class="icon">${escape(titlecase(current?.weather[0].description))}</div></div></div> 
+      <div class="temp svelte-52yen0">${escape(round(current?.temp))}</div></div>
+    <div class="conditions svelte-52yen0"><div class="icon">${escape(titlecase(current?.weather[0].description))}</div></div></div> 
   </div> 
 
 
 
   
-  ${minutes_of_precip.length > 5 ? `<div class="precipChart svelte-d0axo5"><div class="summary svelte-d0axo5">${current?.snow ? `Snow this hour: <var class="svelte-d0axo5">${escape(round(mmToInches(current?.snow["1h"]), 2) + '"')}</var>` : `${current?.rain ? `Rain this hour: <var class="svelte-d0axo5">${escape(round(mmToInches(current?.rain["1h"]), 2) + '"')}</var>` : `This hour..  ${escape(titlecase(current?.weather[0].description))}`}`}</div>
+  ${minutes_of_precip.length > 5 ? `<div class="precipChart svelte-52yen0"><div class="summary svelte-52yen0">${current?.snow ? `Snow this hour: <var class="svelte-52yen0">${escape(round(mmToInches(current?.snow["1h"]), 2) + '"')}</var>` : `${current?.rain ? `Rain this hour: <var class="svelte-52yen0">${escape(round(mmToInches(current?.rain["1h"]), 2) + '"')}</var>` : `This hour..  ${escape(titlecase(current?.weather[0].description))}`}`}</div>
 
     ${validate_component(WobbleChart, "WobbleChart").$$render($$result, { minutes }, {}, {})}</div>` : ``}
   
 
 
-<div class="day_stats svelte-d0axo5"><div class="hilo svelte-d0axo5"><div class="label">High:</div>
+<div class="day_stats svelte-52yen0"><div class="hilo svelte-52yen0"><div class="label">High:</div>
     <div class="high temp">${escape(round(current?.high))}</div>
     <div class="label">Low:</div>
     <div class="low temp">${escape(round(current?.low))}</div></div>
-  <div class="sun_times svelte-d0axo5"><div class="label">Sunrise:</div>
+  <div class="sun_times svelte-52yen0"><div class="label">Sunrise:</div>
     <div class="sunrise">${escape(dateObj(current?.sunrise * 1e3, "h:mm aa"))}</div>
     <div class="label">Sunset:</div>
     <div class="sunset">${escape(dateObj(current?.sunset * 1e3, "h:mm aa"))}</div></div></div> 
@@ -6492,27 +6486,39 @@ var init_page_svelte = __esm({
 </div>`;
     });
     css3 = {
-      code: ".wrapper.svelte-2yb4f0{max-width:640px;margin:0 auto}",
+      code: ".wrapper.svelte-1vxeiks{max-width:640px;margin:0 auto}.day_summary.svelte-1vxeiks{margin-bottom:-0.5rem}",
       map: null
     };
     Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let day_summary;
       let { data } = $$props;
       const { weather } = data;
       let days = {}, hours = {}, minutes = {}, current = {}, alerts = [];
+      function getDaySummary(arr) {
+        const n = arr.length;
+        let str = "day_summary";
+        if (n > 0) {
+          str = `<div style="color:tomato">${alerts[0]?.event}`;
+          n > 1 ? str += `<sup> +${n - 1}</sup>` : "";
+          str += `</div>`;
+        }
+        return str;
+      }
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
       $$result.css.add(css3);
-      {
-        console.log("weather:", data);
-      }
       {
         {
           current = weather?.current;
           minutes = weather?.minutely;
           hours = weather?.hourly;
           days = weather?.daily;
-          alerts.length ? alerts = weather?.alerts : [];
+          alerts = weather?.alerts.length ? weather?.alerts : [];
         }
+      }
+      day_summary = getDaySummary(alerts);
+      {
+        console.log("weather:", data);
       }
       minutes.map((el) => el?.precipitation).filter((el) => el > 0);
       return `<div class="page">${validate_component(Current, "Current").$$render(
@@ -6531,7 +6537,7 @@ var init_page_svelte = __esm({
         {}
       )}
 
-  <div class="wrapper svelte-2yb4f0"${add_styles({ "max-width": `640px` })}><div class="day_summary">day_summary</div>
+  <div class="wrapper svelte-1vxeiks"${add_styles({ "max-width": `640px` })}><div class="day_summary svelte-1vxeiks"><!-- HTML_TAG_START -->${day_summary}<!-- HTML_TAG_END --></div>
     ${validate_component(Hours, "Hours").$$render($$result, { hours }, {}, {})}
 
     <div class="week_summary">week_summary</div>
@@ -6558,9 +6564,9 @@ var init__3 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     index3 = 2;
     component3 = async () => (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default;
-    file3 = "_app/immutable/entry/_page.svelte.e9db95ad.js";
-    imports3 = ["_app/immutable/entry/_page.svelte.e9db95ad.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/Accordion.57f4378a.js"];
-    stylesheets3 = ["_app/immutable/assets/_page.4094a43a.css", "_app/immutable/assets/Accordion.ba66559c.css"];
+    file3 = "_app/immutable/entry/_page.svelte.c837c69c.js";
+    imports3 = ["_app/immutable/entry/_page.svelte.c837c69c.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/Accordion.57f4378a.js"];
+    stylesheets3 = ["_app/immutable/assets/_page.38da96fa.css", "_app/immutable/assets/Accordion.ba66559c.css"];
     fonts3 = [];
   }
 });
@@ -6638,12 +6644,17 @@ var page_md_exports = {};
 __export(page_md_exports, {
   default: () => Page3
 });
-var Page3;
+var css5, Page3;
 var init_page_md = __esm({
   ".svelte-kit/output/server/entries/pages/docs/_page.md.js"() {
     init_index2();
+    css5 = {
+      code: ".page.svelte-vzvlky{position:relative;top:calc(var(--header-height) + 1rem);width:90%;max-width:960px;padding:0 0 calc(var(--footer-height) + 1rem);margin:0 auto}",
+      map: null
+    };
     Page3 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<div class="page">Open Weather \xA0 \xA0 <a href="https://home.openweathermap.org/"><small>link</small></a>
+      $$result.css.add(css5);
+      return `<div class="page svelte-vzvlky">Open Weather \xA0 \xA0 <a href="https://home.openweathermap.org/"><small>link</small></a>
     
   <br><br>
   
@@ -6664,7 +6675,19 @@ var init_page_md = __esm({
 <pre class="language-js"><!-- HTML_TAG_START -->${`<code class="language-js"><span class="token comment">/*
 https://api.openweathermap.org/data/3.0/onecall?lat=&#123;lat&#125;&amp;lon=&#123;lon&#125;&amp;units=imperial&amp;appid=&#123;API_KEY_&#125; 
 */</span> 
-</code>`}<!-- HTML_TAG_END --></pre></div>`;
+</code>`}<!-- HTML_TAG_END --></pre>
+  <br><br>
+<h3><a href="https://fontsource.org/docs/getting-started" rel="nofollow">Fontsource</a></h3>
+<p>install font</p>
+<pre class="language-sh"><!-- HTML_TAG_START -->${`<code class="language-sh"><span class="token function">npm</span> i @fontsource/lato
+<span class="token function">npm</span> i @fontsource/source-serif-pro</code>`}<!-- HTML_TAG_END --></pre>
+<p>import into <code>+layout.svelte</code></p>
+<pre class="language-svelte"><!-- HTML_TAG_START -->${`<code class="language-svelte"><span class="token comment">&lt;!-- +layout.svelte --></span>
+import "@fontsource/lato"
+import "@fontsource/source-serif-Pro"</code>`}<!-- HTML_TAG_END --></pre>
+<p><em>QED</em></p>
+<pre class="language-css"><!-- HTML_TAG_START -->${`<code class="language-css"><span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Lato'</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+<span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Source Serif Pro'</span><span class="token punctuation">,</span> serif<span class="token punctuation">;</span></code>`}<!-- HTML_TAG_END --></pre></div>`;
     });
   }
 });
@@ -6684,9 +6707,9 @@ var init__5 = __esm({
   ".svelte-kit/output/server/nodes/4.js"() {
     index5 = 4;
     component5 = async () => (await Promise.resolve().then(() => (init_page_md(), page_md_exports))).default;
-    file5 = "_app/immutable/entry/docs-page.md.3a66a56e.js";
-    imports5 = ["_app/immutable/entry/docs-page.md.3a66a56e.js", "_app/immutable/chunks/index.09f10f2b.js"];
-    stylesheets5 = [];
+    file5 = "_app/immutable/entry/docs-page.md.904ffb59.js";
+    imports5 = ["_app/immutable/entry/docs-page.md.904ffb59.js", "_app/immutable/chunks/index.09f10f2b.js"];
+    stylesheets5 = ["_app/immutable/assets/_page.1b52f2bf.css"];
     fonts5 = [];
   }
 });
@@ -6696,11 +6719,11 @@ var page_svelte_exports3 = {};
 __export(page_svelte_exports3, {
   default: () => Page4
 });
-var css5, title, Page4;
+var css6, title, Page4;
 var init_page_svelte3 = __esm({
   ".svelte-kit/output/server/entries/pages/map/_page.svelte.js"() {
     init_index2();
-    css5 = {
+    css6 = {
       code: ".map.svelte-1ag9nib{position:relative;top:0;width:100%;height:100vh;padding:0 0 var(--footer-height);z-index:15;background:var(--background-color)}",
       map: null
     };
@@ -6712,7 +6735,7 @@ var init_page_svelte3 = __esm({
       const lon = data?.location.lon;
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
-      $$result.css.add(css5);
+      $$result.css.add(css6);
       mapUrl = `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1`;
       return `<div class="map svelte-1ag9nib"><iframe width="100%" height="100%"${add_attribute("src", mapUrl, 0)} frameborder="0"${add_attribute("title", title, 0)}></iframe></div>
 `;
@@ -6754,7 +6777,7 @@ var page_svelte_exports4 = {};
 __export(page_svelte_exports4, {
   default: () => Page5
 });
-var title2, List, css6, Page5;
+var title2, List, css7, Page5;
 var init_page_svelte4 = __esm({
   ".svelte-kit/output/server/entries/pages/search/_page.svelte.js"() {
     init_index2();
@@ -6764,7 +6787,7 @@ var init_page_svelte4 = __esm({
       return `<div class="">${escape(title2)}
 </div>`;
     });
-    css6 = {
+    css7 = {
       code: ".search_page.svelte-y616bd.svelte-y616bd{position:absolute;top:0;width:100%;height:100vh;z-index:15;background:var(--background-color)}.header.svelte-y616bd.svelte-y616bd{display:flex;justify-content:center;align-items:center;height:var(--header-height);border-bottom:var(--border)}.location_group.svelte-y616bd.svelte-y616bd{display:flex;justify-content:space-between;align-items:center;gap:0 0.75em;width:100%;padding:0 1rem;max-width:500px}.location_group.svelte-y616bd form.svelte-y616bd{flex:1}.location_group.svelte-y616bd input.svelte-y616bd{text-align:center;width:100%;background:#fff}.location_group.svelte-y616bd input.svelte-y616bd:focus{outline:1px solid var(--active-color)}.location_group.svelte-y616bd svg.svelte-y616bd{width:1.25em;height:1.25em;font-size:1em;line-height:1;opacity:0.6}.location_group.svelte-y616bd .btn.svelte-y616bd{display:grid;plaace-items:center center;font-size:1.25rem}.lists.svelte-y616bd.svelte-y616bd{max-width:500px;margin:0 auto;padding:0 1rem}.lists.svelte-y616bd .flex.svelte-y616bd{display:flex;align-items:baseline;gap:0 1ch;margin-top:4rem}.lists.svelte-y616bd .comment.svelte-y616bd{margin-top:1em;font-size:0.75em;color:#999;padding:0 1em}.lists.svelte-y616bd .center.svelte-y616bd{text-align:center;font-style:italic}.error.svelte-y616bd.svelte-y616bd{text-align:center}",
       map: null
     };
@@ -6773,7 +6796,7 @@ var init_page_svelte4 = __esm({
       let saved_items, recent_items, saved_itemsNames, recent_itemsNames;
       if ($$props.data === void 0 && $$bindings.data && data !== void 0)
         $$bindings.data(data);
-      $$result.css.add(css6);
+      $$result.css.add(css7);
       let $$settled;
       let $$rendered;
       do {
@@ -6859,9 +6882,9 @@ var init__7 = __esm({
     init_page_server();
     index7 = 6;
     component7 = async () => (await Promise.resolve().then(() => (init_page_svelte4(), page_svelte_exports4))).default;
-    file7 = "_app/immutable/entry/search-page.svelte.a3a389f4.js";
+    file7 = "_app/immutable/entry/search-page.svelte.d0cc22af.js";
     server_id2 = "src/routes/search/+page.server.js";
-    imports7 = ["_app/immutable/entry/search-page.svelte.a3a389f4.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.2f9d6e67.js", "_app/immutable/chunks/navigation.59de036f.js"];
+    imports7 = ["_app/immutable/entry/search-page.svelte.d0cc22af.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/parse.d12b0d5b.js", "_app/immutable/chunks/singletons.6006e89b.js", "_app/immutable/chunks/navigation.1114288e.js"];
     stylesheets7 = ["_app/immutable/assets/_page.060bc455.css"];
     fonts7 = [];
   }
@@ -7129,7 +7152,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "555gc2"
+  version_hash: "1xkmsaf"
 };
 function get_hooks() {
   return {};
@@ -7178,10 +7201,15 @@ function negotiate(accept, types) {
 }
 function is_content_type(request, ...types) {
   const type2 = request.headers.get("content-type")?.split(";", 1)[0].trim() ?? "";
-  return types.includes(type2);
+  return types.includes(type2.toLowerCase());
 }
 function is_form_content_type(request) {
-  return is_content_type(request, "application/x-www-form-urlencoded", "multipart/form-data");
+  return is_content_type(
+    request,
+    "application/x-www-form-urlencoded",
+    "multipart/form-data",
+    "text/plain"
+  );
 }
 function coalesce_to_error(err) {
   return err instanceof Error || err && /** @type {any} */
@@ -9518,7 +9546,7 @@ var default_preload = ({ type: type2 }) => type2 === "js" || type2 === "css";
 async function respond(request, options2, manifest2, state) {
   let url = new URL(request.url);
   if (options2.csrf_check_origin) {
-    const forbidden = request.method === "POST" && request.headers.get("origin") !== url.origin && is_form_content_type(request);
+    const forbidden = is_form_content_type(request) && (request.method === "POST" || request.method === "PUT" || request.method === "PATCH" || request.method === "DELETE") && request.headers.get("origin") !== url.origin;
     if (forbidden) {
       const csrf_error = error(403, `Cross-site ${request.method} form submissions are forbidden`);
       if (request.headers.get("accept") === "application/json") {
@@ -9855,7 +9883,7 @@ var manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png", "favicon.svg"]),
   mimeTypes: { ".png": "image/png", ".svg": "image/svg+xml" },
   _: {
-    client: { "start": { "file": "_app/immutable/entry/start.104104f2.js", "imports": ["_app/immutable/entry/start.104104f2.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.2f9d6e67.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.ec75b01c.js", "imports": ["_app/immutable/entry/app.ec75b01c.js", "_app/immutable/chunks/index.09f10f2b.js"], "stylesheets": [], "fonts": [] } },
+    client: { "start": { "file": "_app/immutable/entry/start.81e33543.js", "imports": ["_app/immutable/entry/start.81e33543.js", "_app/immutable/chunks/index.09f10f2b.js", "_app/immutable/chunks/singletons.6006e89b.js", "_app/immutable/chunks/parse.d12b0d5b.js"], "stylesheets": [], "fonts": [] }, "app": { "file": "_app/immutable/entry/app.0ac968a0.js", "imports": ["_app/immutable/entry/app.0ac968a0.js", "_app/immutable/chunks/index.09f10f2b.js"], "stylesheets": [], "fonts": [] } },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),

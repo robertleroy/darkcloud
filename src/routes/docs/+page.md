@@ -38,8 +38,38 @@
 
   ```
 
+  <br><br>
+
+### [Fontsource](https://fontsource.org/docs/getting-started)
+install font
+
+``` sh
+npm i @fontsource/lato
+npm i @fontsource/source-serif-pro
+```  
+
+import into `+layout.svelte`
+``` svelte
+<!-- +layout.svelte -->
+import "@fontsource/lato"
+import "@fontsource/source-serif-Pro"
+```
+*QED*
+``` css
+font-family: 'Lato', sans-serif;
+font-family: 'Source Serif Pro', serif;
+```
+
 </div>
 
 <style lang='postcss'>
 
+  .page {
+    position: relative;
+    top: calc(var(--header-height) + 1rem);
+    width: 90%;
+    max-width: 960px;
+    padding: 0 0 calc(var(--footer-height) + 1rem);
+    margin: 0 auto;
+  }
 </style>

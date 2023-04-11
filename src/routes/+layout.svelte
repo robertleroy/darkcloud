@@ -1,9 +1,11 @@
 <script>
   import SearchIcon from "$lib/components/SearchIcon.svelte";
+  import "@fontsource/source-serif-4"
+  import "@fontsource/lato"
   import "./app.css";
 
   export let data;
-  $: console.log("currentRoute", data.currentRoute);
+  // $: console.log("currentRoute", data.currentRoute);
 
   let innerWidth,
     online,

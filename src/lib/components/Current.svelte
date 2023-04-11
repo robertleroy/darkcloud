@@ -8,7 +8,7 @@
   export let current, minutes;
   let minutes_of_precip = minutes.map(el => el?.precipitation).filter(el => el > 0);
   
-  $: console.log('CURRENT', minutes_of_precip.length)
+  // $: console.log('CURRENT', minutes_of_precip.length)
 </script>
 
 <div class="current">
@@ -107,9 +107,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 0 1rem;
-    max-width: 20rem;
-    /* max-width: 400px; */
-    margin: 2rem auto ;
+    max-width: 320px;
+    max-width: 18em;
+    margin: 2rem auto 2.5rem;
+    font-size: 0.9375rem;
 
     .hilo,
     .sun_times {
